@@ -39,7 +39,7 @@ export default function Hero() {
       <div className="hero__media">
         <img
           ref={mediaRef}
-          src={img("hero-bnr.webp", 2400)}
+          src="https://images.pexels.com/photos/35074529/pexels-photo-35074529.jpeg?_gl=1*18y39zc*_ga*NTU2MDI2MDY3LjE3OTE1NDMyODE.*_ga_8JE65Q40S6*czE3OTE1NDMyODAkbzEkZzEkdDE3OTE1NDMyODQkajU2JGwwJGgw"
           alt="New season campaign"
           width="2000"
           height="1054"

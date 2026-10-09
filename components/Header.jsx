@@ -68,9 +68,8 @@ export default function Header() {
             <span />
           </button>
 
-          <a href="#" className="site-header__logo" aria-label="Sky home">
-            <img className="logo-on-dark" src={img("logo-white.svg", 200)} alt="Sky" width="90" height="35" />
-            <img className="logo-on-light" src={img("logo-black.svg", 200)} alt="Sky" width="90" height="35" />
+          <a href="#" className="site-header__logo" aria-label="Charmique home">
+            <span>CHARMIQUE</span>
           </a>
 
           <div className="site-header__actions">

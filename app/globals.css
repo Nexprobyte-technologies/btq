@@ -470,17 +470,12 @@ ol {
 }
 
 .site-header__logo {
-  justify-self: center;
+  justify-self: start;
+  font-family: var(--font-heading), Quicksand, sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
 }
-
-.site-header__logo img {
-  height: 30px;
-  width: auto;
-}
-
-.site-header__logo .logo-on-light { display: none; }
-.site-header.is-solid .logo-on-dark { display: none; }
-.site-header.is-solid .logo-on-light { display: block; }
 
 .site-nav {
   display: flex;
