@@ -801,6 +801,15 @@ ol {
   margin-bottom: 20px;
 }
 
+.footer__brand {
+  margin-top: 28px;
+  font-family: var(--font-heading), Quicksand, sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  opacity: 0.75;
+}
+
 .footer__links li + li { margin-top: 11px; }
 
 .footer__links a {

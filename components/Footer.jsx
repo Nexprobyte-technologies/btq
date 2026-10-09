@@ -1,6 +1,6 @@
 "use client";
 
-import { footerColumns, img } from "@/data/site";
+import { footerColumns } from "@/data/site";
 import { ArrowRight, Facebook, Instagram, X, Youtube } from "./icons";
 import { Reveal } from "./Reveal";
 
@@ -60,13 +60,7 @@ export default function Footer() {
               <span className="dot" />
               <span className="btn-text">Get in Touch</span>
             </a>
-            <img
-              src={img("logo-black.svg", 200)}
-              alt="Sky"
-              width="90"
-              height="35"
-              style={{ marginTop: 28, opacity: 0.75 }}
-            />
+            <div className="footer__brand">CHARMIQUE</div>
           </Reveal>
         </div>
 
