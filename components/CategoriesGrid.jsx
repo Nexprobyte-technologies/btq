@@ -1,4 +1,5 @@
 import { categoriesGrid, img } from "@/data/site";
+import { slugify } from "@/data/site";
 import { ArrowDiagonal } from "./icons";
 import { Reveal, Split } from "./Reveal";
 
@@ -12,7 +13,7 @@ export default function CategoriesGrid() {
               <Split lines={["Discover Signature Collections"]} />
             </h2>
           </div>
-          <a href="#" className="btn btn-dark">
+          <a href="/collections" className="btn btn-dark">
             <span className="dot" />
             <span className="btn-text">Explore All Collections</span>
           </a>
@@ -21,7 +22,7 @@ export default function CategoriesGrid() {
         <div className="cats-grid">
           {categoriesGrid.map((cat, i) => (
             <Reveal key={cat.label} delay={(i % 5) * 0.06}>
-              <a href="#" className="cat-card">
+              <a href={`/collections/${slugify(cat.label)}`} className="cat-card">
                 <img src={img(cat.image, 700)} alt={cat.label} loading="lazy" />
                 <span>{cat.label}</span>
                 <i>

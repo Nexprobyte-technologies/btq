@@ -35,7 +35,7 @@ export default function ProductRail({ products, title, lines, description, cta, 
           <div className="head-aside">
             {description ? <p className="section-desc">{description}</p> : null}
             {cta ? (
-              <a href="#" className="btn btn-dark">
+              <a href="/collections/all" className="btn btn-dark">
                 <span className="dot" />
                 <span className="btn-text">{cta}</span>
               </a>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { img, mobileCategoryTabs } from "@/data/site";
+import { slugify } from "@/data/site";
 import { Reveal, Split } from "./Reveal";
 
 const extraTabs = ["Blazers", "Essentials", "Everyday", "Relaxed", "Winter", "Occasion"];
@@ -40,7 +41,7 @@ export default function MobileCategories() {
 
           <div className="mobile-cats__grid">
             {current.items.map((item, i) => (
-              <a href="#" key={`${current.tab}-${item.label}`} data-reveal="" style={{ "--d": `${i * 0.05}s` }}>
+              <a href={`/collections/${slugify(item.label)}`} key={`${current.tab}-${item.label}`} data-reveal="" style={{ "--d": `${i * 0.05}s` }}>
                 <img src={img(item.image, 500)} alt={item.label} loading="lazy" />
                 <span>{item.label}</span>
               </a>

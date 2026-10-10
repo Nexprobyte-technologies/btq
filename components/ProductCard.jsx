@@ -1,5 +1,6 @@
 import { img } from "@/data/site";
 import { Eye } from "./icons";
+import { slugify } from "@/data/site";
 
 export default function ProductCard({ product }) {
   const { title, price, compareAt, badge, image, hover, colors = [] } = product;
@@ -7,7 +8,7 @@ export default function ProductCard({ product }) {
   return (
     <article className="p-card">
       <div className="p-card__media">
-        <a href="#" className="p-card__img" aria-label={title}>
+        <a href={`/products/${product.slug || slugify(title)}`} className="p-card__img" aria-label={title}>
           <span className="p-card__slide is-main">
             <img src={img(image, 800)} alt={title} loading="lazy" width="800" height="1066" />
           </span>
@@ -41,7 +42,7 @@ export default function ProductCard({ product }) {
       </div>
 
       <div className="p-card__detail">
-        <a href="#" className="p-card__title">
+        <a href={`/products/${product.slug || slugify(title)}`} className="p-card__title">
           {title}
         </a>
         <div className="p-card__info">

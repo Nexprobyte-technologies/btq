@@ -23,7 +23,7 @@ function Panel({ data, delay }) {
             <span key={tag}>{tag}</span>
           ))}
         </div>
-        <a href="#" className="btn btn-light btn-arrow">
+        <a href={`/collections/${data.title === "Shop Men" ? "men" : "women"}`} className="btn btn-light btn-arrow">
           <span className="dot" />
           <span className="btn-text">{data.cta}</span>
           <span className="icon-box">

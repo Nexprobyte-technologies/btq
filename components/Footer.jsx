@@ -40,7 +40,7 @@ export default function Footer() {
               <ul className="footer__links">
                 {col.links.map((link) => (
                   <li key={link}>
-                    <a href="#">{link}</a>
+                    <a href={link === "Home" ? "/" : link === "All collections" ? "/collections" : link.toLowerCase().includes("collection") || ["Current Classics", "Daily Edit", "Modern Basics", "Heritage"].includes(link) ? `/collections/${link.toLowerCase().replaceAll(" ", "-")}` : link === "Blogs" ? "/blogs" : link === "About" ? "/pages/about-us" : link === "Contact" ? "/pages/contact" : `/pages/${link.toLowerCase().replaceAll(" ", "-")}`}>{link}</a>
                   </li>
                 ))}
               </ul>
@@ -56,7 +56,7 @@ export default function Footer() {
               <br />
               United States
             </p>
-            <a href="#" className="btn btn-dark" style={{ marginTop: 18 }}>
+            <a href="/pages/contact" className="btn btn-dark" style={{ marginTop: 18 }}>
               <span className="dot" />
               <span className="btn-text">Get in Touch</span>
             </a>

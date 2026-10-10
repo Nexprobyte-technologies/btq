@@ -62,7 +62,7 @@ export default function Hero() {
           </h1>
           <div className="hero__cta">
             <Reveal delay={0.35}>
-              <a href="#" className="btn btn-light btn-arrow">
+              <a href="/collections/all" className="btn btn-light btn-arrow">
                 <span className="dot" />
                 <span className="btn-text">Shop Now</span>
                 <span className="icon-box">

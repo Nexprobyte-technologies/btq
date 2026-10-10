@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { img, shopTheLookProducts } from "@/data/site";
+import { slugify } from "@/data/site";
 import { Reveal, Split } from "./Reveal";
 
 const hotspots = [
@@ -50,7 +51,7 @@ export default function ShopTheLook() {
 
             <div className="stl__cards">
               {shopTheLookProducts.map((p) => (
-                <a className="stl__card" href="#" key={p.title}>
+                <a className="stl__card" href={`/products/${slugify(p.title)}`} key={p.title}>
                   <img src={img(p.image, 300)} alt={p.title} loading="lazy" />
                   <span>
                     <span className="t">{p.title}</span>

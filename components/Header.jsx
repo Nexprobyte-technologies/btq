@@ -1,13 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { img, megaImages, megaMenu, navLinks } from "@/data/site";
+import { usePathname } from "next/navigation";
+import { navLinks } from "@/data/site";
 import { ArrowRight, Bag, Close, Search, User } from "./icons";
 
 export default function Header() {
+  const pathname = usePathname();
+  const blackNav = pathname === "/collections" || pathname.startsWith("/collections/") || pathname === "/blogs" || pathname.startsWith("/blogs/") || ["/pages/about", "/pages/about-us", "/pages/contact"].includes(pathname);
   const [solid, setSolid] = useState(false);
   const [hidden, setHidden] = useState(false);
-  const [mega, setMega] = useState(false);
   const [drawer, setDrawer] = useState(false);
 
   useEffect(() => {
@@ -34,26 +36,12 @@ export default function Header() {
     <>
 
       <header
-        className={`site-header${solid ? " is-solid" : ""}${hidden ? " is-hidden" : ""}`}
-        onMouseLeave={() => setMega(false)}
+        className={`site-header${solid ? " is-solid" : ""}${hidden ? " is-hidden" : ""}${blackNav ? " is-black-nav" : ""}`}
       >
         <div className="container site-header__inner">
           <nav className="site-nav" aria-label="Primary">
             {navLinks.map((link) =>
-              link.mega ? (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  onMouseEnter={() => setMega(true)}
-                  onFocus={() => setMega(true)}
-                >
-                  {link.label}
-                </a>
-              ) : (
-                <a key={link.label} href={link.href}>
-                  {link.label}
-                </a>
-              )
+              <a key={link.label} href={link.href}>{link.label}</a>
             )}
           </nav>
 
@@ -68,57 +56,24 @@ export default function Header() {
             <span />
           </button>
 
-          <a href="#" className="site-header__logo" aria-label="Charmique home">
+          <a href="/" className="site-header__logo" aria-label="Charmique home">
             <span>CHARMIQUE</span>
           </a>
 
           <div className="site-header__actions">
-            <button className="header-icon" type="button" aria-label="Search" onMouseEnter={() => setMega(false)}>
+            <button className="header-icon" type="button" aria-label="Search" onClick={() => { window.location.href = "/search"; }}>
               <Search />
             </button>
-            <button className="header-icon" type="button" aria-label="Account">
+            <button className="header-icon" type="button" aria-label="Account" onClick={() => { window.location.href = "/account"; }}>
               <User />
             </button>
-            <button className="header-icon" type="button" aria-label="Cart">
+            <button className="header-icon" type="button" aria-label="Cart" onClick={() => { window.location.href = "/cart"; }}>
               <Bag />
               <span className="count">0</span>
             </button>
           </div>
         </div>
 
-        <div
-          className={`mega${mega ? " is-open" : ""}`}
-          onMouseEnter={() => setMega(true)}
-          onMouseLeave={() => setMega(false)}
-        >
-          <div className="container mega__inner">
-            {megaMenu.map((col) => (
-              <div key={col.title}>
-                <div className="mega__title">{col.title}</div>
-                <ul className="mega__links">
-                  {col.links.map((l) => (
-                    <li key={l}>
-                      <a href="#" className="u-line">
-                        {l}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-            <div>
-              <div className="mega__title">Popular Categories</div>
-              <div className="mega__cards">
-                {megaImages.map((m) => (
-                  <a className="mega__card" href="#" key={m.label}>
-                    <img src={img(m.image, 500)} alt={m.label} loading="lazy" />
-                    <span>{m.label}</span>
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
       </header>
 
       <div className={`drawer${drawer ? " is-open" : ""}`}>
@@ -139,15 +94,6 @@ export default function Header() {
                   {link.label}
                   <ArrowRight size={14} />
                 </a>
-                {link.mega ? (
-                  <div className="drawer__sub">
-                    {megaMenu.flatMap((c) => c.links).map((s, si) => (
-                      <a href="#" key={`${s}-${si}`}>
-                        {s}
-                      </a>
-                    ))}
-                  </div>
-                ) : null}
               </li>
             ))}
           </ul>

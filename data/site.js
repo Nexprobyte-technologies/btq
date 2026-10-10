@@ -2,30 +2,39 @@ import { version } from "./versions";
 
 export const CDN = "https://skytheme-demo.myshopify.com/cdn/shop/files/";
 
-export const img = (name, width = 1200) =>
-  `${CDN}${name}?v=${version(name)}&width=${width}`;
+const ethnicFashionPhotos = [
+  "photo-1610030469983-98e550d6193c",
+  "photo-1742800767764-479556a4d8a5",
+  "photo-1774437561978-d283043c807e",
+  "photo-1742800788220-1e42256d6022",
+  "photo-1597897545901-6ac15b725974",
+  "photo-1738690789530-9c5ee199575c",
+  "photo-1774438462884-4961ce3e1683",
+  "photo-1732850195295-ed6eb52d1d2b",
+  "photo-1776005395798-9fc7c1c50e95",
+  "photo-1619516388835-2b60acc4049e",
+  "photo-1476638305939-a09cd694566c",
+  "photo-1716504627981-22728cb2d2e2",
+  "photo-1716504628105-bd76d91e85f2",
+];
+
+export const img = (name, width = 1200) => {
+  if (/^https?:\/\//.test(name)) return name;
+  if (/\.svg$/i.test(name)) return `${CDN}${name}?v=${version(name)}&width=${width}`;
+  const key = String(name).split("").reduce((sum, char) => sum + char.charCodeAt(0), 0);
+  const photo = ethnicFashionPhotos[key % ethnicFashionPhotos.length];
+  return `https://images.unsplash.com/${photo}?auto=format&fit=crop&w=${width}&q=85`;
+};
 
 export const navLinks = [
-  { label: "Home", href: "#" },
-  { label: "Shop", href: "#", mega: true },
-  { label: "About Us", href: "#" },
-  { label: "Collections", href: "#" },
-  { label: "Catalog", href: "#" },
-  { label: "Lookbook", href: "#" },
-  { label: "Blogs", href: "#" },
-  { label: "Contact", href: "#" },
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/pages/about-us" },
+  { label: "Collections", href: "/collections" },
+  { label: "Blogs", href: "/blogs" },
+  { label: "Contact", href: "/pages/contact" },
 ];
 
-export const megaMenu = [
-  {
-    title: "New Arrivals",
-    links: ["Outerwear", "Knitwear", "Sportswear", "Shirts", "Best Sellers"],
-  },
-  {
-    title: "Popular Categories",
-    links: ["Elegant Looks", "Heritage", "The New Edit", "Outerwear", "Premium Jacket"],
-  },
-];
+export const slugify = (value) => value.toLowerCase().trim().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
 export const megaImages = [
   { name: "coll-elegant-looks.webp", label: "Elegant Looks" },
@@ -101,16 +110,19 @@ export const mobileCategoryTabs = [
 ];
 
 export const categoriesGrid = [
-  { label: "Warm Wear", image: "cat1_5.webp" },
-  { label: "Trend Wear", image: "cat2_6.webp" },
-  { label: "Casuals", image: "cat3_5.webp" },
-  { label: "Winter Edit", image: "cat4_4.webp" },
-  { label: "Elegant Wear", image: "cat5_4_1.webp" },
-  { label: "Occasion Wear", image: "cat6_5.webp" },
-  { label: "Relaxed Fit", image: "cat7_3.webp" },
-  { label: "Easy Wear", image: "cat8_1.webp" },
-  { label: "DROP", image: "cat9_1.webp" },
-  { label: "Luxe Collection", image: "coll-the-luxe-edit.webp" },
+  { label: "Saree", image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=85" },
+  { label: "Chudi", image: "https://images.unsplash.com/photo-1742800767764-479556a4d8a5?auto=format&fit=crop&w=1000&q=85" },
+  { label: "Kids Dress", image: "https://images.unsplash.com/photo-1774437561978-d283043c807e?auto=format&fit=crop&w=1000&q=85" },
+  { label: "Kurti Sets", image: "https://images.unsplash.com/photo-1742800788220-1e42256d6022?auto=format&fit=crop&w=1000&q=85" },
+  { label: "Lehenga", image: "https://images.unsplash.com/photo-1597897545901-6ac15b725974?auto=format&fit=crop&w=1000&q=85" },
+  { label: "Festive Wear", image: "https://images.unsplash.com/photo-1738690789530-9c5ee199575c?auto=format&fit=crop&w=1000&q=85" },
+  { label: "Men's Kurta", image: "https://images.unsplash.com/photo-1774438462884-4961ce3e1683?auto=format&fit=crop&w=1000&q=85" },
+  { label: "Salwar Suits", image: "https://images.unsplash.com/photo-1732850195295-ed6eb52d1d2b?auto=format&fit=crop&w=1000&q=85" },
+  { label: "Gowns", image: "https://images.unsplash.com/photo-1776005395798-9fc7c1c50e95?auto=format&fit=crop&w=1000&q=85" },
+  { label: "Wedding Edit", image: "https://images.unsplash.com/photo-1619516388835-2b60acc4049e?auto=format&fit=crop&w=1000&q=85" },
+  { label: "Everyday Ethnic", image: "https://images.unsplash.com/photo-1476638305939-a09cd694566c?auto=format&fit=crop&w=1000&q=85" },
+  { label: "Party Wear", image: "https://images.unsplash.com/photo-1716504627981-22728cb2d2e2?auto=format&fit=crop&w=1000&q=85" },
+  { label: "Traditional Edit", image: "https://images.unsplash.com/photo-1716504628105-bd76d91e85f2?auto=format&fit=crop&w=1000&q=85" },
 ];
 
 const swatch = (name, color) => ({ name, color });
@@ -492,3 +504,8 @@ export const footerColumns = [
   { title: "BEST COLLECTIONS", links: ["Casual Collection", "Current Classics", "Daily Edit", "Modern Basics", "Heritage"] },
   { title: "HELP & SUPPORT", links: ["Contact", "Legal Notice", "Refund Policy", "Privacy Policy", "FAQ"] },
 ];
+
+const allProducts = [...featuredProducts, ...Object.values(tabProducts).flat(), ...lookbookProducts, featuredProduct, ...shopTheLookProducts];
+export const products = [...new Map(allProducts.map((product) => [slugify(product.title), { ...product, slug: slugify(product.title) }])).values()];
+
+export const collections = [...new Map([...categoriesGrid, ...mobileCategoryTabs.flatMap((tab) => tab.items.map((item) => ({ label: item.label, image: item.image }))), ...megaImages.map((item) => ({ label: item.label, image: item.name }))].map((item) => [slugify(item.label), { ...item, slug: slugify(item.label) }])).values()];
