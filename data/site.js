@@ -112,15 +112,14 @@ export const mobileCategoryTabs = [
 export const categoriesGrid = [
   { label: "Saree", image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=85" },
   { label: "Chudi", image: "https://images.unsplash.com/photo-1742800767764-479556a4d8a5?auto=format&fit=crop&w=1000&q=85" },
-  { label: "Kids Dress", image: "https://images.unsplash.com/photo-1774437561978-d283043c807e?auto=format&fit=crop&w=1000&q=85" },
+  { label: "Kids Dress", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSykyq9SZc40_M4kwkzkRcxxNt8p1ziKb9xCCY-YHuFF-CoZzX9OGI78XiP&s=10" },
   { label: "Kurti Sets", image: "https://images.unsplash.com/photo-1742800788220-1e42256d6022?auto=format&fit=crop&w=1000&q=85" },
   { label: "Lehenga", image: "https://images.unsplash.com/photo-1597897545901-6ac15b725974?auto=format&fit=crop&w=1000&q=85" },
   { label: "Festive Wear", image: "https://images.unsplash.com/photo-1738690789530-9c5ee199575c?auto=format&fit=crop&w=1000&q=85" },
-  { label: "Men's Kurta", image: "https://images.unsplash.com/photo-1774438462884-4961ce3e1683?auto=format&fit=crop&w=1000&q=85" },
   { label: "Salwar Suits", image: "https://images.unsplash.com/photo-1732850195295-ed6eb52d1d2b?auto=format&fit=crop&w=1000&q=85" },
   { label: "Gowns", image: "https://images.unsplash.com/photo-1776005395798-9fc7c1c50e95?auto=format&fit=crop&w=1000&q=85" },
   { label: "Wedding Edit", image: "https://images.unsplash.com/photo-1619516388835-2b60acc4049e?auto=format&fit=crop&w=1000&q=85" },
-  { label: "Everyday Ethnic", image: "https://images.unsplash.com/photo-1476638305939-a09cd694566c?auto=format&fit=crop&w=1000&q=85" },
+  { label: "Everyday Ethnic", image: "https://i.pinimg.com/236x/eb/8a/bc/eb8abc97b6e44165668f3466949c6d93.jpg" },
   { label: "Party Wear", image: "https://images.unsplash.com/photo-1716504627981-22728cb2d2e2?auto=format&fit=crop&w=1000&q=85" },
   { label: "Traditional Edit", image: "https://images.unsplash.com/photo-1716504628105-bd76d91e85f2?auto=format&fit=crop&w=1000&q=85" },
 ];
