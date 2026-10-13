@@ -2,23 +2,27 @@ import { version } from "./versions";
 
 export const CDN = "https://skytheme-demo.myshopify.com/cdn/shop/files/";
 
-const ethnicFashionPhotos = [
-  "photo-1610030469983-98e550d6193c",
-  "photo-1742800767764-479556a4d8a5",
-  "photo-1774437561978-d283043c807e",
-  "photo-1742800788220-1e42256d6022",
-  "photo-1597897545901-6ac15b725974",
-  "photo-1738690789530-9c5ee199575c",
-  "photo-1774438462884-4961ce3e1683",
-  "photo-1732850195295-ed6eb52d1d2b",
-  "photo-1776005395798-9fc7c1c50e95",
-  "photo-1619516388835-2b60acc4049e",
-  "photo-1476638305939-a09cd694566c",
-  "photo-1716504627981-22728cb2d2e2",
-  "photo-1716504628105-bd76d91e85f2",
+// Curated high-resolution ethnic, saree, lehenga & women's boutique photography from Unsplash
+export const ethnicFashionPhotos = [
+  "photo-1610030469983-98e550d6193c", // Kanjivaram Silk Saree
+  "photo-1583391733956-3750e0ff4e8b", // Royal Bridal Lehenga
+  "photo-1742800767764-479556a4d8a5", // Contemporary Ethnic Suit
+  "photo-1597897545901-6ac15b725974", // Crimson Wedding Lehenga
+  "photo-1742800788220-1e42256d6022", // Designer Kurti Set
+  "photo-1738690789530-9c5ee199575c", // Festive Silk Saree
+  "photo-1732850195295-ed6eb52d1d2b", // Pastel Salwar Suit
+  "photo-1776005395798-9fc7c1c50e95", // Draped Evening Gown
+  "photo-1619516388835-2b60acc4049e", // Traditional Bridal Jewelry & Saree
+  "photo-1716504627981-22728cb2d2e2", // Indo-Western Fusion Set
+  "photo-1716504628105-bd76d91e85f2", // Handloom Tissue Saree
+  "photo-1617627143750-d86bc21e42bb", // Embroidered Dupatta & Anarkali
+  "photo-1609357605129-26f69add5d6e", // Festive Kurti & Saree
+  "photo-1534528741775-53994a69daeb", // Fashion Model Editorial
+  "photo-1515886657613-9f3515b0c78f", // Runway Couture
 ];
 
 export const img = (name, width = 1200) => {
+  if (!name) return `https://images.unsplash.com/${ethnicFashionPhotos[0]}?auto=format&fit=crop&w=${width}&q=85`;
   if (/^https?:\/\//.test(name)) return name;
   if (/\.svg$/i.test(name)) return `${CDN}${name}?v=${version(name)}&width=${width}`;
   const key = String(name).split("").reduce((sum, char) => sum + char.charCodeAt(0), 0);
@@ -28,483 +32,459 @@ export const img = (name, width = 1200) => {
 
 export const navLinks = [
   { label: "Home", href: "/" },
-  { label: "About Us", href: "/pages/about-us" },
-  { label: "Collections", href: "/collections" },
-  { label: "Blogs", href: "/blogs" },
-  { label: "Contact", href: "/pages/contact" },
+  { label: "Collections", href: "/collections", hasMega: true },
+  { label: "Bridal Couture", href: "/collections/wedding-edit", badge: "Bespoke" },
 ];
 
-export const slugify = (value) => value.toLowerCase().trim().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+export const exploreMoreLinks = [
+  {
+    label: "Pure Silks",
+    href: "/collections/silk-sarees",
+    desc: "Heirloom Kanjivaram & Banarasi weaves",
+    icon: "⚜",
+  },
+  {
+    label: "Stories & Journal",
+    href: "/blogs",
+    desc: "Editorial fashion features & styling notes",
+    icon: "✦",
+  },
+  {
+    label: "About Atelier",
+    href: "/pages/about-us",
+    desc: "Our heritage & generational craftsmanship",
+    icon: "⚜",
+  },
+  {
+    label: "Contact & Concierge",
+    href: "/pages/contact",
+    desc: "Atelier studio visit & video call bookings",
+    icon: "✦",
+  },
+  {
+    label: "Custom Sizing & FAQ",
+    href: "/pages/faq",
+    desc: "Blouse measurements, timelines & orders",
+    icon: "⚜",
+  },
+];
+
+export const slugify = (value) =>
+  String(value)
+    .toLowerCase()
+    .trim()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
 
 export const megaImages = [
-  { name: "coll-elegant-looks.webp", label: "Elegant Looks" },
-  { name: "coll-heritage.webp", label: "Heritage" },
-  { name: "coll-the-new-edit.webp", label: "The New Edit" },
-  { name: "coll-premium-jacket.webp", label: "Premium Jacket" },
+  { name: "photo-1610030469983-98e550d6193c", label: "Pure Silk Sarees" },
+  { name: "photo-1597897545901-6ac15b725974", label: "Bridal Lehengas" },
+  { name: "photo-1742800788220-1e42256d6022", label: "Designer Kurti Sets" },
+  { name: "photo-1776005395798-9fc7c1c50e95", label: "Couture Gowns" },
 ];
 
 export const announcementSlides = [
   <>
-    Big savings on everyday fashion only for a short time.{" "}
-    <a className="u-line" href="#">Shop Now</a>
+    ✨ Handcrafted Pure Silk Sarees, Bespoke Bridal Lehengas &amp; Designer Blouses.{" "}
+    <a className="u-line" href="/collections">Explore Collection</a>
   </>,
   <>
-    Free shipping on all orders over $25 — this week only.{" "}
-    <a className="u-line" href="#">Grab the deal</a>
+    💬 Direct WhatsApp Inquiries Welcome · Custom Tailoring &amp; Sizing Available.{" "}
+    <a className="u-line" href="/pages/contact">Consult Stylist</a>
   </>,
   <>
-    New season knitwear just landed. Fresh fits, better prices.{" "}
-    <a className="u-line" href="#">Explore</a>
+    🌸 Book Video Call Shopping &amp; Atelier Consultations with Master Designers.{" "}
+    <a className="u-line" href="/pages/contact">Book Now</a>
   </>,
 ];
 
 export const mobileCategoryTabs = [
   {
     tab: "All",
-    heading: "Discover Your Signature Everyday Style",
+    heading: "Curated Women's Couture & Ethnic Attire",
     items: [
-      { label: "T-Shirts", image: "coll-casual-collection.webp" },
-      { label: "Jackets", image: "coll-premium-jacket.webp" },
-      { label: "Shirts", image: "coll-modern-basics.webp" },
-      { label: "Suits", image: "coll-current-classic.webp" },
-      { label: "Co-ords", image: "coll-weekend-edit.webp" },
-      { label: "Blazers", image: "coll-signature-style.webp" },
+      { label: "Sarees", image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=85" },
+      { label: "Lehengas", image: "https://images.unsplash.com/photo-1597897545901-6ac15b725974?auto=format&fit=crop&w=800&q=85" },
+      { label: "Kurti Sets", image: "https://images.unsplash.com/photo-1742800788220-1e42256d6022?auto=format&fit=crop&w=800&q=85" },
+      { label: "Anarkalis", image: "https://images.unsplash.com/photo-1742800767764-479556a4d8a5?auto=format&fit=crop&w=800&q=85" },
+      { label: "Gowns", image: "https://images.unsplash.com/photo-1776005395798-9fc7c1c50e95?auto=format&fit=crop&w=800&q=85" },
+      { label: "Bridal Edit", image: "https://images.unsplash.com/photo-1619516388835-2b60acc4049e?auto=format&fit=crop&w=800&q=85" },
     ],
   },
   {
-    tab: "Men",
-    heading: "Elevated Essentials Made for Him",
+    tab: "Bridal",
+    heading: "Regal Ensembles Handcrafted For The Bride",
     items: [
-      { label: "Crop Top", image: "coll-wardrobe-staples.webp" },
-      { label: "Tops", image: "coll-daily-edit.webp" },
-      { label: "Knitwear", image: "coll-essential-classic.webp" },
-      { label: "Cloaks", image: "coll-outwear.webp" },
-      { label: "Dresses", image: "coll-the-luxe-edit.webp" },
-      { label: "Outwear", image: "coll-elegant-looks.webp" },
+      { label: "Silk Sarees", image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=85" },
+      { label: "Wedding Lehengas", image: "https://images.unsplash.com/photo-1597897545901-6ac15b725974?auto=format&fit=crop&w=800&q=85" },
+      { label: "Reception Gowns", image: "https://images.unsplash.com/photo-1776005395798-9fc7c1c50e95?auto=format&fit=crop&w=800&q=85" },
+      { label: "Aari Blouses", image: "https://images.unsplash.com/photo-1716504628105-bd76d91e85f2?auto=format&fit=crop&w=800&q=85" },
     ],
   },
   {
-    tab: "Women",
-    heading: "Timeless Trends Designed for Her",
+    tab: "Festive",
+    heading: "Vibrant Handloom & Flowing Silhouettes",
     items: [
-      { label: "Track Suits", image: "coll-heritage.webp" },
-      { label: "Co-ords", image: "coll-trending-now.webp" },
-      { label: "Blazers", image: "coll-modern-classic.webp" },
-      { label: "Shirts", image: "coll-casual-collection.webp" },
-      { label: "Crop Top", image: "coll-sundown-strips.webp" },
-      { label: "Tops", image: "coll-the-new-edit.webp" },
-    ],
-  },
-  {
-    tab: "On Sale",
-    heading: "Exceptional Styles at Better Prices",
-    items: [
-      { label: "Track Suits", image: "coll-premium-jacket.webp" },
-      { label: "Co-ords", image: "coll-weekend-edit.webp" },
-      { label: "Blazers", image: "coll-current-classic.webp" },
-      { label: "Shirts", image: "coll-daily-edit.webp" },
-      { label: "Crop Top", image: "coll-modern-basics.webp" },
-      { label: "Dresses", image: "coll-wardrobe-staples.webp" },
+      { label: "Organza Sarees", image: "https://images.unsplash.com/photo-1738690789530-9c5ee199575c?auto=format&fit=crop&w=800&q=85" },
+      { label: "Sharara Sets", image: "https://images.unsplash.com/photo-1732850195295-ed6eb52d1d2b?auto=format&fit=crop&w=800&q=85" },
+      { label: "Indo-Western", image: "https://images.unsplash.com/photo-1716504627981-22728cb2d2e2?auto=format&fit=crop&w=800&q=85" },
+      { label: "Chanderi Kurtis", image: "https://images.unsplash.com/photo-1742800788220-1e42256d6022?auto=format&fit=crop&w=800&q=85" },
     ],
   },
 ];
 
 export const categoriesGrid = [
-  { label: "Saree", image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=85" },
-  { label: "Chudi", image: "https://images.unsplash.com/photo-1742800767764-479556a4d8a5?auto=format&fit=crop&w=1000&q=85" },
-  { label: "Kids Dress", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSykyq9SZc40_M4kwkzkRcxxNt8p1ziKb9xCCY-YHuFF-CoZzX9OGI78XiP&s=10" },
+  { label: "Silk Sarees", image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=85" },
+  { label: "Bridal Lehengas", image: "https://images.unsplash.com/photo-1597897545901-6ac15b725974?auto=format&fit=crop&w=1000&q=85" },
+  { label: "Anarkali Suits", image: "https://images.unsplash.com/photo-1742800767764-479556a4d8a5?auto=format&fit=crop&w=1000&q=85" },
   { label: "Kurti Sets", image: "https://images.unsplash.com/photo-1742800788220-1e42256d6022?auto=format&fit=crop&w=1000&q=85" },
-  { label: "Lehenga", image: "https://images.unsplash.com/photo-1597897545901-6ac15b725974?auto=format&fit=crop&w=1000&q=85" },
-  { label: "Festive Wear", image: "https://images.unsplash.com/photo-1738690789530-9c5ee199575c?auto=format&fit=crop&w=1000&q=85" },
-  { label: "Salwar Suits", image: "https://images.unsplash.com/photo-1732850195295-ed6eb52d1d2b?auto=format&fit=crop&w=1000&q=85" },
-  { label: "Gowns", image: "https://images.unsplash.com/photo-1776005395798-9fc7c1c50e95?auto=format&fit=crop&w=1000&q=85" },
+  { label: "Festive Sarees", image: "https://images.unsplash.com/photo-1738690789530-9c5ee199575c?auto=format&fit=crop&w=1000&q=85" },
+  { label: "Salwar & Sharara", image: "https://images.unsplash.com/photo-1732850195295-ed6eb52d1d2b?auto=format&fit=crop&w=1000&q=85" },
+  { label: "Couture Gowns", image: "https://images.unsplash.com/photo-1776005395798-9fc7c1c50e95?auto=format&fit=crop&w=1000&q=85" },
   { label: "Wedding Edit", image: "https://images.unsplash.com/photo-1619516388835-2b60acc4049e?auto=format&fit=crop&w=1000&q=85" },
-  { label: "Everyday Ethnic", image: "https://i.pinimg.com/236x/eb/8a/bc/eb8abc97b6e44165668f3466949c6d93.jpg" },
-  { label: "Party Wear", image: "https://images.unsplash.com/photo-1716504627981-22728cb2d2e2?auto=format&fit=crop&w=1000&q=85" },
-  { label: "Traditional Edit", image: "https://images.unsplash.com/photo-1716504628105-bd76d91e85f2?auto=format&fit=crop&w=1000&q=85" },
+  { label: "Indo-Western Sets", image: "https://images.unsplash.com/photo-1716504627981-22728cb2d2e2?auto=format&fit=crop&w=1000&q=85" },
+  { label: "Designer Blouses", image: "https://images.unsplash.com/photo-1716504628105-bd76d91e85f2?auto=format&fit=crop&w=1000&q=85" },
+  { label: "Organza Edit", image: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=1000&q=85" },
+  { label: "Everyday Ethnic", image: "https://images.unsplash.com/photo-1609357605129-26f69add5d6e?auto=format&fit=crop&w=1000&q=85" },
 ];
 
 const swatch = (name, color) => ({ name, color });
 
 export const featuredProducts = [
   {
-    title: "Drift Stripe Knit Top",
-    price: "$104.00",
-    badge: "",
-    image: "pro_12-a.jpg",
-    hover: "pro_12-b.jpg",
-    colors: [swatch("Pink", "rgb(255 192 203)"), swatch("Pastel Green", "rgb(118 178 144)"), swatch("Beige", "rgb(234 216 171)")],
+    title: "Kanjivaram Pure Silk Zari Saree",
+    badge: "Heritage Pure Silk",
+    image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=85",
+    hover: "https://images.unsplash.com/photo-1716504628105-bd76d91e85f2?auto=format&fit=crop&w=1000&q=85",
+    description: "Woven by master weavers with pure mulberry silk and antique gold zari borders. Includes an unstitched contrast brocade blouse piece.",
+    colors: [swatch("Royal Crimson", "#800020"), swatch("Temple Mustard", "#d4af37"), swatch("Peacock Teal", "#004953")],
   },
   {
-    title: "Classic Rib Trim Sweater",
-    price: "$95.00",
-    badge: "Exclusive",
-    image: "pro13-a_4ceaa5e3-59e9-4e72-90a4-88b0bfe589ed.jpg",
-    hover: "pro13-b_2a490a43-8212-498d-80bc-5248e32e7aa5.jpg",
-    colors: [swatch("Purple", "rgb(126 96 168)"), swatch("Pink", "rgb(255 192 203)")],
+    title: "Handcrafted Velvet Bridal Lehenga",
+    badge: "Bridal Exclusive",
+    image: "https://images.unsplash.com/photo-1597897545901-6ac15b725974?auto=format&fit=crop&w=1000&q=85",
+    hover: "https://images.unsplash.com/photo-1619516388835-2b60acc4049e?auto=format&fit=crop&w=1000&q=85",
+    description: "Rich micro-velvet kalis adorned with intricate zardozi, dabka, and pearl hand-embroidery. Accompanied by twin organza dupattas.",
+    colors: [swatch("Rani Pink", "#e75480"), swatch("Deep Crimson", "#6b0f1a"), swatch("Emerald Green", "#097969")],
   },
   {
-    title: "Cozy Textured Knit Cardigan",
-    price: "$120.00",
-    badge: "Premium",
-    image: "pro15-a_89ef6092-60f3-495f-9996-ddb95ff2157f.jpg",
-    hover: "pro15-b_b10a288e-3c17-417e-ba80-d666206b07f1.jpg",
-    colors: [swatch("Pastel Green", "rgb(118 178 144)"), swatch("Beige", "rgb(234 216 171)"), swatch("Olive", "rgb(107 114 74)")],
+    title: "Chanderi Silk Anarkali Suit Set",
+    badge: "Festive Edit",
+    image: "https://images.unsplash.com/photo-1742800767764-479556a4d8a5?auto=format&fit=crop&w=1000&q=85",
+    hover: "https://images.unsplash.com/photo-1742800788220-1e42256d6022?auto=format&fit=crop&w=1000&q=85",
+    description: "Floor-sweeping chanderi silhouette layered with gotapatti yoke detailing, paired with churidar and a tissue zari dupatta.",
+    colors: [swatch("Sage Green", "#8a9a86"), swatch("Dusty Rose", "#dcae96"), swatch("Mustard", "#e1ad01")],
   },
   {
-    title: "Casual Rugby Knit Top",
-    price: "$90.00",
-    badge: "Trending",
-    image: "pro17-a_99761465-a2e5-4f3e-92d9-9d8300a50a8d.jpg",
-    hover: "pro17-b_bc41ca56-0280-4053-9b76-35eb1bcec02d.jpg",
-    colors: [swatch("Pink", "rgb(255 192 203)"), swatch("Pastel Green", "rgb(118 178 144)"), swatch("Purple", "rgb(126 96 168)")],
+    title: "Organza Floral Embroidered Saree",
+    badge: "Trending Now",
+    image: "https://images.unsplash.com/photo-1738690789530-9c5ee199575c?auto=format&fit=crop&w=1000&q=85",
+    hover: "https://images.unsplash.com/photo-1716504627981-22728cb2d2e2?auto=format&fit=crop&w=1000&q=85",
+    description: "Weightless silk organza hand-painted with soft botanical motifs and finished with a fine scalloped cutdana border.",
+    colors: [swatch("Pastel Peach", "#ffdab9"), swatch("Lavender", "#e6e6fa"), swatch("Mint Green", "#98ff98")],
   },
   {
-    title: "Drift Crew Sweatshirt",
-    price: "$104.00",
-    compareAt: "$120.00",
-    badge: "13% OFF",
-    image: "pro1-a_d1426ed4-16ce-4465-800a-735891f0f900.jpg",
-    hover: "pro1-c.jpg",
-    colors: [swatch("Maroon", "rgb(92 27 35)"), swatch("Gray", "rgb(138 138 138)"), swatch("Navy", "rgb(35 47 74)"), swatch("Bronze", "rgb(140 98 62)")],
+    title: "Mirror-Work Georgette Sharara Set",
+    badge: "Sangeet Favorite",
+    image: "https://images.unsplash.com/photo-1732850195295-ed6eb52d1d2b?auto=format&fit=crop&w=1000&q=85",
+    hover: "https://images.unsplash.com/photo-1742800788220-1e42256d6022?auto=format&fit=crop&w=1000&q=85",
+    description: "Flared tiered sharara paired with a peplum short kurti adorned with real glass mirror embroidery and resham threads.",
+    colors: [swatch("Turquoise", "#40e0d0"), swatch("Sunshine Yellow", "#ffdb58"), swatch("Ivory", "#fffff0")],
   },
   {
-    title: "Essential Crew Knit",
-    price: "$90.00",
+    title: "Draped Pre-Stitched Reception Gown",
+    badge: "Couture Design",
+    image: "https://images.unsplash.com/photo-1776005395798-9fc7c1c50e95?auto=format&fit=crop&w=1000&q=85",
+    hover: "https://images.unsplash.com/photo-1597897545901-6ac15b725974?auto=format&fit=crop&w=1000&q=85",
+    description: "Modern saree gown with pre-pleated satin pallu and a bodice encrusted with hand-sewn champagne bugle beads.",
+    colors: [swatch("Champagne Gold", "#fad6a5"), swatch("Midnight Navy", "#000080"), swatch("Wine", "#722f37")],
+  },
+  {
+    title: "Handloom Tussar Silk Kurti & Pant",
+    badge: "Pure Handloom",
+    image: "https://images.unsplash.com/photo-1742800788220-1e42256d6022?auto=format&fit=crop&w=1000&q=85",
+    hover: "https://images.unsplash.com/photo-1742800767764-479556a4d8a5?auto=format&fit=crop&w=1000&q=85",
+    description: "Natural textured tussar silk kurta featuring traditional Bagru handblock prints and mother-of-pearl buttons.",
+    colors: [swatch("Raw Ecru", "#c2b280"), swatch("Indigo", "#4b0082"), swatch("Terracotta", "#e2725b")],
+  },
+  {
+    title: "Banarasi Georgette Meenakari Saree",
     badge: "Bestseller",
-    image: "pro6-a_59628fb6-9df9-4173-af82-889238767e96.jpg",
-    hover: "pro6-c_0f13e442-3376-4d5f-92ab-fb397d589d25.jpg",
-    colors: [swatch("Off white", "rgb(245 243 236)"), swatch("Pink", "rgb(255 192 203)"), swatch("Pastel Green", "rgb(118 178 144)")],
-  },
-  {
-    title: "Harbor Relaxed Knit",
-    price: "$98.00",
-    badge: "",
-    image: "pro25-a_7b69871e-aeed-408e-9cd4-be6fa5f6cd9d.jpg",
-    hover: "pro25-b_fa15ff25-eb40-4fd5-bf44-bbfe840457ae.jpg",
-    colors: [swatch("Beige", "rgb(234 216 171)"), swatch("Olive", "rgb(107 114 74)")],
-  },
-  {
-    title: "Weekend Stripe Polo",
-    price: "$86.00",
-    badge: "New",
-    image: "pro20-a_cebb88af-83c2-434a-bbcc-6c00ebb6ba00.jpg",
-    hover: "pro20-b_55a63dc1-6e6c-4238-8636-d5ba00e46792.jpg",
-    colors: [swatch("Navy", "rgb(35 47 74)"), swatch("Pink", "rgb(255 192 203)")],
+    image: "https://images.unsplash.com/photo-1716504628105-bd76d91e85f2?auto=format&fit=crop&w=1000&q=85",
+    hover: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=85",
+    description: "Supple pure georgette woven with intricate Meenakari floral jaal in kadwa technique. Unmatched drape and heirloom value.",
+    colors: [swatch("Royal Purple", "#7851a9"), swatch("Rani Magenta", "#ca1f7b"), swatch("Emerald", "#005a36")],
   },
 ];
 
 export const tabProducts = {
-  Premium: [
+  "Bridal Sarees": [
     {
-      title: "Soft Touch Stripe Top",
-      price: "$72.50",
-      badge: "Premium",
-      image: "pro20-a_cebb88af-83c2-434a-bbcc-6c00ebb6ba00.jpg",
-      hover: "pro20-b_55a63dc1-6e6c-4238-8636-d5ba00e46792.jpg",
-      colors: [swatch("Olive", "rgb(107 114 74)"), swatch("Black", "rgb(20 20 20)")],
+      title: "Kanjivaram Pure Silk Zari Saree",
+      badge: "Pure Silk",
+      image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=85",
+      hover: "https://images.unsplash.com/photo-1716504628105-bd76d91e85f2?auto=format&fit=crop&w=1000&q=85",
+      colors: [swatch("Maroon", "#800020"), swatch("Gold", "#ffd700")],
     },
     {
-      title: "Casual Men Shirt",
-      price: "$95.00",
-      badge: "Premium",
-      image: "pro10-a_2651a4d6-06ae-437d-a476-c05f2de91979.jpg",
-      hover: "pro10-b_85230f41-06ff-4107-8c0b-99bc34a2da08.jpg",
-      colors: [swatch("Pink", "rgb(255 192 203)"), swatch("Beige", "rgb(234 216 171)"), swatch("Pastel blue", "rgb(176 205 224)")],
+      title: "Banarasi Georgette Meenakari Saree",
+      badge: "Handloom",
+      image: "https://images.unsplash.com/photo-1716504628105-bd76d91e85f2?auto=format&fit=crop&w=1000&q=85",
+      hover: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=85",
+      colors: [swatch("Purple", "#7851a9"), swatch("Rani", "#ca1f7b")],
     },
     {
-      title: "Classic Rib Trim Sweater",
-      price: "$95.00",
-      badge: "Exclusive",
-      image: "pro13-a_4ceaa5e3-59e9-4e72-90a4-88b0bfe589ed.jpg",
-      hover: "pro13-b_2a490a43-8212-498d-80bc-5248e32e7aa5.jpg",
-      colors: [swatch("Purple", "rgb(126 96 168)"), swatch("Pink", "rgb(255 192 203)")],
+      title: "Temple Border Silk Saree",
+      badge: "Authentic Zari",
+      image: "https://images.unsplash.com/photo-1738690789530-9c5ee199575c?auto=format&fit=crop&w=1000&q=85",
+      hover: "https://images.unsplash.com/photo-1619516388835-2b60acc4049e?auto=format&fit=crop&w=1000&q=85",
+      colors: [swatch("Mustard", "#e1ad01"), swatch("Maroon", "#800020")],
     },
     {
-      title: "Relaxed Collar Knit",
-      price: "$90.00",
-      badge: "Premium",
-      image: "pro7-a_70a28ee3-8230-46de-938d-3d2cdaf07a94.jpg",
-      hover: "pro7-c_1f7a3a74-897b-48df-a79c-30d0a92b2528.jpg",
-      colors: [swatch("Sage Green", "rgb(152 170 143)"), swatch("Navy", "rgb(35 47 74)"), swatch("Off white", "rgb(245 243 236)")],
-    },
-    {
-      title: "Wide Stripe Polo",
-      price: "$120.00",
-      badge: "",
-      image: "pro9-a_2cb3bf0c-3ebd-4de7-8e9c-828c1c9b5484.jpg",
-      hover: "pro9-b_027d2adc-e12f-447d-9c3e-151207d2d4c6.jpg",
-      colors: [swatch("Navy", "rgb(35 47 74)"), swatch("Olive", "rgb(107 114 74)"), swatch("Black", "rgb(20 20 20)")],
-    },
-    {
-      title: "Timeless Harbor Knit",
-      price: "$98.00",
-      badge: "Bestseller",
-      image: "pro27-a_58f91172-953e-47e2-996a-9879b16673f3.jpg",
-      hover: "pro27-b_4a0c725c-4621-4e23-b995-2acdd47f3e48.jpg",
-      colors: [swatch("Pink", "rgb(255 192 203)"), swatch("Olive", "rgb(107 114 74)"), swatch("Gray", "rgb(138 138 138)")],
-    },
-    {
-      title: "Stripe Block Polo",
-      price: "$100.00",
-      badge: "",
-      image: "pro11-a_f70b1e15-0da9-4f16-907b-78cb62a18708.jpg",
-      hover: "pro11-c_b2a07904-193f-4def-aa94-b3ad07ba26b9.jpg",
-      colors: [swatch("Olive green", "rgb(94 104 66)"), swatch("Pink", "rgb(255 192 203)"), swatch("Beige", "rgb(234 216 171)")],
-    },
-    {
-      title: "Drift Stripe Knit Top",
-      price: "$104.00",
-      badge: "",
-      image: "pro_12-a.jpg",
-      hover: "pro_12-b.jpg",
-      colors: [swatch("Pink", "rgb(255 192 203)"), swatch("Pastel Green", "rgb(118 178 144)")],
+      title: "Tissue Organza Scalloped Saree",
+      badge: "Hand-Embroidered",
+      image: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=1000&q=85",
+      hover: "https://images.unsplash.com/photo-1716504627981-22728cb2d2e2?auto=format&fit=crop&w=1000&q=85",
+      colors: [swatch("Rose Gold", "#b76e79"), swatch("Ivory", "#fffff0")],
     },
   ],
-  "Fresh Picks": [
+  "Designer Lehengas": [
     {
-      title: "Drift Crew Sweatshirt",
-      price: "$104.00",
-      compareAt: "$120.00",
-      badge: "13% OFF",
-      image: "pro1-a_d1426ed4-16ce-4465-800a-735891f0f900.jpg",
-      hover: "pro1-c.jpg",
-      colors: [swatch("Maroon", "rgb(92 27 35)"), swatch("Gray", "rgb(138 138 138)"), swatch("Navy", "rgb(35 47 74)")],
+      title: "Handcrafted Velvet Bridal Lehenga",
+      badge: "Bridal Exclusive",
+      image: "https://images.unsplash.com/photo-1597897545901-6ac15b725974?auto=format&fit=crop&w=1000&q=85",
+      hover: "https://images.unsplash.com/photo-1619516388835-2b60acc4049e?auto=format&fit=crop&w=1000&q=85",
+      colors: [swatch("Red", "#b22222"), swatch("Maroon", "#800020")],
     },
     {
-      title: "Essential Crew Knit",
-      price: "$90.00",
-      badge: "Bestseller",
-      image: "pro6-a_59628fb6-9df9-4173-af82-889238767e96.jpg",
-      hover: "pro6-c_0f13e442-3376-4d5f-92ab-fb397d589d25.jpg",
-      colors: [swatch("Off white", "rgb(245 243 236)"), swatch("Pink", "rgb(255 192 203)")],
+      title: "Pastel Flora Organza Lehenga",
+      badge: "Reception Couture",
+      image: "https://images.unsplash.com/photo-1742800767764-479556a4d8a5?auto=format&fit=crop&w=1000&q=85",
+      hover: "https://images.unsplash.com/photo-1732850195295-ed6eb52d1d2b?auto=format&fit=crop&w=1000&q=85",
+      colors: [swatch("Blush Pink", "#ffb6c1"), swatch("Mint", "#98ff98")],
     },
     {
-      title: "Cozy Textured Knit Cardigan",
-      price: "$120.00",
-      badge: "Premium",
-      image: "pro15-a_89ef6092-60f3-495f-9996-ddb95ff2157f.jpg",
-      hover: "pro15-b_b10a288e-3c17-417e-ba80-d666206b07f1.jpg",
-      colors: [swatch("Pastel Green", "rgb(118 178 144)"), swatch("Beige", "rgb(234 216 171)")],
+      title: "Mirror-Work Heavy Kali Lehenga",
+      badge: "Sangeet Night",
+      image: "https://images.unsplash.com/photo-1732850195295-ed6eb52d1d2b?auto=format&fit=crop&w=1000&q=85",
+      hover: "https://images.unsplash.com/photo-1742800788220-1e42256d6022?auto=format&fit=crop&w=1000&q=85",
+      colors: [swatch("Teal", "#008080"), swatch("Yellow", "#ffd700")],
     },
     {
-      title: "Heritage Knit Stripe Top",
-      price: "$105.00",
-      badge: "",
-      image: "pro8-a_9647d642-343a-4184-9dd8-946a4a25ec36.jpg",
-      hover: "pro8-b_083f4511-3be7-49f9-a089-681dc9bd0277.jpg",
-      colors: [swatch("Beige", "rgb(234 216 171)"), swatch("Pink", "rgb(255 192 203)")],
-    },
-    {
-      title: "Casual Rugby Knit Top",
-      price: "$90.00",
-      badge: "Trending",
-      image: "pro17-a_99761465-a2e5-4f3e-92d9-9d8300a50a8d.jpg",
-      hover: "pro17-b_bc41ca56-0280-4053-9b76-35eb1bcec02d.jpg",
-      colors: [swatch("Pink", "rgb(255 192 203)"), swatch("Purple", "rgb(126 96 168)")],
-    },
-    {
-      title: "Harbor Relaxed Knit",
-      price: "$98.00",
-      badge: "",
-      image: "pro25-a_7b69871e-aeed-408e-9cd4-be6fa5f6cd9d.jpg",
-      hover: "pro25-b_fa15ff25-eb40-4fd5-bf44-bbfe840457ae.jpg",
-      colors: [swatch("Beige", "rgb(234 216 171)"), swatch("Olive", "rgb(107 114 74)")],
-    },
-    {
-      title: "Weekend Stripe Polo",
-      price: "$86.00",
-      badge: "New",
-      image: "pro20-a_cebb88af-83c2-434a-bbcc-6c00ebb6ba00.jpg",
-      hover: "pro20-b_55a63dc1-6e6c-4238-8636-d5ba00e46792.jpg",
-      colors: [swatch("Navy", "rgb(35 47 74)"), swatch("Pink", "rgb(255 192 203)")],
-    },
-    {
-      title: "Relaxed Collar Knit",
-      price: "$90.00",
-      badge: "Premium",
-      image: "pro7-a_70a28ee3-8230-46de-938d-3d2cdaf07a94.jpg",
-      hover: "pro7-c_1f7a3a74-897b-48df-a79c-30d0a92b2528.jpg",
-      colors: [swatch("Sage Green", "rgb(152 170 143)"), swatch("Navy", "rgb(35 47 74)")],
+      title: "Raw Silk Zardozi Trousseau Lehenga",
+      badge: "Master Artisan",
+      image: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=1000&q=85",
+      hover: "https://images.unsplash.com/photo-1597897545901-6ac15b725974?auto=format&fit=crop&w=1000&q=85",
+      colors: [swatch("Crimson Silk", "#800000"), swatch("Emerald", "#004953")],
     },
   ],
-  Trending: [
+  "Kurtis & Anarkalis": [
     {
-      title: "Wide Stripe Polo",
-      price: "$120.00",
-      badge: "Trending",
-      image: "pro9-a_2cb3bf0c-3ebd-4de7-8e9c-828c1c9b5484.jpg",
-      hover: "pro9-b_027d2adc-e12f-447d-9c3e-151207d2d4c6.jpg",
-      colors: [swatch("Navy", "rgb(35 47 74)"), swatch("Olive", "rgb(107 114 74)")],
+      title: "Chanderi Silk Anarkali Suit Set",
+      badge: "Festive Pick",
+      image: "https://images.unsplash.com/photo-1742800767764-479556a4d8a5?auto=format&fit=crop&w=1000&q=85",
+      hover: "https://images.unsplash.com/photo-1742800788220-1e42256d6022?auto=format&fit=crop&w=1000&q=85",
+      colors: [swatch("Sage Green", "#8a9a86"), swatch("Dusty Rose", "#dcae96")],
     },
     {
-      title: "Casual Men Shirt",
-      price: "$95.00",
-      badge: "Premium",
-      image: "pro10-a_2651a4d6-06ae-437d-a476-c05f2de91979.jpg",
-      hover: "pro10-b_85230f41-06ff-4107-8c0b-99bc34a2da08.jpg",
-      colors: [swatch("Pink", "rgb(255 192 203)"), swatch("Beige", "rgb(234 216 171)")],
+      title: "Handloom Tussar Silk Kurti & Pant",
+      badge: "Everyday Luxury",
+      image: "https://images.unsplash.com/photo-1742800788220-1e42256d6022?auto=format&fit=crop&w=1000&q=85",
+      hover: "https://images.unsplash.com/photo-1742800767764-479556a4d8a5?auto=format&fit=crop&w=1000&q=85",
+      colors: [swatch("Mustard", "#e1ad01"), swatch("Raw Silk", "#c2b280")],
     },
     {
-      title: "Timeless Harbor Knit",
-      price: "$98.00",
-      badge: "Bestseller",
-      image: "pro27-a_58f91172-953e-47e2-996a-9879b16673f3.jpg",
-      hover: "pro27-b_4a0c725c-4621-4e23-b995-2acdd47f3e48.jpg",
-      colors: [swatch("Pink", "rgb(255 192 203)"), swatch("Gray", "rgb(138 138 138)")],
+      title: "Mirror-Work Georgette Sharara Set",
+      badge: "Occasion Wear",
+      image: "https://images.unsplash.com/photo-1732850195295-ed6eb52d1d2b?auto=format&fit=crop&w=1000&q=85",
+      hover: "https://images.unsplash.com/photo-1716504627981-22728cb2d2e2?auto=format&fit=crop&w=1000&q=85",
+      colors: [swatch("Turquoise", "#40e0d0"), swatch("Ivory", "#fffff0")],
     },
     {
-      title: "Stripe Block Polo",
-      price: "$100.00",
-      badge: "",
-      image: "pro11-a_f70b1e15-0da9-4f16-907b-78cb62a18708.jpg",
-      hover: "pro11-c_b2a07904-193f-4def-aa94-b3ad07ba26b9.jpg",
-      colors: [swatch("Olive green", "rgb(94 104 66)"), swatch("Pink", "rgb(255 192 203)")],
+      title: "Angrakha Pure Silk Festive Anarkali",
+      badge: "Heritage Cut",
+      image: "https://images.unsplash.com/photo-1609357605129-26f69add5d6e?auto=format&fit=crop&w=1000&q=85",
+      hover: "https://images.unsplash.com/photo-1742800767764-479556a4d8a5?auto=format&fit=crop&w=1000&q=85",
+      colors: [swatch("Indigo Blue", "#1b3f8b"), swatch("Mehendi Olive", "#556b2f")],
+    },
+  ],
+  "Party Gowns": [
+    {
+      title: "Draped Pre-Stitched Reception Gown",
+      badge: "Cocktail Edit",
+      image: "https://images.unsplash.com/photo-1776005395798-9fc7c1c50e95?auto=format&fit=crop&w=1000&q=85",
+      hover: "https://images.unsplash.com/photo-1597897545901-6ac15b725974?auto=format&fit=crop&w=1000&q=85",
+      colors: [swatch("Champagne", "#fad6a5"), swatch("Wine", "#722f37")],
     },
     {
-      title: "Classic Rib Trim Sweater",
-      price: "$95.00",
-      badge: "Exclusive",
-      image: "pro13-a_4ceaa5e3-59e9-4e72-90a4-88b0bfe589ed.jpg",
-      hover: "pro13-b_2a490a43-8212-498d-80bc-5248e32e7aa5.jpg",
-      colors: [swatch("Purple", "rgb(126 96 168)"), swatch("Pink", "rgb(255 192 203)")],
+      title: "Organza Cape & Dhoti Set",
+      badge: "Indo-Western",
+      image: "https://images.unsplash.com/photo-1716504627981-22728cb2d2e2?auto=format&fit=crop&w=1000&q=85",
+      hover: "https://images.unsplash.com/photo-1776005395798-9fc7c1c50e95?auto=format&fit=crop&w=1000&q=85",
+      colors: [swatch("Midnight Blue", "#191970"), swatch("Emerald", "#004953")],
     },
     {
-      title: "Drift Stripe Knit Top",
-      price: "$104.00",
-      badge: "",
-      image: "pro_12-a.jpg",
-      hover: "pro_12-b.jpg",
-      colors: [swatch("Pink", "rgb(255 192 203)"), swatch("Beige", "rgb(234 216 171)")],
+      title: "Embellished Cocktail Mermaid Gown",
+      badge: "Red Carpet",
+      image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1000&q=85",
+      hover: "https://images.unsplash.com/photo-1776005395798-9fc7c1c50e95?auto=format&fit=crop&w=1000&q=85",
+      colors: [swatch("Rose Bronze", "#a0522d"), swatch("Onyx Black", "#1b1b1b")],
     },
     {
-      title: "Essential Crew Knit",
-      price: "$90.00",
-      badge: "Bestseller",
-      image: "pro6-a_59628fb6-9df9-4173-af82-889238767e96.jpg",
-      hover: "pro6-c_0f13e442-3376-4d5f-92ab-fb397d589d25.jpg",
-      colors: [swatch("Off white", "rgb(245 243 236)"), swatch("Pastel Green", "rgb(118 178 144)")],
-    },
-    {
-      title: "Cozy Textured Knit Cardigan",
-      price: "$120.00",
-      badge: "Premium",
-      image: "pro15-a_89ef6092-60f3-495f-9996-ddb95ff2157f.jpg",
-      hover: "pro15-b_b10a288e-3c17-417e-ba80-d666206b07f1.jpg",
-      colors: [swatch("Olive", "rgb(107 114 74)"), swatch("Beige", "rgb(234 216 171)")],
+      title: "Bespoke Pleated Corset Saree Gown",
+      badge: "Couture Silhouette",
+      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=85",
+      hover: "https://images.unsplash.com/photo-1716504627981-22728cb2d2e2?auto=format&fit=crop&w=1000&q=85",
+      colors: [swatch("Champagne Shimmer", "#e5c59f"), swatch("Ruby Silk", "#9b111e")],
     },
   ],
 };
 
-export const lookbookProducts = [
-  { title: "Woven Stripe Top", price: "$104.00", image: "pro_12-d_b53975df-f4d4-4596-b8c4-fb9fbdd35789.jpg", hover: "pro_12-d-1_a3a1ce07-1caa-4501-bce8-31c2148e7fbb.jpg", colors: [swatch("Pink", "rgb(255 192 203)"), swatch("Pastel Green", "rgb(118 178 144)"), swatch("Beige", "rgb(234 216 171)")] },
-  { title: "Draped Wide-Leg Pant", price: "$104.00", image: "pro_14-e_bafc941f-1130-483d-aa8b-001342e44fbc.jpg", hover: "pro_14-f_cfb822d6-a495-4b90-95d8-7c27ce200b07.jpg", colors: [swatch("Pink", "rgb(255 192 203)"), swatch("Pastel Green", "rgb(118 178 144)")] },
-  { title: "Heritage Knit Stripe Top", price: "$105.00", image: "pro_29-e_ff49eb1e-c8ae-4c49-b968-77831d4ef7a5.jpg", hover: "pro_29-f_e445e95b-4912-4c17-ba32-ddf860e5ba7e.jpg", colors: [swatch("Beige", "rgb(234 216 171)"), swatch("Pink", "rgb(255 192 203)")] },
-  { title: "Classic Tailored Pant", price: "$105.00", image: "pro_16-e_bc6ed7c2-731f-4811-acdc-1d98027a26a5.jpg", hover: "pro16-f.jpg", colors: [swatch("Beige", "rgb(234 216 171)"), swatch("Pink", "rgb(255 192 203)")] },
-  { title: "Knotted Stripe Knit Top", price: "$98.00", image: "pro_22-d.jpg", hover: "pro_22-d-1.jpg", colors: [swatch("Pastel blue", "rgb(176 205 224)"), swatch("Pink", "rgb(255 192 203)"), swatch("Brown", "rgb(122 84 62)")] },
+export const lookbookProducts = featuredProducts.slice(0, 4);
+
+export const lookbookImages = [
+  "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1200&q=85",
+  "https://images.unsplash.com/photo-1597897545901-6ac15b725974?auto=format&fit=crop&w=1200&q=85",
+  "https://images.unsplash.com/photo-1742800767764-479556a4d8a5?auto=format&fit=crop&w=1200&q=85",
+  "https://images.unsplash.com/photo-1776005395798-9fc7c1c50e95?auto=format&fit=crop&w=1200&q=85",
 ];
 
-export const lookbookImages = ["LC-5.webp", "LC-4.webp", "LC-3.webp", "LC-2.webp", "LC-1.webp"];
-
 export const panelBackgrounds = {
-  base: "bg-img.webp",
-  hover: "bg-image-hover.webp",
+  base: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1400&q=85",
+  hover: "https://images.unsplash.com/photo-1597897545901-6ac15b725974?auto=format&fit=crop&w=1400&q=85",
 };
 
-export const collectionPanelMen = {
-  eyebrow: "STYLE MEETS CONFIDENCE",
-  title: "Shop Men",
-  cta: "Discover the Edit",
-  tags: ["Proper Fit", "Comfort Fit Style", "Easy Care", "Wind Resistant", "Lightweight Material"],
-  front: "men_front.webp",
-  back: "men_back.webp",
+export const collectionPanelBridal = {
+  eyebrow: "ROYAL WEDDING ATELIER",
+  title: "Bridal & Wedding Edit",
+  cta: "Explore Bridal Couture",
+  tags: ["Pure Silk Weaves", "Handmade Zardozi", "Custom Blouse Stitching", "Bridal Trousseau", "Heirloom Quality"],
+  front: "https://images.unsplash.com/photo-1597897545901-6ac15b725974?auto=format&fit=crop&w=1000&q=85",
+  back: "https://images.unsplash.com/photo-1619516388835-2b60acc4049e?auto=format&fit=crop&w=1000&q=85",
 };
 
-export const collectionPanelWomen = {
-  eyebrow: "ELEVATE YOUR STYLE",
-  title: "Shop Women",
-  cta: "Browse All Styles",
-  tags: ["Skin Friendly", "Versatile Style", "Comfort Fit Style", "Quick Dry", "Shape Retention"],
-  front: "women_front.webp",
-  back: "women_back.webp",
+export const collectionPanelFestive = {
+  eyebrow: "CONTEMPORARY ETHNIC ELEGANCE",
+  title: "Festive & Party Wear",
+  cta: "Browse Festive Styles",
+  tags: ["Organza & Chanderi", "Gotapatti Work", "Flowy Silhouettes", "Handblock Prints", "Lightweight Comfort"],
+  front: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=85",
+  back: "https://images.unsplash.com/photo-1742800767764-479556a4d8a5?auto=format&fit=crop&w=1000&q=85",
 };
 
 export const showcaseTabs = [
-  { tab: "Jackets", title: "Designed to Stand Out", image: "showcase1.webp", text: "Stylish jackets crafted for warmth, comfort, and everyday confidence." },
-  { tab: "Sports Wear", title: "Elevate Your Wardrobe", image: "showcase2.webp", text: "Classic stripes and polished knits made for everyday comfort and easy layering." },
-  { tab: "Relaxed Fit", title: "Timeless Fits. Modern Style.", image: "showcase3.webp", text: "Relaxed silhouettes offering effortless comfort for every casual occasion." },
+  {
+    tab: "Kanjivaram Sarees",
+    title: "Timeless Pure Silk Weaves",
+    image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1200&q=85",
+    text: "Heirloom South Indian silk sarees with rich korvai contrast borders, heavy zari pallus, and ceremonial temple motifs.",
+  },
+  {
+    tab: "Bridal Lehengas",
+    title: "Handcrafted For Your Grand Day",
+    image: "https://images.unsplash.com/photo-1597897545901-6ac15b725974?auto=format&fit=crop&w=1200&q=85",
+    text: "Opulent velvet and raw silk lehengas tailored with hundreds of hours of intricate aari, zardozi, and dabka needlework.",
+  },
+  {
+    tab: "Festive Anarkalis",
+    title: "Fluid Grace & Tactile Comfort",
+    image: "https://images.unsplash.com/photo-1742800767764-479556a4d8a5?auto=format&fit=crop&w=1200&q=85",
+    text: "Ethereal flared anarkalis in chanderi, georgette, and organza designed for effortless movement and festive celebration.",
+  },
 ];
 
 export const brands = [
-  { name: "SOLENE", tag: "Curated Collection", count: "15 Products" },
-  { name: "URBANMUSE", tag: "Curated Collection", count: "15 Products" },
-  { name: "LENORA", tag: "Curated Collection", count: "10 Products" },
-  { name: "ELIRA", tag: "Collection Type", count: "15 Products" },
-  { name: "VELIX", tag: "Collection Type", count: "10 Products" },
-  { name: "VELVET LANE", tag: "Collection Type", count: "15 Products" },
-  { name: "WILD LOOM", tag: "Collection Type", count: "10 Products" },
-  { name: "URBANIQUE", tag: "Collection Type", count: "15 Products" },
-  { name: "ARVELLE", tag: "Collection Type", count: "15 Products" },
+  { name: "KANJIVARAM ATELIER", tag: "Pure Silk Weaves", count: "30+ Designs" },
+  { name: "BANARAS MEENAKARI", tag: "Heritage Handloom", count: "25+ Designs" },
+  { name: "CHANDERI COUTURE", tag: "Lightweight Luxury", count: "20+ Designs" },
+  { name: "AARI BLOUSE STUDIO", tag: "Custom Maggam Work", count: "40+ Designs" },
+  { name: "ROYAL TROUSSEAU", tag: "Bridal Lehengas", count: "18+ Designs" },
+  { name: "ORGANZA BLOOM", tag: "Modern Florals", count: "22+ Designs" },
 ];
 
 export const instagramCards = [
-  { image: "SM1.webp", product: "Casual Stripe Pullover", price: "$98.00" },
-  { image: "SM3.webp", product: "Classic Rib Sweater", price: "From $98.00", compareAt: "$150.00" },
-  { image: "SM4.webp", product: "Casual Crew Pullover", price: "$80.00" },
-  { image: "SM5.webp", product: "Signature Collar Pullover", price: "$50.00" },
-  { image: "SM6.webp", product: "Casual Men Shirt", price: "$95.00" },
-  { image: "SM7.webp", product: "Drift Stripe Knit Top", price: "$104.00" },
-  { image: "SM8.webp", product: "Heritage Stripe Sweater", price: "$110.00" },
-  { image: "Frame_1171284778.webp", product: "Casual Rugby Knit Top", price: "$90.00" },
+  { image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=85", product: "Crimson Kanjivaram Saree" },
+  { image: "https://images.unsplash.com/photo-1597897545901-6ac15b725974?auto=format&fit=crop&w=800&q=85", product: "Velvet Bridal Lehenga" },
+  { image: "https://images.unsplash.com/photo-1742800767764-479556a4d8a5?auto=format&fit=crop&w=800&q=85", product: "Emerald Anarkali Suit" },
+  { image: "https://images.unsplash.com/photo-1738690789530-9c5ee199575c?auto=format&fit=crop&w=800&q=85", product: "Organza Scallop Saree" },
+  { image: "https://images.unsplash.com/photo-1732850195295-ed6eb52d1d2b?auto=format&fit=crop&w=800&q=85", product: "Turquoise Sharara Set" },
+  { image: "https://images.unsplash.com/photo-1776005395798-9fc7c1c50e95?auto=format&fit=crop&w=800&q=85", product: "Champagne Draped Gown" },
 ];
 
 export const featuredProduct = {
-  title: "Drift Crew Sweatshirt",
+  title: "Handcrafted Velvet Bridal Lehenga Set",
   description:
-    "Wear it on its own for a laid-back look or layer it over a tee or under a jacket when the temperature drops.",
-  price: "$104.00",
-  compareAt: "$120.00",
-  note: "The model is 173 cm tall and is wearing size S",
-  stock: "100 in stock, Get yours today!",
+    "An ethereal bridal masterpiece hand-embroidered by generational artisans. Features rich micro-velvet kalis adorned with antique zardozi, dabka, and pearl work. Complete with a bespoke unstitched bridal blouse and twin organza dupattas.",
+  note: "Custom tailoring, blouse neck customization, and color customizations available upon enquiry.",
+  stock: "Made to order & ready-to-ship pieces available",
   gallery: [
-    "pro1-a_d1426ed4-16ce-4465-800a-735891f0f900.jpg",
-    "pro1-b.jpg",
-    "pro1-c.jpg",
-    "pro1-d.jpg",
+    "https://images.unsplash.com/photo-1597897545901-6ac15b725974?auto=format&fit=crop&w=1200&q=85",
+    "https://images.unsplash.com/photo-1619516388835-2b60acc4049e?auto=format&fit=crop&w=1200&q=85",
+    "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1200&q=85",
+    "https://images.unsplash.com/photo-1716504628105-bd76d91e85f2?auto=format&fit=crop&w=1200&q=85",
   ],
-  colors: [swatch("Maroon", "rgb(92 27 35)"), swatch("Gray", "rgb(138 138 138)"), swatch("Navy", "rgb(35 47 74)"), swatch("Bronze", "rgb(140 98 62)")],
-  sizes: ["XS", "S", "M", "L", "XL"],
+  colors: [swatch("Royal Crimson", "#800020"), swatch("Rani Pink", "#e75480"), swatch("Emerald Green", "#097969")],
+  sizes: ["XS", "S", "M", "L", "XL", "Custom Fit"],
   accordions: [
     {
-      title: "Product Description",
-      body: "Stay comfortable and effortlessly stylish with the Drift Crew Sweatshirt, a versatile everyday essential designed for relaxed, modern dressing. Made with a soft and cozy feel, this classic crew-neck sweatshirt offers comfortable wear while keeping you looking sharp.",
+      title: "Artisanal Craftsmanship & Details",
+      body: "Over 180 hours of hand-embroidery featuring authentic zari, resham threads, and semi-precious beads. Tailored with double cancan layering for an opulent, graceful flare.",
     },
     {
-      title: "Clothing Care Instructions",
+      title: "Custom Tailoring & Measurements",
       list: [
-        ["Machine Wash Cold:", "Wash with similar colors on a gentle cycle."],
-        ["Do Not Bleach:", "Avoid bleach and harsh chemicals to protect fabric quality."],
-        ["Tumble Dry Low:", "Use a low-heat setting or air dry when possible."],
-        ["Iron Low:", "Iron inside out using low to medium heat."],
-        ["Do Not Dry Clean:", "Avoid dry cleaning unless specifically recommended."],
-        ["Store Properly:", "Fold or hang garments in a cool, dry place away from direct sunlight."],
+        ["Custom Sizing:", "Our stylists connect with you on WhatsApp/video call to take exact measurements."],
+        ["Blouse Styles:", "Choose from sweetheart, boat neck, deep back, or modest necklines."],
+        ["Dispatch Time:", "Ready pieces ship in 48 hours; custom bridal lehengas take 12–18 business days."],
+        ["Global Shipping:", "Express tracked air courier across India, USA, UK, Canada, Australia, and UAE."],
       ],
     },
   ],
 };
 
 export const shopTheLookProducts = [
-  { title: "Fine Line Knit Top", price: "$50.00", image: "pro19-a_2d567d84-35e2-4e9b-84a8-7b3094eef4cd.jpg" },
-  { title: "Crewneck Stripe Knit", price: "$105.00", image: "pro_14-a_7e155c36-a423-4fe7-8960-4f34699d53f9.jpg" },
+  {
+    title: "Kanjivaram Pure Silk Zari Saree",
+    image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=600&q=85",
+  },
+  {
+    title: "Chanderi Silk Anarkali Suit Set",
+    image: "https://images.unsplash.com/photo-1742800767764-479556a4d8a5?auto=format&fit=crop&w=600&q=85",
+  },
 ];
 
 export const footerColumns = [
-  { title: "QUICK LINKS", links: ["Home", "About", "Contact", "All collections", "Blogs"] },
-  { title: "BEST COLLECTIONS", links: ["Casual Collection", "Current Classics", "Daily Edit", "Modern Basics", "Heritage"] },
-  { title: "HELP & SUPPORT", links: ["Contact", "Legal Notice", "Refund Policy", "Privacy Policy", "FAQ"] },
+  { title: "WOMEN'S BOUTIQUE", links: ["Silk Sarees", "Bridal Lehengas", "Kurti Sets", "Anarkali Suits", "Couture Gowns"] },
+  { title: "ATELIER SERVICES", links: ["Bespoke Blouse Stitching", "Bridal Trousseau", "Video Shopping Call", "Fabric Care"] },
+  { title: "HELP & INQUIRIES", links: ["Contact Stylist", "Book Fitting", "About Our Atelier", "Shipping & Delivery", "FAQ"] },
 ];
 
-const allProducts = [...featuredProducts, ...Object.values(tabProducts).flat(), ...lookbookProducts, featuredProduct, ...shopTheLookProducts];
-export const products = [...new Map(allProducts.map((product) => [slugify(product.title), { ...product, slug: slugify(product.title) }])).values()];
+const allProducts = [
+  ...featuredProducts,
+  ...Object.values(tabProducts).flat(),
+  ...lookbookProducts,
+  featuredProduct,
+  ...shopTheLookProducts,
+];
 
-export const collections = [...new Map([...categoriesGrid, ...mobileCategoryTabs.flatMap((tab) => tab.items.map((item) => ({ label: item.label, image: item.image }))), ...megaImages.map((item) => ({ label: item.label, image: item.name }))].map((item) => [slugify(item.label), { ...item, slug: slugify(item.label) }])).values()];
+export const products = [
+  ...new Map(
+    allProducts.map((product) => [
+      slugify(product.title),
+      { ...product, slug: slugify(product.title) },
+    ])
+  ).values(),
+];
+
+export const collections = [
+  ...new Map(
+    [
+      ...categoriesGrid,
+      ...mobileCategoryTabs.flatMap((tab) =>
+        tab.items.map((item) => ({ label: item.label, image: item.image }))
+      ),
+      ...megaImages.map((item) => ({ label: item.label, image: item.name })),
+    ].map((item) => [slugify(item.label), { ...item, slug: slugify(item.label) }])
+  ).values(),
+];

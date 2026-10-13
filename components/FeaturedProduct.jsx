@@ -2,14 +2,26 @@
 
 import { useState } from "react";
 import { featuredProduct, img } from "@/data/site";
+import { useStore } from "@/context/StoreContext";
+import { Sparkles, WhatsAppFilled } from "./icons";
 import { Reveal } from "./Reveal";
 
 export default function FeaturedProduct() {
+  const { addToCart, openEnquiry } = useStore();
   const [color, setColor] = useState(featuredProduct.colors[0].name);
   const [size, setSize] = useState("M");
   const [qty, setQty] = useState(1);
   const [open, setOpen] = useState(0);
   const [hero, setHero] = useState(0);
+
+  const handleAdd = () => {
+    addToCart(featuredProduct, size, color, qty);
+  };
+
+  const handleWhatsAppInstant = () => {
+    const msg = `Hello Charmique Boutique! ✨\n\nI want to enquire about *${featuredProduct.title}*.\nSelected Color: ${color}\nSelected Size: ${size}\nQuantity: ${qty}\n\nPlease share pricing, fabric availability, and blouse customization details.`;
+    window.open(`https://api.whatsapp.com/send?phone=919876543210&text=${encodeURIComponent(msg)}`, "_blank");
+  };
 
   return (
     <section className="section scheme-light">
@@ -22,9 +34,9 @@ export default function FeaturedProduct() {
               </figure>
             ))}
             <div className="fp__promo">
-              <strong>Where&apos;s The Discount?</strong>
-              <span className="fp__code">SAVE20</span>
-              <span>Buy 2, get $20 off by using this code</span>
+              <strong>✨ Bespoke Atelier Sizing</strong>
+              <span className="fp__code">CUSTOM FIT</span>
+              <span>Connect for blouse neck customization, cancan flare &amp; color swatches.</span>
             </div>
           </Reveal>
 
@@ -32,9 +44,8 @@ export default function FeaturedProduct() {
             <h2 className="fp__title heading-font">{featuredProduct.title}</h2>
             <p className="fp__desc">{featuredProduct.description}</p>
 
-            <div className="fp__price">
-              <span>{featuredProduct.price}</span>
-              <s>{featuredProduct.compareAt}</s>
+            <div className="fp__bespoke-status">
+              <span className="fp__bespoke-badge">⚜ Haute Couture Bridal Edition · Price on Enquiry</span>
             </div>
             <div className="fp__note">{featuredProduct.note}</div>
 
@@ -79,7 +90,7 @@ export default function FeaturedProduct() {
               {featuredProduct.stock}
             </div>
 
-            <div className="fp__buy">
+            <div className="fp__buy" style={{ flexWrap: "wrap", gap: 10 }}>
               <div className="qty">
                 <button type="button" aria-label="Decrease quantity" onClick={() => setQty((q) => Math.max(1, q - 1))}>
                   −
@@ -89,9 +100,43 @@ export default function FeaturedProduct() {
                   +
                 </button>
               </div>
-              <button className="btn btn-dark" type="button">
+
+              <button
+                type="button"
+                className="btn-whatsapp-direct"
+                onClick={handleWhatsAppInstant}
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 8,
+                  padding: "12px 20px",
+                  borderRadius: 100,
+                  background: "#25D366",
+                  color: "#ffffff",
+                  fontWeight: 600,
+                  fontSize: 14,
+                  border: "none",
+                  cursor: "pointer",
+                  boxShadow: "0 4px 14px rgba(37,211,102,0.3)",
+                }}
+              >
+                <WhatsAppFilled size={18} />
+                <span>Enquire on WhatsApp</span>
+              </button>
+
+              <button className="btn btn-dark" type="button" onClick={handleAdd}>
                 <span className="dot" />
-                <span className="btn-text">Add to cart — {featuredProduct.price}</span>
+                <span className="btn-text">Shortlist for Enquiry</span>
+              </button>
+
+              <button
+                className="btn btn-outline"
+                type="button"
+                onClick={() => openEnquiry(featuredProduct)}
+                style={{ padding: "10px 18px", fontSize: 13 }}
+              >
+                <Sparkles size={14} style={{ marginRight: 6 }} />
+                <span>Book Fitting Call</span>
               </button>
             </div>
 

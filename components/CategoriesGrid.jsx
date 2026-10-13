@@ -21,7 +21,7 @@ export default function CategoriesGrid() {
 
         <div className="cats-grid">
           {categoriesGrid.map((cat, i) => (
-            <Reveal key={cat.label} delay={(i % 5) * 0.06}>
+            <Reveal key={cat.label} delay={(i % 4) * 0.06}>
               <a href={`/collections/${slugify(cat.label)}`} className="cat-card">
                 <img src={img(cat.image, 700)} alt={cat.label} loading="lazy" />
                 <span>{cat.label}</span>

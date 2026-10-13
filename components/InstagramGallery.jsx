@@ -8,14 +8,11 @@ function Card({ item, index }) {
     <div className="insta__card" style={{ "--r": `${rotation + (index % 3) * 0.6}deg` }}>
       <img src={img(item.image, 700)} alt={item.product} loading="lazy" />
       <div className="insta__over">
-        <span className="insta__handle">@sky_fashion</span>
+        <span className="insta__handle">@charmique_couture</span>
         <div className="insta__meta">
           <div className="t">{item.product}</div>
-          <div className="p">
-            {item.price}
-            {item.compareAt ? <s>{item.compareAt}</s> : null}
-          </div>
-          <span className="insta__view">View products</span>
+          <div className="p">Bespoke Couture Piece</div>
+          <span className="insta__view">Enquire Design ↗</span>
         </div>
       </div>
     </div>
@@ -29,12 +26,12 @@ export default function InstagramGallery() {
         <Reveal className="section-head section-head--center">
           <div>
             <h2 className="h2">
-              <Split lines={["Discover More on Instagram"]} />
+              <Split lines={["Atelier Diaries on Instagram"]} />
             </h2>
             <p className="section-desc" style={{ margin: "14px auto 0" }}>
-              Discover trending outfits and stylish picks loved by our
+              Follow our bridal showcases, saree draping features, and behind-the-scenes
               <br />
-              fashion community.
+              handloom craftsmanship.
             </p>
           </div>
         </Reveal>

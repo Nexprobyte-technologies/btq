@@ -11,14 +11,18 @@ export default function ShowcaseCollections() {
   return (
     <section className="section showcase scheme-dark">
       <div className="showcase__bg">
-        <img src={img("showcase-bg.webp", 1800)} alt="" loading="lazy" />
+        <img
+          src="https://images.unsplash.com/photo-1597897545901-6ac15b725974?auto=format&fit=crop&w=1800&q=85"
+          alt="Charmique Couture Background"
+          loading="lazy"
+        />
       </div>
 
       <div className="container showcase__inner">
         <Reveal>
-          <div className="eyebrow">OUR COLLECTIONS</div>
+          <div className="eyebrow">ATELIER CURATIONS</div>
           <h2 className="showcase__title heading-font">
-            <Split lines={["Dress Up Your", "Beautiful Moments"]} />
+            <Split lines={["Handcrafted Silhouettes &", "Heirloom Weaves"]} />
           </h2>
 
           <div className="showcase__tabs">

@@ -11,8 +11,8 @@ const hotspots = [
 ];
 
 const scenes = [
-  { label: "CASUAL", image: "STL-bnr.webp" },
-  { label: "OFFICE", image: "mob-STL_1.webp" },
+  { label: "BRIDAL WEDDING", image: "https://images.unsplash.com/photo-1597897545901-6ac15b725974?auto=format&fit=crop&w=1600&q=85" },
+  { label: "HERITAGE RECEPTION", image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1600&q=85" },
 ];
 
 export default function ShopTheLook() {
@@ -23,7 +23,7 @@ export default function ShopTheLook() {
       <div className="container">
         <div className="stl__grid">
           <Reveal className="stl__banner">
-            <img src={img(scenes[scene].image, 1600)} alt="Shop the look" loading="lazy" />
+            <img src={img(scenes[scene].image, 1600)} alt="Boutique Bridal Look" loading="lazy" />
 
             {hotspots.map((h) => {
               const p = shopTheLookProducts[h.product];
@@ -33,7 +33,7 @@ export default function ShopTheLook() {
                     <img src={img(p.image, 200)} alt="" loading="lazy" />
                     <span>
                       <span className="t">{p.title}</span>
-                      <span className="p">{p.price}</span>
+                      <span className="p">Bespoke Couture</span>
                     </span>
                   </span>
                 </span>
@@ -43,10 +43,10 @@ export default function ShopTheLook() {
 
           <Reveal delay={0.1}>
             <h2 className="stl__title heading-font accent-font">
-              <Split lines={["Enduring Stylish", "Sophistication"]} />
+              <Split lines={["Heirloom Grace &", "Royal Silhouettes"]} />
             </h2>
             <p className="stl__desc">
-              Enduring Stylish Sophistication blends timeless elegance with lasting style.
+              Curated bridal drapes, pure mulberry silk sarees, and handcrafted jewelry pairings for unforgettable celebrations.
             </p>
 
             <div className="stl__cards">
@@ -55,8 +55,8 @@ export default function ShopTheLook() {
                   <img src={img(p.image, 300)} alt={p.title} loading="lazy" />
                   <span>
                     <span className="t">{p.title}</span>
-                    <span className="p">{p.price}</span>
-                    <span className="go">View · Shop now</span>
+                    <span className="p">Available on Enquiry</span>
+                    <span className="go">Enquire Design ↗</span>
                   </span>
                 </a>
               ))}

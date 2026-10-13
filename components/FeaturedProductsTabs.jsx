@@ -16,7 +16,7 @@ export default function FeaturedProductsTabs() {
         <Reveal className="section-head">
           <div>
             <h2 className="h3">
-              <Split lines={["Fresh picks just dropped"]} />
+              <Split lines={["Curated Atelier Signatures"]} />
             </h2>
           </div>
           <div className="pills" role="tablist">
@@ -37,7 +37,7 @@ export default function FeaturedProductsTabs() {
 
         <div className="grid-products" key={active}>
           {tabProducts[active].map((product) => (
-            <div key={product.title + product.price}>
+            <div key={product.title}>
               <ProductCard product={product} />
             </div>
           ))}

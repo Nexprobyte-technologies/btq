@@ -61,7 +61,7 @@ export default function ProductRail({ products, title, lines, description, cta, 
 
           <div className="rail" ref={railRef} onScroll={onScroll}>
             {products.map((p) => (
-              <ProductCard key={p.title + p.price} product={p} />
+              <ProductCard key={p.title} product={p} />
             ))}
           </div>
         </div>

@@ -28,9 +28,9 @@ export default function Page() {
 
         <ProductRail
           id="fresh-picks"
-          lines={["Fresh picks have just", "dropped for you."]}
-          description="Thoughtfully selected styles designed for everyday comfort, effortless layering, and timeless appeal."
-          cta="View all"
+          lines={["Handwoven Silks &", "Bridal Masterpieces"]}
+          description="Exquisite Kanjivaram pure silk sarees, regal bridal lehengas, and handcrafted festive designer ensembles."
+          cta="Explore All Collections"
           products={featuredProducts}
         />
 

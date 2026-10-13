@@ -7,7 +7,7 @@ export default function ShopByBrand() {
       <div className="container">
         <Reveal className="section-head">
           <h2 className="h5" style={{ color: "#fff" }}>
-            <Split lines={["Shop By Brand"]} />
+            <Split lines={["Signature Weaves & Craft Ateliers"]} />
           </h2>
         </Reveal>
       </div>
@@ -16,7 +16,7 @@ export default function ShopByBrand() {
         <div className="container">
           {brands.map((brand, i) => (
             <Reveal key={brand.name} delay={Math.min(i, 5) * 0.05}>
-              <a className="brand-item" href="#">
+              <a className="brand-item" href="/collections">
                 <span className="brand-item__name">{brand.name}</span>
                 <span className="brand-item__meta">
                   <span>{brand.tag}</span>

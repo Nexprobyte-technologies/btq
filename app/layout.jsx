@@ -1,4 +1,11 @@
 import { Bricolage_Grotesque, Protest_Riot, Quicksand } from "next/font/google";
+import { StoreProvider } from "@/context/StoreContext";
+import CartDrawer from "@/components/CartDrawer";
+import QuickViewModal from "@/components/QuickViewModal";
+import SearchModal from "@/components/SearchModal";
+import EnquiryModal from "@/components/EnquiryModal";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import ToastNotification from "@/components/ToastNotification";
 import "./globals.css";
 import "./sections.css";
 
@@ -24,15 +31,25 @@ const accent = Protest_Riot({
 });
 
 export const metadata = {
-  title: "Sky — Premium Fashion Home",
+  title: "Charmique — Luxury Women's Boutique & Handcrafted Couture",
   description:
-    "Home page inspired by the Sky Shopify theme: immersive fashion shopping experience with smooth animations, hover effects and modern UI.",
+    "Explore Charmique's exclusive collection of pure silk Kanjivaram sarees, regal bridal lehengas, bespoke designer anarkalis, and handcrafted festive couture. Direct WhatsApp enquiries & custom tailoring.",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${body.variable} ${heading.variable} ${accent.variable}`}>
-      <body>{children}</body>
+      <body>
+        <StoreProvider>
+          {children}
+          <CartDrawer />
+          <QuickViewModal />
+          <SearchModal />
+          <EnquiryModal />
+          <FloatingWhatsApp />
+          <ToastNotification />
+        </StoreProvider>
+      </body>
     </html>
   );
 }

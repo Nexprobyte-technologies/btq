@@ -9,18 +9,18 @@ export default function LookbookCarousel() {
   const [active, setActive] = useState(0);
 
   return (
-    <section className="section" style={{ background: "rgb(226 233 237)" }}>
+    <section className="section" style={{ background: "#fcf8f3" }}>
       <div className="container look">
         <Reveal className="look__intro">
           <h2 className="h3">
-            <Split lines={["Spring Summer 2026"]} />
+            <Split lines={["Bridal & Festive Lookbook 2026"]} />
           </h2>
           <p>
-            Every piece of clothing is made to bring effortless style to everyday
+            Every ensemble is handwoven with pure mulberry silks, authentic antique zari
             <br />
-            moments. From relaxed essentials to standout layers, our collections
+            borders, and generational zardozi needlework. Custom sizing and video call
             <br />
-            are designed for modern living.
+            shopping available upon enquiry.
           </p>
 
           <div className="look__stage">

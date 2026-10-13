@@ -1,8 +1,8 @@
-import { collectionPanelMen, collectionPanelWomen, img, panelBackgrounds } from "@/data/site";
+import { collectionPanelBridal, collectionPanelFestive, img, panelBackgrounds } from "@/data/site";
 import { ArrowDiagonal } from "./icons";
 import { Reveal } from "./Reveal";
 
-function Panel({ data, delay }) {
+function Panel({ data, delay, href = "/collections" }) {
   return (
     <Reveal className="panel" delay={delay}>
       <div className="panel__bg">
@@ -23,7 +23,7 @@ function Panel({ data, delay }) {
             <span key={tag}>{tag}</span>
           ))}
         </div>
-        <a href={`/collections/${data.title === "Shop Men" ? "men" : "women"}`} className="btn btn-light btn-arrow">
+        <a href={href} className="btn btn-light btn-arrow">
           <span className="dot" />
           <span className="btn-text">{data.cta}</span>
           <span className="icon-box">
@@ -41,8 +41,8 @@ export default function CollectionPanels() {
     <section className="section scheme-light">
       <div className="container">
         <div className="panels">
-          <Panel data={collectionPanelMen} />
-          <Panel data={collectionPanelWomen} delay={0.12} />
+          <Panel data={collectionPanelBridal} href="/collections/wedding-edit" />
+          <Panel data={collectionPanelFestive} delay={0.12} href="/collections/festive-sarees" />
         </div>
       </div>
     </section>

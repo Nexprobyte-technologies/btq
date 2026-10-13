@@ -5,10 +5,10 @@ import { img } from "@/data/site";
 import { Reveal, Split } from "./Reveal";
 
 const floats = [
-  { cls: "float-img--1", src: "Frame_1171284777.webp", speed: -0.06 },
-  { cls: "float-img--2", src: "Frame_1171284778.webp", speed: 0.09 },
-  { cls: "float-img--3", src: "Frame_1171284779.webp", speed: 0.07 },
-  { cls: "float-img--4", src: "Frame_1171284777.webp", speed: -0.08 },
+  { cls: "float-img--1", src: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=600&q=85", speed: -0.06 },
+  { cls: "float-img--2", src: "https://images.unsplash.com/photo-1597897545901-6ac15b725974?auto=format&fit=crop&w=600&q=85", speed: 0.09 },
+  { cls: "float-img--3", src: "https://images.unsplash.com/photo-1742800767764-479556a4d8a5?auto=format&fit=crop&w=600&q=85", speed: 0.07 },
+  { cls: "float-img--4", src: "https://images.unsplash.com/photo-1776005395798-9fc7c1c50e95?auto=format&fit=crop&w=600&q=85", speed: -0.08 },
 ];
 
 export default function FloatingText() {
@@ -58,17 +58,17 @@ export default function FloatingText() {
           <h2 className="heading-font">
             <Split
               lines={[
-                "Discover fashion designed to",
-                "empower, inspire, and celebrate",
-                "your unique sense of style.",
+                "Artisanal luxury handwoven to",
+                "celebrate the timeless beauty &",
+                "grandeur of Indian womanhood.",
               ]}
             />
           </h2>
         </Reveal>
         <Reveal delay={0.25}>
           <p>
-            Made for real life, each piece blends everyday comfort with timeless style &amp;
-            thoughtfully designed pieces that bring comfort and confidence to everyday dressing.
+            From generational mulberry silk weaves to regal bridal zardozi needlework, each creation
+            at Charmique Atelier is custom-tailored to celebrate your most unforgettable milestones.
           </p>
         </Reveal>
       </div>

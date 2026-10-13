@@ -39,9 +39,9 @@ export default function PromoBar() {
         <Reveal className="promo__inner">
           <div>
             <div className="promo__sub">
-              <Split lines={["Dress Up Your Moments"]} />
+              <Split lines={["Festive & Bridal Trunk Show 2026"]} />
             </div>
-            <div className="promo__title">Hurry, Your Style Won&apos;t Wait</div>
+            <div className="promo__title">Reserve Your Bespoke Bridal Consultation</div>
           </div>
 
           <div className="countdown">
@@ -57,14 +57,19 @@ export default function PromoBar() {
           </div>
 
           <p className="promo__text">
-            All orders $25+ ship free within 1 business
+            Complimentary video shopping appointments, custom neckline
             <br />
-            day via USPS Priority Mail
+            measurements &amp; priority express courier across India and globally.
           </p>
 
-          <a href="#" className="btn btn-light">
+          <a
+            href="https://api.whatsapp.com/send?phone=919876543210&text=Hello%20Charmique%20Boutique!%20%E2%9C%A8%20I%20would%20like%20to%20reserve%20a%20bridal%20consultation."
+            target="_blank"
+            rel="noreferrer"
+            className="btn btn-light"
+          >
             <span className="dot" />
-            <span className="btn-text">Shop Now</span>
+            <span className="btn-text">WhatsApp Stylist</span>
           </a>
         </Reveal>
       </div>

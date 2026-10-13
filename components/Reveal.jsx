@@ -54,9 +54,8 @@ export function Split({ lines, className = "", delay = 0 }) {
           {line.split(" ").map((word, wordIndex) => {
             const i = counter++;
             return (
-              <span className="word" key={`${word}-${wordIndex}`}>
+              <span className="word" key={`${word}-${wordIndex}`} style={{ marginRight: "0.26em" }}>
                 <i style={{ "--i": i }}>{word}</i>
-                {wordIndex < line.split(" ").length - 1 ? " " : ""}
               </span>
             );
           })}
