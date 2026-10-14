@@ -44,12 +44,6 @@ export const exploreMoreLinks = [
     icon: "⚜",
   },
   {
-    label: "Stories & Journal",
-    href: "/blogs",
-    desc: "Editorial fashion features & styling notes",
-    icon: "✦",
-  },
-  {
     label: "About Atelier",
     href: "/pages/about-us",
     desc: "Our heritage & generational craftsmanship",

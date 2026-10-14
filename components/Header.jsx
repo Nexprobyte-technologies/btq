@@ -20,8 +20,6 @@ export default function Header() {
   const isLightPage =
     pathname === "/collections" ||
     pathname.startsWith("/collections/") ||
-    pathname === "/blogs" ||
-    pathname.startsWith("/blogs/") ||
     pathname === "/cart" ||
     pathname === "/search" ||
     ["/pages/about", "/pages/about-us", "/pages/contact", "/pages/faq", "/pages/privacy-policy", "/pages/refund-policy"].includes(
