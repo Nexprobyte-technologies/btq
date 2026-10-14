@@ -19,11 +19,6 @@ export default function Footer() {
     }
   };
 
-  const handleWhatsAppChat = () => {
-    const msg = "Hello Charmique Atelier! ✨ I would like to enquire about your bridal collections, saree designs, and custom stitching.";
-    window.open(`https://api.whatsapp.com/send?phone=919876543210&text=${encodeURIComponent(msg)}`, "_blank");
-  };
-
   return (
     <footer className="footer">
       {/* Pre-footer Trust & Value Bar */}
@@ -117,10 +112,9 @@ export default function Footer() {
                   else if (lower.includes("blouse") || lower.includes("trousseau") || lower.includes("video"))
                     href = "/pages/contact";
                   else if (lower.includes("about")) href = "/pages/about-us";
-                  else if (lower.includes("contact") || lower.includes("stylist") || lower.includes("fitting"))
+                  else if (lower.includes("contact") || lower.includes("stylist") || lower.includes("fitting") || lower.includes("concierge"))
                     href = "/pages/contact";
                   else if (lower.includes("shipping")) href = "/pages/contact";
-                  else if (lower.includes("faq")) href = "/pages/about-us";
                   else href = `/collections`;
 
                   return (
@@ -144,29 +138,15 @@ export default function Footer() {
               <br />
               WhatsApp: +91 98765 43210
             </p>
-            <button
-              type="button"
-              className="btn-whatsapp-direct"
-              onClick={handleWhatsAppChat}
-              style={{
-                marginTop: 18,
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 8,
-                padding: "10px 18px",
-                borderRadius: 100,
-                background: "#25D366",
-                color: "#fff",
-                fontWeight: 600,
-                fontSize: 13.5,
-                border: "none",
-                cursor: "pointer",
-              }}
-            >
-              <WhatsAppFilled size={18} />
-              <span>WhatsApp Stylist</span>
-            </button>
-            <div className="footer__brand">CHARMIQUE</div>
+            <div className="footer__brand">
+              <Link href="/" aria-label="Charmiqe Boutique Home">
+                <img
+                  src="/logo.png"
+                  alt="Charmiqe"
+                  className="footer__brand-logo"
+                />
+              </Link>
+            </div>
           </Reveal>
         </div>
 

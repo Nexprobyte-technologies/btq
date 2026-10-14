@@ -33,7 +33,7 @@ export const img = (name, width = 1200) => {
 export const navLinks = [
   { label: "Home", href: "/" },
   { label: "Collections", href: "/collections", hasMega: true },
-  { label: "Bridal Couture", href: "/collections/wedding-edit", badge: "Bespoke" },
+  { label: "Bridal", href: "/collections/wedding-edit" },
 ];
 
 export const exploreMoreLinks = [
@@ -54,12 +54,6 @@ export const exploreMoreLinks = [
     href: "/pages/contact",
     desc: "Atelier studio visit & video call bookings",
     icon: "✦",
-  },
-  {
-    label: "Custom Sizing & FAQ",
-    href: "/pages/faq",
-    desc: "Blouse measurements, timelines & orders",
-    icon: "⚜",
   },
 ];
 
@@ -535,7 +529,7 @@ export const shopTheLookProducts = [
 export const footerColumns = [
   { title: "WOMEN'S BOUTIQUE", links: ["Silk Sarees", "Bridal Lehengas", "Kurti Sets", "Anarkali Suits", "Couture Gowns"] },
   { title: "ATELIER SERVICES", links: ["Bespoke Blouse Stitching", "Bridal Trousseau", "Video Shopping Call", "Fabric Care"] },
-  { title: "HELP & INQUIRIES", links: ["Contact Stylist", "Book Fitting", "About Our Atelier", "Shipping & Delivery", "FAQ"] },
+  { title: "HELP & INQUIRIES", links: ["Contact Stylist", "Book Fitting", "About Our Atelier", "Shipping & Delivery", "Atelier Concierge"] },
 ];
 
 const allProducts = [

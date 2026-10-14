@@ -4599,37 +4599,499 @@
   }
 }
 
-.account-portal-box {
+/* ================= About Atelier Boutique Showcase ================= */
+.about-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(36px, 5vw, 60px);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 24px;
+}
+
+/* 1. Stats & Trust Strip */
+.about-stats-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(14px, 2vw, 24px);
   background: #ffffff;
-  padding: 30px;
   border-radius: var(--radius-block);
   border: 1px solid rgba(0, 0, 0, 0.08);
-  margin-top: 24px;
+  padding: clamp(20px, 3vw, 28px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
 }
 
-.account-portal-box h4 {
-  font-size: 18px;
-  margin-bottom: 6px;
+.about-stat-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 6px 12px;
 }
 
-.account-portal-box p {
-  font-size: 14px;
+.about-stat-item:not(:last-child) {
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.stat-crest {
+  font-size: 24px;
+  color: #800020;
+  flex-shrink: 0;
+}
+
+.stat-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.stat-text strong {
+  font-family: var(--font-heading), sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #000000;
+  letter-spacing: -0.01em;
+}
+
+.stat-text span {
+  font-size: 12.5px;
   color: rgb(0 0 0 / 0.6);
+  line-height: 1.4;
+}
+
+/* 2. Visual Narrative Split */
+.about-split-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: clamp(28px, 4.5vw, 54px);
+  align-items: center;
+}
+
+.about-image-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.about-image-wrap {
+  position: relative;
+  border-radius: var(--radius-block);
+  overflow: hidden;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
+  aspect-ratio: 4 / 5;
+  background: #f5f2eb;
+}
+
+.about-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.about-image-card:hover .about-image-wrap img {
+  transform: scale(1.03);
+}
+
+.about-image-badge {
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  right: 18px;
+  background: rgba(17, 17, 17, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff;
+  padding: 10px 16px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.badge-gold-star {
+  color: #d4af37;
+  font-size: 13px;
+}
+
+.about-image-caption {
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgb(0 0 0 / 0.6);
+  font-style: italic;
+  padding: 0 6px;
+}
+
+.about-narrative-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.about-pill-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #800020;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.about-narrative-card h2 {
+  font-family: var(--font-heading), sans-serif;
+  font-size: clamp(26px, 2.5vw, 36px);
+  font-weight: 600;
+  line-height: 1.25;
+  color: #000000;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+.about-narrative-card .narrative-lead {
+  font-size: 16.5px;
+  line-height: 1.75;
+  color: #111111;
+  font-weight: 500;
+  margin: 0;
+}
+
+.about-narrative-card p {
+  font-size: 14.5px;
+  line-height: 1.75;
+  color: rgb(0 0 0 / 0.7);
+  margin: 0;
+}
+
+.about-quote-box {
+  position: relative;
+  background: linear-gradient(135deg, rgba(128, 0, 32, 0.04) 0%, rgba(212, 175, 55, 0.06) 100%);
+  border-left: 3px solid #800020;
+  border-radius: 0 var(--radius-block) var(--radius-block) 0;
+  padding: 20px 24px;
+  margin-top: 8px;
+}
+
+.about-quote-box .quote-mark {
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  font-family: var(--font-heading), serif;
+  font-size: 40px;
+  line-height: 1;
+  color: rgba(128, 0, 32, 0.2);
+  pointer-events: none;
+}
+
+.about-quote-box p {
+  font-family: var(--font-heading), serif;
+  font-style: italic;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #000000;
+  margin: 0 0 8px;
+}
+
+.about-quote-box .quote-author {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #800020;
+  text-transform: uppercase;
+}
+
+/* 3. The 3 Boutique Pillars */
+.about-pillars-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.pillars-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto clamp(24px, 3.5vw, 36px);
+}
+
+.pillars-header h3 {
+  font-family: var(--font-heading), sans-serif;
+  font-size: clamp(22px, 2.2vw, 30px);
+  font-weight: 600;
+  color: #000000;
+  margin: 6px 0 8px;
+}
+
+.pillars-header p {
+  font-size: 14.5px;
+  color: rgb(0 0 0 / 0.65);
+  margin: 0;
+}
+
+.about-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(18px, 2.5vw, 28px);
+}
+
+.about-pillar-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius-block);
+  padding: clamp(24px, 3vw, 32px);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.about-pillar-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(128, 0, 32, 0.07);
+  border-color: rgba(128, 0, 32, 0.25);
+}
+
+.pillar-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(128, 0, 32, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 18px;
 }
 
-.account-lookup-form {
+.pillar-icon {
+  font-size: 20px;
+  color: #800020;
+}
+
+.about-pillar-card h4 {
+  font-family: var(--font-heading), sans-serif;
+  font-size: 19px;
+  font-weight: 600;
+  color: #000000;
+  margin: 0 0 10px;
+}
+
+.about-pillar-card p {
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: rgb(0 0 0 / 0.65);
+  margin: 0 0 16px;
+  flex-grow: 1;
+}
+
+.pillar-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  padding-top: 14px;
+}
+
+.pillar-list li {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: rgb(0 0 0 / 0.75);
+}
+
+/* 4. The 4-Step Boutique Journey */
+.about-journey-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.journey-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto clamp(24px, 3.5vw, 36px);
+}
+
+.journey-header h3 {
+  font-family: var(--font-heading), sans-serif;
+  font-size: clamp(22px, 2.2vw, 30px);
+  font-weight: 600;
+  color: #000000;
+  margin: 6px 0 8px;
+}
+
+.journey-header p {
+  font-size: 14.5px;
+  color: rgb(0 0 0 / 0.65);
+  margin: 0;
+}
+
+.about-journey-steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(14px, 2vw, 22px);
+}
+
+.journey-step-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: var(--radius-block);
+  padding: 24px 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.journey-step-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(128, 0, 32, 0.2);
+}
+
+.step-num {
+  font-family: var(--font-heading), serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: rgba(128, 0, 32, 0.25);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.journey-step-card h5 {
+  font-family: var(--font-heading), sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #000000;
+  margin: 0 0 8px;
+}
+
+.journey-step-card p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgb(0 0 0 / 0.6);
+  margin: 0;
+}
+
+/* 5. Clean Boutique CTA Banner */
+.about-cta-banner {
+  background: linear-gradient(135deg, #111111 0%, #1e1316 100%);
+  border-radius: var(--radius-block);
+  padding: clamp(36px, 5vw, 56px) clamp(20px, 4vw, 40px);
+  color: #ffffff;
+  text-align: center;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.about-cta-content {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cta-crest {
+  font-size: 28px;
+  color: #d4af37;
+  margin-bottom: 12px;
+}
+
+.about-cta-banner h3 {
+  font-family: var(--font-heading), sans-serif;
+  font-size: clamp(24px, 2.6vw, 34px);
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 10px;
+  letter-spacing: -0.01em;
+}
+
+.about-cta-banner p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0 0 28px;
+}
+
+.about-cta-actions {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
-.account-lookup-form input {
-  flex: 1;
-  min-width: 220px;
-  padding: 12px 16px;
-  border: 1px solid rgba(0, 0, 0, 0.16);
-  border-radius: 6px;
+.btn-whatsapp {
+  background: #25d366;
+  color: #ffffff;
+  border-radius: 999px;
+  padding: 12px 22px;
+  font-weight: 600;
   font-size: 14px;
-  outline: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp:hover {
+  background: #1eb857;
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.4);
+}
+
+/* Responsive adjustments for About Atelier */
+@media (max-width: 1024px) {
+  .about-stats-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+  .about-stat-item:nth-child(2) {
+    border-right: none;
+  }
+  .about-pillars-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .about-journey-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-stats-strip {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .about-stat-item {
+    border-right: none !important;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.08);
+    padding-bottom: 12px;
+  }
+  .about-stat-item:last-child {
+    border-bottom: none;
+  }
+  .about-split-section {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .about-journey-steps {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .about-cta-actions .btn {
+    width: 100%;
+  }
+  .btn-whatsapp {
+    width: 100%;
+    justify-content: center;
+  }
 }

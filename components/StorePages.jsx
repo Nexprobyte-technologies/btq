@@ -517,17 +517,18 @@ export function ProductPage({ slug }) {
 
 const pages = {
   "about-us": {
-    eyebrow: "THE CHARMIQUE STORY",
-    title: "Timeless Craftsmanship, Thoughtfully Tailored",
+    eyebrow: "THE ATELIER STORY",
+    title: "Generational Weaving & Bespoke Couture",
     intro:
-      "Charmique was founded on the philosophy that true luxury lies in fabric character, mindful construction, and wearable elegance.",
-    body: "From hand-picked silk weaves and festive sarees to relaxed contemporary knitwear, our collections bridge heirloom artisan heritage with modern effortless dressing. Every garment is designed to feel as remarkable against the skin as it looks in the mirror.",
+      "Born in Chennai, Charmique celebrates the quiet luxury of authentic handloom silks, intricate bridal embroideries, and made-to-measure tailoring.",
+    body: "From hand-picked pure Kanjivaram and Banarasi weaves to bespoke wedding lehengas and tailored blouses, we connect discerning patrons directly with generational artisan weavers.",
   },
   about: {
-    eyebrow: "OUR PHILOSOPHY",
-    title: "Everyday Luxury, Thoughtfully Considered",
-    intro: "Curating signature wardrobe pieces that empower confident everyday expression.",
-    body: "We blend tactile textures, comfortable cuts, and timeless color palettes to create pieces you will cherish for seasons to come.",
+    eyebrow: "THE ATELIER STORY",
+    title: "Generational Weaving & Bespoke Couture",
+    intro:
+      "Born in Chennai, Charmique celebrates the quiet luxury of authentic handloom silks, intricate bridal embroideries, and made-to-measure tailoring.",
+    body: "From hand-picked pure Kanjivaram and Banarasi weaves to bespoke wedding lehengas and tailored blouses, we connect discerning patrons directly with generational artisan weavers.",
   },
   contact: {
     eyebrow: "ATELIER & BOUTIQUE CONCIERGE",
@@ -546,19 +547,6 @@ const pages = {
     eyebrow: "EFFORTLESS RETURNS",
     title: "30-Day Returns & Exchanges",
     intro: "We want you to feel utterly delighted with your boutique wardrobe selections.",
-    body: "If any item does not fit precisely as you hoped, request a complimentary return or exchange within 30 days of receipt. Garments must remain unworn with original tags attached.",
-  },
-  faq: {
-    eyebrow: "FREQUENT INQUIRIES",
-    title: "Help & Frequently Asked Questions",
-    intro: "Helpful answers to guide your boutique shopping experience.",
-    body: "Orders ship within 24–48 hours. Express tracked delivery takes 2–4 business days. Size consultations are gladly accommodated through our concierge email or live chat.",
-  },
-  account: {
-    eyebrow: "CHARMIQUE ATELIER",
-    title: "Client Portal & Order Tracking",
-    intro: "Access your order history, manage saved addresses, and view your private boutique wishlist.",
-    body: "Enter your registered email address or order reference number below to retrieve live dispatch information and personalized tailoring notes.",
   },
 };
 
@@ -777,29 +765,205 @@ export function InfoPage({ slug }) {
               </div>
             </div>
           </div>
+        ) : (slug === "about-us" || slug === "about") ? (
+          <div className="about-showcase">
+            {/* 1. Atelier Trust Highlights Strip */}
+            <div className="about-stats-strip">
+              <div className="about-stat-item">
+                <span className="stat-crest">⚜</span>
+                <div className="stat-text">
+                  <strong>Silk Mark Certified</strong>
+                  <span>100% Pure Mulberry Silks &amp; Tested Zari</span>
+                </div>
+              </div>
+              <div className="about-stat-item">
+                <span className="stat-crest">✦</span>
+                <div className="stat-text">
+                  <strong>350+ Master Artisans</strong>
+                  <span>Generational Weavers from Kanchipuram &amp; Banaras</span>
+                </div>
+              </div>
+              <div className="about-stat-item">
+                <span className="stat-crest">⚜</span>
+                <div className="stat-text">
+                  <strong>Bespoke Bridal Fits</strong>
+                  <span>Custom Blouse Tailoring &amp; Maggam Zardozi</span>
+                </div>
+              </div>
+              <div className="about-stat-item">
+                <span className="stat-crest">✦</span>
+                <div className="stat-text">
+                  <strong>Worldwide Express</strong>
+                  <span>Insured Doorstep Delivery across 25+ Countries</span>
+                </div>
+              </div>
+            </div>
+
+            {/* 2. Visual Narrative Split: Atelier Heritage & Philosophy */}
+            <div className="about-split-section">
+              <div className="about-image-card">
+                <div className="about-image-wrap">
+                  <img
+                    src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=85"
+                    alt="Handcrafted Pure Kanjivaram Silk Saree Weave"
+                    loading="lazy"
+                  />
+                  <div className="about-image-badge">
+                    <span className="badge-gold-star">✦</span>
+                    <span>POES GARDEN, CHENNAI · ESTD. 2012</span>
+                  </div>
+                </div>
+                <div className="about-image-caption">
+                  <span>“Every warp and weft is examined millimeter-by-millimeter for genuine zari purity, drape softness, and heirloom longevity.”</span>
+                </div>
+              </div>
+
+              <div className="about-narrative-card">
+                <span className="about-pill-tag">THE ATELIER PHILOSOPHY</span>
+                <h2>Where Generational Weaving Meets Modern Sophistication</h2>
+                <p className="narrative-lead">
+                  Charmique was founded with a single uncompromising mission: to restore the personal intimacy, artisanal integrity, and slow craftsmanship of the traditional Indian bridal boutique.
+                </p>
+                <p>
+                  In an era dominated by rapid synthetic production, our heart remains with the slow loom. We collaborate directly with master weaving families across Kanchipuram, Banaras, and Chanderi—preserving heritage motifs such as the <em>Mayil</em> (peacock), <em>Rudraksh</em>, and temple korvai borders while tailoring cuts for effortless modern draping.
+                </p>
+                <p>
+                  By eliminating commercial middlemen, we ensure master weavers receive righteous respect and fair livelihood, while delivering couture-grade heirlooms directly into your wardrobe.
+                </p>
+
+                <div className="about-quote-box">
+                  <span className="quote-mark">“</span>
+                  <p>
+                    An Indian heirloom is never just fabric—it weaves together your joyful laughter at sangeets, the sanctity of wedding pheras, and memories cherished across generations.
+                  </p>
+                  <span className="quote-author">— The Charmique Atelier Family</span>
+                </div>
+              </div>
+            </div>
+
+            {/* 3. The 3 Boutique Pillars */}
+            <div className="about-pillars-section">
+              <div className="pillars-header">
+                <span className="about-pill-tag">WHAT DEFINES US</span>
+                <h3>Our Uncompromised Boutique Promises</h3>
+                <p>Every garment bearing the Charmique crest adheres to three foundational tenets:</p>
+              </div>
+
+              <div className="about-pillars-grid">
+                <div className="about-pillar-card">
+                  <div className="pillar-icon-box">
+                    <span className="pillar-icon">⚜</span>
+                  </div>
+                  <h4>Purity &amp; Authenticity in Every Thread</h4>
+                  <p>
+                    We exclusively work with pure natural fibers—high-density mulberry silks, natural organza, fine breathable cottons, and genuine tested silver/gold zari. Every pure silk drape is backed by verified certification.
+                  </p>
+                  <ul className="pillar-list">
+                    <li>✓ Silk Mark purity tested</li>
+                    <li>✓ Authentic zari borders &amp; rich pallus</li>
+                    <li>✓ Breathable, skin-friendly natural dyes</li>
+                  </ul>
+                </div>
+
+                <div className="about-pillar-card">
+                  <div className="pillar-icon-box">
+                    <span className="pillar-icon">✂</span>
+                  </div>
+                  <h4>Custom Tailoring &amp; Blouse Artistry</h4>
+                  <p>
+                    No outfit is complete without an impeccable fit. Our master pattern-makers and in-house embroidery artisans hand-stitch custom bridal blouse necklines, back ties, maggam zardozi, and precision fall/pico finishes.
+                  </p>
+                  <ul className="pillar-list">
+                    <li>✓ Made-to-measure blouse tailoring</li>
+                    <li>✓ Handcrafted aari, zardozi &amp; pearl work</li>
+                    <li>✓ Complimentary fall, pico &amp; tassels</li>
+                  </ul>
+                </div>
+
+                <div className="about-pillar-card">
+                  <div className="pillar-icon-box">
+                    <span className="pillar-icon">✦</span>
+                  </div>
+                  <h4>Intimate, High-Touch Concierge</h4>
+                  <p>
+                    Whether visiting our private salon in Poes Garden or shopping from London, New York, or Dubai, our personal stylists provide HD video calls, live drape walkthroughs, and responsive styling advice.
+                  </p>
+                  <ul className="pillar-list">
+                    <li>✓ 1-on-1 WhatsApp video shopping</li>
+                    <li>✓ Dedicated bridal trousseau consultant</li>
+                    <li>✓ Insured door delivery with tracking</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* 4. The 4-Step Boutique Journey */}
+            <div className="about-journey-section">
+              <div className="journey-header">
+                <span className="about-pill-tag">THE SHOPPING EXPERIENCE</span>
+                <h3>From the Master Loom to Your Celebration</h3>
+                <p>Simple, transparent, and personalized at every step of your journey:</p>
+              </div>
+
+              <div className="about-journey-steps">
+                <div className="journey-step-card">
+                  <div className="step-num">01</div>
+                  <h5>Discover Collections</h5>
+                  <p>Browse our limited-edition edits online or request private showcase drops directly on WhatsApp.</p>
+                </div>
+
+                <div className="journey-step-card">
+                  <div className="step-num">02</div>
+                  <h5>Live Video Drape</h5>
+                  <p>Schedule a live HD video call to inspect texture, pallu motifs, weight, and true colors in daylight.</p>
+                </div>
+
+                <div className="journey-step-card">
+                  <div className="step-num">03</div>
+                  <h5>Precision Tailoring</h5>
+                  <p>Share your measurements or reference blouse pictures. Our master tailors cut and stitch with millimeter precision.</p>
+                </div>
+
+                <div className="journey-step-card">
+                  <div className="step-num">04</div>
+                  <h5>Heirloom Packaging</h5>
+                  <p>Delivered in signature protective cotton keepsakes with tracking, customs clearance, and full transit insurance.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* 5. Clean Boutique CTA Banner */}
+            <div className="about-cta-banner">
+              <div className="about-cta-content">
+                <span className="cta-crest">⚜</span>
+                <h3>Begin Your Boutique Experience</h3>
+                <p>
+                  Visit our flagship salon in Chennai or connect directly with our master stylists on WhatsApp for customized bridal consultations.
+                </p>
+                <div className="about-cta-actions">
+                  <Link href="/collections" className="btn btn-dark">
+                    <span className="dot" />
+                    <span className="btn-text">Explore Signature Weaves</span>
+                  </Link>
+                  <Link href="/pages/contact" className="btn btn-outline" style={{ background: "rgba(255,255,255,0.08)", color: "#ffffff", borderColor: "rgba(255,255,255,0.25)" }}>
+                    <span>Visit Chennai Flagship</span>
+                  </Link>
+                  <a
+                    href="https://api.whatsapp.com/send?phone=919876543210&text=Hello%20Charmique%20Boutique!%20%E2%9C%A8%20I%20would%20like%20to%20know%20more%20about%20your%20atelier%20and%20collections."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-whatsapp"
+                  >
+                    <WhatsAppFilled size={15} />
+                    <span>Chat on WhatsApp</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         ) : (
           <div className="store-copy">
             <p className="store-copy-lead">{page.body}</p>
-            {slug === "account" && (
-              <div className="account-portal-box">
-                <h4>Check Order Status</h4>
-                <p>Track delivery dispatch or manage your boutique profile:</p>
-                <form
-                  className="account-lookup-form"
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    alert("Order status: All systems active. Please check your inbox for recent dispatch details.");
-                  }}
-                >
-                  <input type="text" placeholder="Order Reference (e.g. CHQ-482109)" required />
-                  <input type="email" placeholder="Billing Email Address" required />
-                  <button type="submit" className="btn btn-dark">
-                    <span className="dot" />
-                    <span className="btn-text">Track Order</span>
-                  </button>
-                </form>
-              </div>
-            )}
           </div>
         )}
     </PageShell>

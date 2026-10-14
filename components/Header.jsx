@@ -7,12 +7,6 @@ import { navLinks, exploreMoreLinks, megaImages, img, categoriesGrid } from "@/d
 import { useStore } from "@/context/StoreContext";
 import { ArrowDiagonal, ArrowRight, Bag, Close, Heart, Search, WhatsAppFilled } from "./icons";
 
-const topHighlights = [
-  "✨ Handcrafted Pure Kanjivaram Silks & Regal Bridal Lehengas · Worldwide Express Delivery",
-  "💬 Direct WhatsApp Concierge & Atelier Consultations · Custom Sizing Available",
-  "🌸 Bespoke Blouse Stitching & Hand Maggam Work · In-Store & Video Call Fittings",
-];
-
 export default function Header() {
   const pathname = usePathname();
   const { totalItems, wishlist, openCart, openSearch } = useStore();
@@ -22,7 +16,7 @@ export default function Header() {
     pathname.startsWith("/collections/") ||
     pathname === "/cart" ||
     pathname === "/search" ||
-    ["/pages/about", "/pages/about-us", "/pages/contact", "/pages/faq", "/pages/privacy-policy", "/pages/refund-policy"].includes(
+    ["/pages/about", "/pages/about-us", "/pages/contact", "/pages/privacy-policy", "/pages/refund-policy"].includes(
       pathname
     );
 
@@ -31,15 +25,6 @@ export default function Header() {
   const [drawer, setDrawer] = useState(false);
   const [megaOpen, setMegaOpen] = useState(false);
   const [exploreOpen, setExploreOpen] = useState(false);
-  const [activeHighlight, setActiveHighlight] = useState(0);
-
-  // Rotating top announcement highlight
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveHighlight((prev) => (prev + 1) % topHighlights.length);
-    }, 4500);
-    return () => clearInterval(timer);
-  }, []);
 
   useEffect(() => {
     let last = 0;
@@ -77,36 +62,6 @@ export default function Header() {
           isLightPage ? " is-black-nav" : ""
         }`}
       >
-        {/* Top Luxury Atelier Notice & Concierge Strip */}
-        <div className="site-topbar">
-          <div className="container site-topbar__inner">
-            <div className="site-topbar__left">
-              <span className="topbar-crest">⚜</span>
-              <span className="topbar-location">CHENNAI FLAGSHIP ATELIER · BESPOKE COUTURE</span>
-            </div>
-
-            <div className="site-topbar__center">
-              <span className="topbar-slide-text">
-                {topHighlights[activeHighlight]}
-              </span>
-            </div>
-
-            <div className="site-topbar__right">
-              <a
-                href="https://api.whatsapp.com/send?phone=919876543210&text=Hello%20Charmique%20Boutique!%20I%20would%20like%20to%20consult%20with%20your%20stylist."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="topbar-link topbar-whatsapp"
-              >
-                <WhatsAppFilled size={13} />
-                <span>Stylist Concierge: +91 98765 43210</span>
-              </a>
-              <span className="topbar-sep">·</span>
-              <span className="topbar-delivery">✈ Worldwide Express Delivery</span>
-            </div>
-          </div>
-        </div>
-
         {/* Main Header Bar */}
         <div className="site-header__main">
           <div className="container site-header__inner">
@@ -125,12 +80,12 @@ export default function Header() {
               </button>
 
               {/* Boutique Brand Logo on the Left */}
-              <Link href="/" className="site-header__logo" aria-label="Charmique Boutique Home">
-                <span className="brand-crest" aria-hidden="true">✦</span>
-                <div className="brand-text-col">
-                  <span className="brand-logo-text">CHARMIQUE</span>
-                  <span className="brand-sub-tag">HAUTE COUTURE · ATELIER</span>
-                </div>
+              <Link href="/" className="site-header__logo" aria-label="Charmiqe Boutique Home">
+                <img
+                  src="/logo.png"
+                  alt="Charmiqe"
+                  className="brand-logo-img"
+                />
               </Link>
 
               {/* Primary Navigation — Home, Collections, Bridal Couture & Explore More Dropdown */}
@@ -371,15 +326,11 @@ export default function Header() {
         <aside className="drawer__panel">
           <div className="drawer__head">
             <div className="drawer__brand-wrap">
-              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                <span style={{ color: "#d4af37", fontSize: 16 }}>✦</span>
-                <strong className="heading-font" style={{ fontSize: 20, letterSpacing: "0.14em" }}>
-                  CHARMIQUE
-                </strong>
-              </div>
-              <span style={{ fontSize: 9, color: "rgba(0,0,0,0.5)", letterSpacing: "0.25em", marginTop: 2 }}>
-                HAUTE COUTURE · ATELIER
-              </span>
+              <img
+                src="/logo.png"
+                alt="Charmiqe"
+                style={{ height: 44, width: "auto", objectFit: "contain", display: "block" }}
+              />
             </div>
             <button type="button" aria-label="Close menu" onClick={() => setDrawer(false)}>
               <Close />
