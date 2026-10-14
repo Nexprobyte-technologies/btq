@@ -3,6 +3,8 @@ import { Reveal, Split } from "./Reveal";
 
 function Card({ item, index }) {
   const rotation = index % 2 === 0 ? -2.5 : 2.5;
+  const whatsappMsg = `Hello Charmique Boutique! ✨\n\nI saw the bespoke piece *"${item.product}"* on your Instagram Atelier Diaries and would like to enquire about its availability, pricing, and custom tailoring.`;
+  const whatsappUrl = `https://api.whatsapp.com/send?phone=919876543210&text=${encodeURIComponent(whatsappMsg)}`;
 
   return (
     <div className="insta__card" style={{ "--r": `${rotation + (index % 3) * 0.6}deg` }}>
@@ -12,7 +14,15 @@ function Card({ item, index }) {
         <div className="insta__meta">
           <div className="t">{item.product}</div>
           <div className="p">Bespoke Couture Piece</div>
-          <span className="insta__view">Enquire Design ↗</span>
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="insta__view"
+            aria-label={`Enquire about ${item.product}`}
+          >
+            Enquire Design ↗
+          </a>
         </div>
       </div>
     </div>

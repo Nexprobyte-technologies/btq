@@ -39,6 +39,7 @@ export function CollectionDirectory() {
 export function CollectionPage({ slug }) {
   const [sortBy, setSortBy] = useState("featured");
   const [activeCategoryFilter, setActiveCategoryFilter] = useState("all");
+  const [showFilters, setShowFilters] = useState(false);
 
   const collection = collections.find((item) => item.slug === slug);
   if (!collection && slug !== "all") return <NotFoundPage title="Collection not found" />;
@@ -79,25 +80,25 @@ export function CollectionPage({ slug }) {
         collection?.label?.toLowerCase() || "our signature styles"
       }, tailored with supreme fabric comfort, thoughtful silhouettes, and enduring luxury.`}
     >
-      {/* Category filter pills */}
-      <div className="collection-filter-chips">
-        {categories.map((cat) => (
-          <button
-            key={cat.value}
-            type="button"
-            className={`filter-chip ${activeCategoryFilter === cat.value ? "is-active" : ""}`}
-            onClick={() => setActiveCategoryFilter(cat.value)}
-          >
-            {cat.label}
-          </button>
-        ))}
-      </div>
-
-      {/* Toolbar with live count and sorting */}
+      {/* Toolbar with live count, filter toggle and sorting */}
       <div className="store-toolbar">
         <div className="toolbar-left">
-          <Filter size={15} />
-          <span>Showing <b>{sorted.length}</b> styles</span>
+          <button
+            type="button"
+            className={`toolbar-filter-btn ${showFilters ? "is-active" : ""}`}
+            onClick={() => setShowFilters((prev) => !prev)}
+            aria-expanded={showFilters}
+            aria-label="Filter products"
+          >
+            <Filter size={15} />
+            <span>Filters</span>
+            {activeCategoryFilter !== "all" && (
+              <span className="filter-count-badge">1</span>
+            )}
+          </button>
+          <span className="toolbar-count">
+            Showing <b>{sorted.length}</b> styles
+          </span>
         </div>
         <div className="toolbar-right">
           <label htmlFor="sort-select">Sort by:</label>
@@ -112,6 +113,32 @@ export function CollectionPage({ slug }) {
           </select>
         </div>
       </div>
+
+      {/* Expandable Category filter pills */}
+      {showFilters && (
+        <div className="collection-filter-chips is-open">
+          <span className="filter-chips-label">Filter:</span>
+          {categories.map((cat) => (
+            <button
+              key={cat.value}
+              type="button"
+              className={`filter-chip ${activeCategoryFilter === cat.value ? "is-active" : ""}`}
+              onClick={() => setActiveCategoryFilter(cat.value)}
+            >
+              {cat.label}
+            </button>
+          ))}
+          {activeCategoryFilter !== "all" && (
+            <button
+              type="button"
+              className="filter-chip filter-chip--clear"
+              onClick={() => setActiveCategoryFilter("all")}
+            >
+              ✕ Clear Filter
+            </button>
+          )}
+        </div>
+      )}
 
       {/* Products Grid */}
       <div className="store-products">
@@ -150,8 +177,25 @@ export function ProductPage({ slug }) {
   if (!product) return <NotFoundPage title="Product not found" />;
 
   const isWishlisted = isInWishlist(slug);
-  const gallery = product.gallery || [product.image, product.hover || product.image].filter(Boolean);
+  const colorImages = (product.colors || []).map((c) => c.image).filter(Boolean);
+  const baseGallery = product.gallery || [product.image, product.hover].filter(Boolean);
+  const gallery = Array.from(new Set([...(colorImages.length > 0 ? colorImages : []), ...baseGallery]));
+  if (gallery.length === 0 && product.image) gallery.push(product.image);
   const sizes = product.sizes || ["XS", "S", "M", "L", "XL", "Custom Fit"];
+
+  const handleColorSelect = (colorObj, index) => {
+    setSelectedColor(colorObj.name);
+    if (colorObj.image) {
+      const idx = gallery.indexOf(colorObj.image);
+      if (idx !== -1) {
+        setActiveImageIndex(idx);
+        return;
+      }
+    }
+    if (gallery.length > 0) {
+      setActiveImageIndex(index % gallery.length);
+    }
+  };
 
   const handleWhatsAppEnquiry = () => {
     const msg = `Hello Charmique Boutique! ✨\n\nI want to enquire about *${product.title}*.\nSelected Color: ${selectedColor}\nSelected Size: ${selectedSize}\nQuantity: ${quantity}\n\nPlease share pricing, blouse customization options, fabric availability, and delivery schedule.`;
@@ -183,7 +227,13 @@ export function ProductPage({ slug }) {
                   key={`${file}-${i}`}
                   type="button"
                   className={`gallery-thumb-btn ${activeImageIndex === i ? "is-active" : ""}`}
-                  onClick={() => setActiveImageIndex(i)}
+                  onClick={() => {
+                    setActiveImageIndex(i);
+                    const matchingColor = (product.colors || []).find((c) => c.image === file);
+                    if (matchingColor) {
+                      setSelectedColor(matchingColor.name);
+                    }
+                  }}
                 >
                   <img src={img(file, 240)} alt="" />
                 </button>
@@ -223,7 +273,7 @@ export function ProductPage({ slug }) {
                 Color: <b>{selectedColor}</b>
               </label>
               <div className="store-swatches">
-                {product.colors.map((color) => (
+                {product.colors.map((color, index) => (
                   <button
                     key={color.name}
                     type="button"
@@ -232,7 +282,7 @@ export function ProductPage({ slug }) {
                       selectedColor === color.name ? "is-selected" : ""
                     }`}
                     style={{ background: color.color }}
-                    onClick={() => setSelectedColor(color.name)}
+                    onClick={() => handleColorSelect(color, index)}
                   />
                 ))}
               </div>

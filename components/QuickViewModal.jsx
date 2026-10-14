@@ -26,7 +26,10 @@ export default function QuickViewModal() {
 
   const product = quickViewProduct;
   const productSlug = product.slug || slugify(product.title);
-  const images = product.gallery || [product.image, product.hover || product.image].filter(Boolean);
+  const colorImages = (product.colors || []).map((c) => c.image).filter(Boolean);
+  const baseImages = product.gallery || [product.image, product.hover].filter(Boolean);
+  const images = Array.from(new Set([...(colorImages.length > 0 ? colorImages : []), ...baseImages]));
+  if (images.length === 0 && product.image) images.push(product.image);
 
   const handleAdd = () => {
     addToCart(product, selectedSize, selectedColor, quantity, true);
@@ -96,14 +99,26 @@ export default function QuickViewModal() {
                   Color: <b>{selectedColor}</b>
                 </label>
                 <div className="swatches-list">
-                  {product.colors.map((c) => (
+                  {product.colors.map((c, index) => (
                     <button
                       key={c.name}
                       type="button"
                       className={`swatch-circle ${selectedColor === c.name ? "is-selected" : ""}`}
                       style={{ "--bg-c": c.color }}
                       title={c.name}
-                      onClick={() => setSelectedColor(c.name)}
+                      onClick={() => {
+                        setSelectedColor(c.name);
+                        if (c.image) {
+                          const idx = images.indexOf(c.image);
+                          if (idx !== -1) {
+                            setActiveImage(idx);
+                            return;
+                          }
+                        }
+                        if (images.length > 0) {
+                          setActiveImage(index % images.length);
+                        }
+                      }}
                     />
                   ))}
                 </div>
@@ -132,51 +147,55 @@ export default function QuickViewModal() {
             </div>
 
             {/* Quantity and Actions */}
-            <div className="quickview-actions" style={{ flexWrap: "wrap", gap: 10 }}>
-              <div className="quickview-stepper">
+            <div className="quickview-actions">
+              <div className="quickview-actions-top">
+                <div className="quickview-stepper">
+                  <button
+                    type="button"
+                    onClick={() => setQuantity((q) => Math.max(1, q - 1))}
+                    aria-label="Decrease quantity"
+                  >
+                    <Minus size={14} />
+                  </button>
+                  <span>{quantity}</span>
+                  <button
+                    type="button"
+                    onClick={() => setQuantity((q) => q + 1)}
+                    aria-label="Increase quantity"
+                  >
+                    <Plus size={14} />
+                  </button>
+                </div>
+
                 <button
                   type="button"
-                  onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-                  aria-label="Decrease quantity"
+                  className="btn-whatsapp-direct"
+                  onClick={() => {
+                    const msg = `Hello Charmique Boutique! ✨\n\nI want to enquire about *${product.title}*.\nSelected Color: ${selectedColor}\nSelected Size: ${selectedSize}\nQuantity: ${quantity}\n\nPlease share price, blouse customization options and delivery schedule.`;
+                    window.open(`https://api.whatsapp.com/send?phone=919876543210&text=${encodeURIComponent(msg)}`, "_blank");
+                    closeQuickView();
+                  }}
+                  style={{
+                    flex: 1,
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: 8,
+                    padding: "12px 18px",
+                    borderRadius: 100,
+                    background: "#25D366",
+                    color: "#ffffff",
+                    fontWeight: 600,
+                    fontSize: 13.5,
+                    border: "none",
+                    cursor: "pointer",
+                    boxShadow: "0 4px 14px rgba(37,211,102,0.3)",
+                  }}
                 >
-                  <Minus size={14} />
-                </button>
-                <span>{quantity}</span>
-                <button
-                  type="button"
-                  onClick={() => setQuantity((q) => q + 1)}
-                  aria-label="Increase quantity"
-                >
-                  <Plus size={14} />
+                  <WhatsAppFilled size={18} />
+                  <span>Enquire on WhatsApp</span>
                 </button>
               </div>
-
-              <button
-                type="button"
-                className="btn-whatsapp-direct"
-                onClick={() => {
-                  const msg = `Hello Charmique Boutique! ✨\n\nI want to enquire about *${product.title}*.\nSelected Color: ${selectedColor}\nSelected Size: ${selectedSize}\nQuantity: ${quantity}\n\nPlease share price, blouse customization options and delivery schedule.`;
-                  window.open(`https://api.whatsapp.com/send?phone=919876543210&text=${encodeURIComponent(msg)}`, "_blank");
-                  closeQuickView();
-                }}
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 8,
-                  padding: "11px 18px",
-                  borderRadius: 100,
-                  background: "#25D366",
-                  color: "#ffffff",
-                  fontWeight: 600,
-                  fontSize: 13.5,
-                  border: "none",
-                  cursor: "pointer",
-                  boxShadow: "0 4px 14px rgba(37,211,102,0.3)",
-                }}
-              >
-                <WhatsAppFilled size={18} />
-                <span>Enquire on WhatsApp</span>
-              </button>
 
               <button
                 type="button"

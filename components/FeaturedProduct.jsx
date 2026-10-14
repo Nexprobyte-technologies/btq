@@ -54,14 +54,24 @@ export default function FeaturedProduct() {
                 Color: <b>{color}</b>
               </div>
               <div className="fp__swatches">
-                {featuredProduct.colors.map((c) => (
+                {featuredProduct.colors.map((c, index) => (
                   <button
                     key={c.name}
                     type="button"
                     aria-label={c.name}
                     className={`swatch-dot${color === c.name ? " is-active" : ""}`}
                     style={{ "--c": c.color }}
-                    onClick={() => setColor(c.name)}
+                    onClick={() => {
+                      setColor(c.name);
+                      if (c.image) {
+                        const idx = featuredProduct.gallery.indexOf(c.image);
+                        if (idx !== -1) {
+                          setHero(idx);
+                          return;
+                        }
+                      }
+                      setHero(index % featuredProduct.gallery.length);
+                    }}
                   />
                 ))}
               </div>

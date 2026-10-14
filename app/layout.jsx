@@ -38,8 +38,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${body.variable} ${heading.variable} ${accent.variable}`}>
-      <body>
+    <html lang="en" className={`${body.variable} ${heading.variable} ${accent.variable}`} suppressHydrationWarning>
+      <body suppressHydrationWarning>
         <StoreProvider>
           {children}
           <CartDrawer />

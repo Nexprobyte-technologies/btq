@@ -149,7 +149,7 @@ export const categoriesGrid = [
   { label: "Everyday Ethnic", image: "https://images.unsplash.com/photo-1609357605129-26f69add5d6e?auto=format&fit=crop&w=1000&q=85" },
 ];
 
-const swatch = (name, color) => ({ name, color });
+const swatch = (name, color, image) => ({ name, color, ...(image ? { image } : {}) });
 
 export const featuredProducts = [
   {
@@ -158,7 +158,11 @@ export const featuredProducts = [
     image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=85",
     hover: "https://images.unsplash.com/photo-1716504628105-bd76d91e85f2?auto=format&fit=crop&w=1000&q=85",
     description: "Woven by master weavers with pure mulberry silk and antique gold zari borders. Includes an unstitched contrast brocade blouse piece.",
-    colors: [swatch("Royal Crimson", "#800020"), swatch("Temple Mustard", "#d4af37"), swatch("Peacock Teal", "#004953")],
+    colors: [
+      swatch("Royal Crimson", "#800020", "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=85"),
+      swatch("Temple Mustard", "#d4af37", "https://images.unsplash.com/photo-1716504628105-bd76d91e85f2?auto=format&fit=crop&w=1000&q=85"),
+      swatch("Peacock Teal", "#004953", "https://images.unsplash.com/photo-1619516388835-2b60acc4049e?auto=format&fit=crop&w=1000&q=85"),
+    ],
   },
   {
     title: "Handcrafted Velvet Bridal Lehenga",
@@ -166,7 +170,11 @@ export const featuredProducts = [
     image: "https://images.unsplash.com/photo-1597897545901-6ac15b725974?auto=format&fit=crop&w=1000&q=85",
     hover: "https://images.unsplash.com/photo-1619516388835-2b60acc4049e?auto=format&fit=crop&w=1000&q=85",
     description: "Rich micro-velvet kalis adorned with intricate zardozi, dabka, and pearl hand-embroidery. Accompanied by twin organza dupattas.",
-    colors: [swatch("Rani Pink", "#e75480"), swatch("Deep Crimson", "#6b0f1a"), swatch("Emerald Green", "#097969")],
+    colors: [
+      swatch("Rani Pink", "#e75480", "https://images.unsplash.com/photo-1597897545901-6ac15b725974?auto=format&fit=crop&w=1000&q=85"),
+      swatch("Deep Crimson", "#6b0f1a", "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=1000&q=85"),
+      swatch("Emerald Green", "#097969", "https://images.unsplash.com/photo-1619516388835-2b60acc4049e?auto=format&fit=crop&w=1000&q=85"),
+    ],
   },
   {
     title: "Chanderi Silk Anarkali Suit Set",
@@ -174,7 +182,11 @@ export const featuredProducts = [
     image: "https://images.unsplash.com/photo-1742800767764-479556a4d8a5?auto=format&fit=crop&w=1000&q=85",
     hover: "https://images.unsplash.com/photo-1742800788220-1e42256d6022?auto=format&fit=crop&w=1000&q=85",
     description: "Floor-sweeping chanderi silhouette layered with gotapatti yoke detailing, paired with churidar and a tissue zari dupatta.",
-    colors: [swatch("Sage Green", "#8a9a86"), swatch("Dusty Rose", "#dcae96"), swatch("Mustard", "#e1ad01")],
+    colors: [
+      swatch("Sage Green", "#8a9a86", "https://images.unsplash.com/photo-1742800767764-479556a4d8a5?auto=format&fit=crop&w=1000&q=85"),
+      swatch("Dusty Rose", "#dcae96", "https://images.unsplash.com/photo-1742800788220-1e42256d6022?auto=format&fit=crop&w=1000&q=85"),
+      swatch("Mustard", "#e1ad01", "https://images.unsplash.com/photo-1738690789530-9c5ee199575c?auto=format&fit=crop&w=1000&q=85"),
+    ],
   },
   {
     title: "Organza Floral Embroidered Saree",
@@ -182,7 +194,11 @@ export const featuredProducts = [
     image: "https://images.unsplash.com/photo-1738690789530-9c5ee199575c?auto=format&fit=crop&w=1000&q=85",
     hover: "https://images.unsplash.com/photo-1716504627981-22728cb2d2e2?auto=format&fit=crop&w=1000&q=85",
     description: "Weightless silk organza hand-painted with soft botanical motifs and finished with a fine scalloped cutdana border.",
-    colors: [swatch("Pastel Peach", "#ffdab9"), swatch("Lavender", "#e6e6fa"), swatch("Mint Green", "#98ff98")],
+    colors: [
+      swatch("Pastel Peach", "#ffdab9", "https://images.unsplash.com/photo-1738690789530-9c5ee199575c?auto=format&fit=crop&w=1000&q=85"),
+      swatch("Lavender", "#e6e6fa", "https://images.unsplash.com/photo-1716504627981-22728cb2d2e2?auto=format&fit=crop&w=1000&q=85"),
+      swatch("Mint Green", "#98ff98", "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=1000&q=85"),
+    ],
   },
   {
     title: "Mirror-Work Georgette Sharara Set",
@@ -190,7 +206,11 @@ export const featuredProducts = [
     image: "https://images.unsplash.com/photo-1732850195295-ed6eb52d1d2b?auto=format&fit=crop&w=1000&q=85",
     hover: "https://images.unsplash.com/photo-1742800788220-1e42256d6022?auto=format&fit=crop&w=1000&q=85",
     description: "Flared tiered sharara paired with a peplum short kurti adorned with real glass mirror embroidery and resham threads.",
-    colors: [swatch("Turquoise", "#40e0d0"), swatch("Sunshine Yellow", "#ffdb58"), swatch("Ivory", "#fffff0")],
+    colors: [
+      swatch("Turquoise", "#40e0d0", "https://images.unsplash.com/photo-1732850195295-ed6eb52d1d2b?auto=format&fit=crop&w=1000&q=85"),
+      swatch("Sunshine Yellow", "#ffdb58", "https://images.unsplash.com/photo-1742800788220-1e42256d6022?auto=format&fit=crop&w=1000&q=85"),
+      swatch("Ivory", "#fffff0", "https://images.unsplash.com/photo-1609357605129-26f69add5d6e?auto=format&fit=crop&w=1000&q=85"),
+    ],
   },
   {
     title: "Draped Pre-Stitched Reception Gown",
@@ -198,7 +218,11 @@ export const featuredProducts = [
     image: "https://images.unsplash.com/photo-1776005395798-9fc7c1c50e95?auto=format&fit=crop&w=1000&q=85",
     hover: "https://images.unsplash.com/photo-1597897545901-6ac15b725974?auto=format&fit=crop&w=1000&q=85",
     description: "Modern saree gown with pre-pleated satin pallu and a bodice encrusted with hand-sewn champagne bugle beads.",
-    colors: [swatch("Champagne Gold", "#fad6a5"), swatch("Midnight Navy", "#000080"), swatch("Wine", "#722f37")],
+    colors: [
+      swatch("Champagne Gold", "#fad6a5", "https://images.unsplash.com/photo-1776005395798-9fc7c1c50e95?auto=format&fit=crop&w=1000&q=85"),
+      swatch("Midnight Navy", "#000080", "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1000&q=85"),
+      swatch("Wine", "#722f37", "https://images.unsplash.com/photo-1597897545901-6ac15b725974?auto=format&fit=crop&w=1000&q=85"),
+    ],
   },
   {
     title: "Handloom Tussar Silk Kurti & Pant",
@@ -206,7 +230,11 @@ export const featuredProducts = [
     image: "https://images.unsplash.com/photo-1742800788220-1e42256d6022?auto=format&fit=crop&w=1000&q=85",
     hover: "https://images.unsplash.com/photo-1742800767764-479556a4d8a5?auto=format&fit=crop&w=1000&q=85",
     description: "Natural textured tussar silk kurta featuring traditional Bagru handblock prints and mother-of-pearl buttons.",
-    colors: [swatch("Raw Ecru", "#c2b280"), swatch("Indigo", "#4b0082"), swatch("Terracotta", "#e2725b")],
+    colors: [
+      swatch("Raw Ecru", "#c2b280", "https://images.unsplash.com/photo-1742800788220-1e42256d6022?auto=format&fit=crop&w=1000&q=85"),
+      swatch("Indigo", "#4b0082", "https://images.unsplash.com/photo-1742800767764-479556a4d8a5?auto=format&fit=crop&w=1000&q=85"),
+      swatch("Terracotta", "#e2725b", "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=85"),
+    ],
   },
   {
     title: "Banarasi Georgette Meenakari Saree",
@@ -214,7 +242,11 @@ export const featuredProducts = [
     image: "https://images.unsplash.com/photo-1716504628105-bd76d91e85f2?auto=format&fit=crop&w=1000&q=85",
     hover: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=85",
     description: "Supple pure georgette woven with intricate Meenakari floral jaal in kadwa technique. Unmatched drape and heirloom value.",
-    colors: [swatch("Royal Purple", "#7851a9"), swatch("Rani Magenta", "#ca1f7b"), swatch("Emerald", "#005a36")],
+    colors: [
+      swatch("Royal Purple", "#7851a9", "https://images.unsplash.com/photo-1716504628105-bd76d91e85f2?auto=format&fit=crop&w=1000&q=85"),
+      swatch("Rani Magenta", "#ca1f7b", "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=85"),
+      swatch("Emerald", "#005a36", "https://images.unsplash.com/photo-1619516388835-2b60acc4049e?auto=format&fit=crop&w=1000&q=85"),
+    ],
   },
 ];
 
@@ -225,28 +257,40 @@ export const tabProducts = {
       badge: "Pure Silk",
       image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=85",
       hover: "https://images.unsplash.com/photo-1716504628105-bd76d91e85f2?auto=format&fit=crop&w=1000&q=85",
-      colors: [swatch("Maroon", "#800020"), swatch("Gold", "#ffd700")],
+      colors: [
+        swatch("Maroon", "#800020", "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=85"),
+        swatch("Gold", "#ffd700", "https://images.unsplash.com/photo-1716504628105-bd76d91e85f2?auto=format&fit=crop&w=1000&q=85"),
+      ],
     },
     {
       title: "Banarasi Georgette Meenakari Saree",
       badge: "Handloom",
       image: "https://images.unsplash.com/photo-1716504628105-bd76d91e85f2?auto=format&fit=crop&w=1000&q=85",
       hover: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=85",
-      colors: [swatch("Purple", "#7851a9"), swatch("Rani", "#ca1f7b")],
+      colors: [
+        swatch("Purple", "#7851a9", "https://images.unsplash.com/photo-1716504628105-bd76d91e85f2?auto=format&fit=crop&w=1000&q=85"),
+        swatch("Rani", "#ca1f7b", "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=85"),
+      ],
     },
     {
       title: "Temple Border Silk Saree",
       badge: "Authentic Zari",
       image: "https://images.unsplash.com/photo-1738690789530-9c5ee199575c?auto=format&fit=crop&w=1000&q=85",
       hover: "https://images.unsplash.com/photo-1619516388835-2b60acc4049e?auto=format&fit=crop&w=1000&q=85",
-      colors: [swatch("Mustard", "#e1ad01"), swatch("Maroon", "#800020")],
+      colors: [
+        swatch("Mustard", "#e1ad01", "https://images.unsplash.com/photo-1738690789530-9c5ee199575c?auto=format&fit=crop&w=1000&q=85"),
+        swatch("Maroon", "#800020", "https://images.unsplash.com/photo-1619516388835-2b60acc4049e?auto=format&fit=crop&w=1000&q=85"),
+      ],
     },
     {
       title: "Tissue Organza Scalloped Saree",
       badge: "Hand-Embroidered",
       image: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=1000&q=85",
       hover: "https://images.unsplash.com/photo-1716504627981-22728cb2d2e2?auto=format&fit=crop&w=1000&q=85",
-      colors: [swatch("Rose Gold", "#b76e79"), swatch("Ivory", "#fffff0")],
+      colors: [
+        swatch("Rose Gold", "#b76e79", "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=1000&q=85"),
+        swatch("Ivory", "#fffff0", "https://images.unsplash.com/photo-1716504627981-22728cb2d2e2?auto=format&fit=crop&w=1000&q=85"),
+      ],
     },
   ],
   "Designer Lehengas": [
@@ -255,28 +299,40 @@ export const tabProducts = {
       badge: "Bridal Exclusive",
       image: "https://images.unsplash.com/photo-1597897545901-6ac15b725974?auto=format&fit=crop&w=1000&q=85",
       hover: "https://images.unsplash.com/photo-1619516388835-2b60acc4049e?auto=format&fit=crop&w=1000&q=85",
-      colors: [swatch("Red", "#b22222"), swatch("Maroon", "#800020")],
+      colors: [
+        swatch("Red", "#b22222", "https://images.unsplash.com/photo-1597897545901-6ac15b725974?auto=format&fit=crop&w=1000&q=85"),
+        swatch("Maroon", "#800020", "https://images.unsplash.com/photo-1619516388835-2b60acc4049e?auto=format&fit=crop&w=1000&q=85"),
+      ],
     },
     {
       title: "Pastel Flora Organza Lehenga",
       badge: "Reception Couture",
       image: "https://images.unsplash.com/photo-1742800767764-479556a4d8a5?auto=format&fit=crop&w=1000&q=85",
       hover: "https://images.unsplash.com/photo-1732850195295-ed6eb52d1d2b?auto=format&fit=crop&w=1000&q=85",
-      colors: [swatch("Blush Pink", "#ffb6c1"), swatch("Mint", "#98ff98")],
+      colors: [
+        swatch("Blush Pink", "#ffb6c1", "https://images.unsplash.com/photo-1742800767764-479556a4d8a5?auto=format&fit=crop&w=1000&q=85"),
+        swatch("Mint", "#98ff98", "https://images.unsplash.com/photo-1732850195295-ed6eb52d1d2b?auto=format&fit=crop&w=1000&q=85"),
+      ],
     },
     {
       title: "Mirror-Work Heavy Kali Lehenga",
       badge: "Sangeet Night",
       image: "https://images.unsplash.com/photo-1732850195295-ed6eb52d1d2b?auto=format&fit=crop&w=1000&q=85",
       hover: "https://images.unsplash.com/photo-1742800788220-1e42256d6022?auto=format&fit=crop&w=1000&q=85",
-      colors: [swatch("Teal", "#008080"), swatch("Yellow", "#ffd700")],
+      colors: [
+        swatch("Teal", "#008080", "https://images.unsplash.com/photo-1732850195295-ed6eb52d1d2b?auto=format&fit=crop&w=1000&q=85"),
+        swatch("Yellow", "#ffd700", "https://images.unsplash.com/photo-1742800788220-1e42256d6022?auto=format&fit=crop&w=1000&q=85"),
+      ],
     },
     {
       title: "Raw Silk Zardozi Trousseau Lehenga",
       badge: "Master Artisan",
       image: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=1000&q=85",
       hover: "https://images.unsplash.com/photo-1597897545901-6ac15b725974?auto=format&fit=crop&w=1000&q=85",
-      colors: [swatch("Crimson Silk", "#800000"), swatch("Emerald", "#004953")],
+      colors: [
+        swatch("Crimson Silk", "#800000", "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=1000&q=85"),
+        swatch("Emerald", "#004953", "https://images.unsplash.com/photo-1597897545901-6ac15b725974?auto=format&fit=crop&w=1000&q=85"),
+      ],
     },
   ],
   "Kurtis & Anarkalis": [
@@ -285,28 +341,40 @@ export const tabProducts = {
       badge: "Festive Pick",
       image: "https://images.unsplash.com/photo-1742800767764-479556a4d8a5?auto=format&fit=crop&w=1000&q=85",
       hover: "https://images.unsplash.com/photo-1742800788220-1e42256d6022?auto=format&fit=crop&w=1000&q=85",
-      colors: [swatch("Sage Green", "#8a9a86"), swatch("Dusty Rose", "#dcae96")],
+      colors: [
+        swatch("Sage Green", "#8a9a86", "https://images.unsplash.com/photo-1742800767764-479556a4d8a5?auto=format&fit=crop&w=1000&q=85"),
+        swatch("Dusty Rose", "#dcae96", "https://images.unsplash.com/photo-1742800788220-1e42256d6022?auto=format&fit=crop&w=1000&q=85"),
+      ],
     },
     {
       title: "Handloom Tussar Silk Kurti & Pant",
       badge: "Everyday Luxury",
       image: "https://images.unsplash.com/photo-1742800788220-1e42256d6022?auto=format&fit=crop&w=1000&q=85",
       hover: "https://images.unsplash.com/photo-1742800767764-479556a4d8a5?auto=format&fit=crop&w=1000&q=85",
-      colors: [swatch("Mustard", "#e1ad01"), swatch("Raw Silk", "#c2b280")],
+      colors: [
+        swatch("Mustard", "#e1ad01", "https://images.unsplash.com/photo-1742800788220-1e42256d6022?auto=format&fit=crop&w=1000&q=85"),
+        swatch("Raw Silk", "#c2b280", "https://images.unsplash.com/photo-1742800767764-479556a4d8a5?auto=format&fit=crop&w=1000&q=85"),
+      ],
     },
     {
       title: "Mirror-Work Georgette Sharara Set",
       badge: "Occasion Wear",
       image: "https://images.unsplash.com/photo-1732850195295-ed6eb52d1d2b?auto=format&fit=crop&w=1000&q=85",
       hover: "https://images.unsplash.com/photo-1716504627981-22728cb2d2e2?auto=format&fit=crop&w=1000&q=85",
-      colors: [swatch("Turquoise", "#40e0d0"), swatch("Ivory", "#fffff0")],
+      colors: [
+        swatch("Turquoise", "#40e0d0", "https://images.unsplash.com/photo-1732850195295-ed6eb52d1d2b?auto=format&fit=crop&w=1000&q=85"),
+        swatch("Ivory", "#fffff0", "https://images.unsplash.com/photo-1716504627981-22728cb2d2e2?auto=format&fit=crop&w=1000&q=85"),
+      ],
     },
     {
       title: "Angrakha Pure Silk Festive Anarkali",
       badge: "Heritage Cut",
       image: "https://images.unsplash.com/photo-1609357605129-26f69add5d6e?auto=format&fit=crop&w=1000&q=85",
       hover: "https://images.unsplash.com/photo-1742800767764-479556a4d8a5?auto=format&fit=crop&w=1000&q=85",
-      colors: [swatch("Indigo Blue", "#1b3f8b"), swatch("Mehendi Olive", "#556b2f")],
+      colors: [
+        swatch("Indigo Blue", "#1b3f8b", "https://images.unsplash.com/photo-1609357605129-26f69add5d6e?auto=format&fit=crop&w=1000&q=85"),
+        swatch("Mehendi Olive", "#556b2f", "https://images.unsplash.com/photo-1742800767764-479556a4d8a5?auto=format&fit=crop&w=1000&q=85"),
+      ],
     },
   ],
   "Party Gowns": [
@@ -315,28 +383,40 @@ export const tabProducts = {
       badge: "Cocktail Edit",
       image: "https://images.unsplash.com/photo-1776005395798-9fc7c1c50e95?auto=format&fit=crop&w=1000&q=85",
       hover: "https://images.unsplash.com/photo-1597897545901-6ac15b725974?auto=format&fit=crop&w=1000&q=85",
-      colors: [swatch("Champagne", "#fad6a5"), swatch("Wine", "#722f37")],
+      colors: [
+        swatch("Champagne", "#fad6a5", "https://images.unsplash.com/photo-1776005395798-9fc7c1c50e95?auto=format&fit=crop&w=1000&q=85"),
+        swatch("Wine", "#722f37", "https://images.unsplash.com/photo-1597897545901-6ac15b725974?auto=format&fit=crop&w=1000&q=85"),
+      ],
     },
     {
       title: "Organza Cape & Dhoti Set",
       badge: "Indo-Western",
       image: "https://images.unsplash.com/photo-1716504627981-22728cb2d2e2?auto=format&fit=crop&w=1000&q=85",
       hover: "https://images.unsplash.com/photo-1776005395798-9fc7c1c50e95?auto=format&fit=crop&w=1000&q=85",
-      colors: [swatch("Midnight Blue", "#191970"), swatch("Emerald", "#004953")],
+      colors: [
+        swatch("Midnight Blue", "#191970", "https://images.unsplash.com/photo-1716504627981-22728cb2d2e2?auto=format&fit=crop&w=1000&q=85"),
+        swatch("Emerald", "#004953", "https://images.unsplash.com/photo-1776005395798-9fc7c1c50e95?auto=format&fit=crop&w=1000&q=85"),
+      ],
     },
     {
       title: "Embellished Cocktail Mermaid Gown",
       badge: "Red Carpet",
       image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1000&q=85",
       hover: "https://images.unsplash.com/photo-1776005395798-9fc7c1c50e95?auto=format&fit=crop&w=1000&q=85",
-      colors: [swatch("Rose Bronze", "#a0522d"), swatch("Onyx Black", "#1b1b1b")],
+      colors: [
+        swatch("Rose Bronze", "#a0522d", "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1000&q=85"),
+        swatch("Onyx Black", "#1b1b1b", "https://images.unsplash.com/photo-1776005395798-9fc7c1c50e95?auto=format&fit=crop&w=1000&q=85"),
+      ],
     },
     {
       title: "Bespoke Pleated Corset Saree Gown",
       badge: "Couture Silhouette",
       image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=85",
       hover: "https://images.unsplash.com/photo-1716504627981-22728cb2d2e2?auto=format&fit=crop&w=1000&q=85",
-      colors: [swatch("Champagne Shimmer", "#e5c59f"), swatch("Ruby Silk", "#9b111e")],
+      colors: [
+        swatch("Champagne Shimmer", "#e5c59f", "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=85"),
+        swatch("Ruby Silk", "#9b111e", "https://images.unsplash.com/photo-1716504627981-22728cb2d2e2?auto=format&fit=crop&w=1000&q=85"),
+      ],
     },
   ],
 };
@@ -424,7 +504,11 @@ export const featuredProduct = {
     "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1200&q=85",
     "https://images.unsplash.com/photo-1716504628105-bd76d91e85f2?auto=format&fit=crop&w=1200&q=85",
   ],
-  colors: [swatch("Royal Crimson", "#800020"), swatch("Rani Pink", "#e75480"), swatch("Emerald Green", "#097969")],
+  colors: [
+    swatch("Royal Crimson", "#800020", "https://images.unsplash.com/photo-1597897545901-6ac15b725974?auto=format&fit=crop&w=1200&q=85"),
+    swatch("Rani Pink", "#e75480", "https://images.unsplash.com/photo-1619516388835-2b60acc4049e?auto=format&fit=crop&w=1200&q=85"),
+    swatch("Emerald Green", "#097969", "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1200&q=85"),
+  ],
   sizes: ["XS", "S", "M", "L", "XL", "Custom Fit"],
   accordions: [
     {

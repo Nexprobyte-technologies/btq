@@ -11,8 +11,6 @@ import LookbookCarousel from "@/components/LookbookCarousel";
 import MobileCategories from "@/components/MobileCategories";
 import ProductRail from "@/components/ProductRail";
 import PromoBar from "@/components/PromoBar";
-import ShopByBrand from "@/components/ShopByBrand";
-import ShopTheLook from "@/components/ShopTheLook";
 import ShowcaseCollections from "@/components/ShowcaseCollections";
 import BackToTop from "@/components/BackToTop";
 import { featuredProducts } from "@/data/site";
@@ -37,13 +35,11 @@ export default function Page() {
         <CollectionPanels />
         <ShowcaseCollections />
         <FeaturedProductsTabs />
-        <ShopTheLook />
         <FeaturedProduct />
         <LookbookCarousel />
         <PromoBar />
         <FloatingText />
         <InstagramGallery />
-        <ShopByBrand />
       </main>
       <Footer />
       <BackToTop />
