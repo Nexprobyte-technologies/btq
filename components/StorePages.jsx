@@ -7,7 +7,7 @@ import ProductCard from "@/components/ProductCard";
 import AddToBag from "@/components/AddToBag";
 import CollectionGrid from "@/components/CollectionGrid";
 import { useStore } from "@/context/StoreContext";
-import { Check, Close, Filter, Heart, HeartFilled, Shield, Sparkles, Star, Truck, WhatsAppFilled } from "./icons";
+import { Check, Close, Filter, Heart, HeartFilled, Shield, Sparkles, Star, Truck, WhatsAppFilled, Phone, Mail, MapPin, Clock, ArrowDiagonal, ArrowRight } from "./icons";
 
 export function PageShell({ eyebrow, title, intro, children }) {
   return (
@@ -530,11 +530,11 @@ const pages = {
     body: "We blend tactile textures, comfortable cuts, and timeless color palettes to create pieces you will cherish for seasons to come.",
   },
   contact: {
-    eyebrow: "BOUTIQUE CONCIERGE",
-    title: "We Are At Your Service",
+    eyebrow: "ATELIER & BOUTIQUE CONCIERGE",
+    title: "Connect With Our Stylists",
     intro:
-      "Have questions regarding styling, custom fittings, or tracking an existing order? Our concierge team is here to assist.",
-    body: "Reach us at concierge@charmique.example or phone +1 (415) 555-0145. Our atelier hours are Monday through Saturday, 9:00 AM – 6:00 PM PST.",
+      "Whether visiting our flagship atelier in Chennai or scheduling a private virtual styling consultation, our personal concierges and master artisans are at your service.",
+    body: "Direct phone concierge, instant WhatsApp consultations, flagship atelier visiting hours, and global order support.",
   },
   "privacy-policy": {
     eyebrow: "CLIENT SECURITY",
@@ -563,7 +563,6 @@ const pages = {
 };
 
 export function InfoPage({ slug }) {
-  const [formSent, setFormSent] = useState(false);
   const page =
     pages[slug] || {
       eyebrow: "CHARMIQUE JOURNAL",
@@ -572,82 +571,237 @@ export function InfoPage({ slug }) {
       body: "We are updating this section with fresh editorial content. Please contact our concierge for further details.",
     };
 
-  const handleContactSubmit = (e) => {
-    e.preventDefault();
-    setFormSent(true);
-  };
-
   return (
     <PageShell eyebrow={page.eyebrow} title={page.title} intro={page.intro}>
-      <div className="store-copy">
-        <p className="store-copy-lead">{page.body}</p>
-
-        {slug === "contact" && (
-          <div className="contact-form-wrapper">
-            {formSent ? (
-              <div className="contact-success-banner">
-                <Check size={28} />
-                <h4>Message Sent to Boutique Concierge</h4>
-                <p>
-                  Thank you for reaching out. A dedicated stylist will respond to your email within
-                  4 business hours.
-                </p>
+        {slug === "contact" ? (
+          <div className="contact-showcase">
+            {/* Top Quick Connect Cards */}
+            <div className="contact-primary-grid">
+              {/* Card 1: Phone Concierge */}
+              <div className="contact-feature-card">
+                <div className="feature-icon-badge">
+                  <Phone size={22} />
+                </div>
+                <span className="feature-tag">DIRECT CALLING</span>
+                <h3>Stylist Phone Concierge</h3>
+                <p>Speak directly with our in-house draping and sizing consultants.</p>
+                <div className="feature-highlight-value">
+                  <a href="tel:+919876543210">+91 98765 43210</a>
+                </div>
+                <div className="feature-sub-info">
+                  <span>Mon – Sat: 10:00 AM – 8:00 PM IST</span>
+                  <span>Sunday: 11:00 AM – 6:00 PM IST</span>
+                </div>
+                <a href="tel:+919876543210" className="feature-cta-btn">
+                  <span>Call Stylist Now</span>
+                  <ArrowRight size={14} />
+                </a>
               </div>
-            ) : (
-              <form className="store-contact-form" onSubmit={handleContactSubmit}>
-                <div className="form-row-2">
-                  <div className="contact-field">
-                    <label>Your Name</label>
-                    <input name="name" placeholder="Priya Sharma" required />
+
+              {/* Card 2: WhatsApp Stylist Desk */}
+              <div className="contact-feature-card featured-whatsapp-card">
+                <div className="feature-icon-badge whatsapp-badge">
+                  <WhatsAppFilled size={24} />
+                </div>
+                <span className="feature-tag">INSTANT MESSAGING</span>
+                <h3>WhatsApp Stylist Desk</h3>
+                <p>Live fabric closeups, custom blouse sketches, and video consultation bookings.</p>
+                <div className="feature-highlight-value">
+                  <a
+                    href="https://api.whatsapp.com/send?phone=919876543210&text=Hello%20Charmique%20Boutique!%20%E2%9C%A8%20I%20would%20like%20to%20consult%20with%20your%20stylist."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    +91 98765 43210
+                  </a>
+                </div>
+                <div className="feature-sub-info">
+                  <span className="online-indicator">
+                    <span className="online-dot" /> Concierge Online Now
+                  </span>
+                  <span>Typical response time: under 15 mins</span>
+                </div>
+                <a
+                  href="https://api.whatsapp.com/send?phone=919876543210&text=Hello%20Charmique%20Boutique!%20%E2%9C%A8%20I%20would%20like%20to%20consult%20with%20your%20stylist."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="feature-cta-btn whatsapp-cta"
+                >
+                  <WhatsAppFilled size={16} />
+                  <span>Start WhatsApp Consultation</span>
+                </a>
+              </div>
+
+              {/* Card 3: Email Desk */}
+              <div className="contact-feature-card">
+                <div className="feature-icon-badge">
+                  <Mail size={22} />
+                </div>
+                <span className="feature-tag">WRITTEN INQUIRIES</span>
+                <h3>Email & Orders Desk</h3>
+                <p>For custom bridal orders, global shipment tracking, and corporate gifts.</p>
+                <div className="feature-highlight-value">
+                  <a href="mailto:concierge@charmique.com">concierge@charmique.com</a>
+                </div>
+                <div className="feature-sub-info">
+                  <a href="mailto:orders@charmique.com" className="email-sub-link">
+                    orders@charmique.com
+                  </a>
+                  <span>Response guaranteed within 4 business hours</span>
+                </div>
+                <a href="mailto:concierge@charmique.com" className="feature-cta-btn">
+                  <span>Send an Email</span>
+                  <ArrowRight size={14} />
+                </a>
+              </div>
+            </div>
+
+            {/* Flagship Atelier Experience & Visiting Details */}
+            <div className="atelier-experience-section">
+              {/* Location & Directions */}
+              <div className="atelier-detail-card">
+                <div className="atelier-card-header">
+                  <div className="atelier-header-icon">
+                    <MapPin size={22} />
                   </div>
-                  <div className="contact-field">
-                    <label>Email Address</label>
-                    <input name="email" type="email" placeholder="priya@example.com" required />
+                  <div>
+                    <span className="atelier-eyebrow">CHENNAI FLAGSHIP ATELIER</span>
+                    <h3>Visit Our Boutique</h3>
                   </div>
                 </div>
-                <div className="contact-field">
-                  <label>Subject / Topic</label>
-                  <input name="subject" placeholder="Sizing consultation, order enquiry..." required />
+
+                <div className="atelier-address-block">
+                  <strong className="atelier-store-name">Charmique Haute Couture Atelier</strong>
+                  <address className="atelier-full-address">
+                    No. 42, Cathedral Road, Poes Garden,<br />
+                    Chennai – 600086, Tamil Nadu, India
+                  </address>
+                  <div className="atelier-landmarks">
+                    <span>Landmark: Opposite Semmozhi Poonga & Near Music Academy</span>
+                    <span>Amenities: Private Bridal Trial Lounge & Complimentary Valet Parking</span>
+                  </div>
                 </div>
-                <div className="contact-field">
-                  <label>Your Message</label>
-                  <textarea
-                    name="message"
-                    placeholder="How may our stylists assist you today?"
-                    rows="5"
-                    required
-                  />
+
+                <div className="atelier-action-group">
+                  <a
+                    href="https://maps.google.com/?q=Cathedral+Road+Chennai"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-dark"
+                  >
+                    <span>Get Directions on Google Maps</span>
+                    <ArrowDiagonal size={12} />
+                  </a>
+                  <a
+                    href="https://api.whatsapp.com/send?phone=919876543210&text=Hello%20Charmique!%20I%20would%20like%20to%20schedule%20an%20in-store%20visit."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-outline"
+                  >
+                    <span>Schedule In-Store Visit</span>
+                  </a>
                 </div>
-                <button type="submit" className="btn btn-dark contact-submit-btn">
-                  <span className="dot" />
-                  <span className="btn-text">Send Message to Concierge</span>
-                </button>
-              </form>
+              </div>
+
+              {/* Atelier Hours & Appointment Privileges */}
+              <div className="atelier-detail-card">
+                <div className="atelier-card-header">
+                  <div className="atelier-header-icon">
+                    <Clock size={22} />
+                  </div>
+                  <div>
+                    <span className="atelier-eyebrow">STORE TIMINGS & TRIALS</span>
+                    <h3>Hours & Consultations</h3>
+                  </div>
+                </div>
+
+                <div className="atelier-hours-table">
+                  <div className="hours-row">
+                    <span className="day-name">Monday – Friday</span>
+                    <span className="time-value">10:00 AM – 8:00 PM IST</span>
+                  </div>
+                  <div className="hours-row">
+                    <span className="day-name">Saturday</span>
+                    <span className="time-value">10:00 AM – 8:30 PM IST</span>
+                  </div>
+                  <div className="hours-row highlight-sunday">
+                    <span className="day-name">Sunday</span>
+                    <span className="time-value">11:00 AM – 6:00 PM IST</span>
+                  </div>
+                </div>
+
+                <div className="bridal-appointment-note">
+                  <div className="note-badge">
+                    <Sparkles size={16} />
+                    <strong>Private Bridal Suite Appointments</strong>
+                  </div>
+                  <p>
+                    For bridal lehengas, bespoke Kanjivaram silk weaves, and wedding trousseau styling, we recommend reserving a private bridal salon appointment.
+                  </p>
+                  <a
+                    href="https://api.whatsapp.com/send?phone=919876543210&text=Hello%20Charmique!%20I%20would%20like%20to%20book%20a%20Private%20Bridal%20Suite%20Appointment."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bridal-book-link"
+                  >
+                    <span>Reserve Private Bridal Appointment via WhatsApp ↗</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Complimentary Atelier Services / Perks Row */}
+            <div className="atelier-services-grid">
+              <div className="service-perk-item">
+                <span className="service-perk-crest">⚜</span>
+                <h4>Custom Fitting & Blouse Stitching</h4>
+                <p>Every saree and lehenga comes with expert blouse pattern tailoring & fall/pico finishes.</p>
+              </div>
+
+              <div className="service-perk-item">
+                <span className="service-perk-crest">⚜</span>
+                <h4>Virtual Video HD Shopping</h4>
+                <p>Live walkthrough of fabrics, borders, and pallu drape over high-definition video call.</p>
+              </div>
+
+              <div className="service-perk-item">
+                <span className="service-perk-crest">⚜</span>
+                <h4>Silk Mark Certified Authentic</h4>
+                <p>Pure mulberry silk and authentic zari guaranteed with government accredited Silk Mark certification.</p>
+              </div>
+
+              <div className="service-perk-item">
+                <span className="service-perk-crest">⚜</span>
+                <h4>Global Insured Doorstep Delivery</h4>
+                <p>Express courier via DHL & FedEx to USA, UK, Canada, UAE, Singapore & Worldwide.</p>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div className="store-copy">
+            <p className="store-copy-lead">{page.body}</p>
+            {slug === "account" && (
+              <div className="account-portal-box">
+                <h4>Check Order Status</h4>
+                <p>Track delivery dispatch or manage your boutique profile:</p>
+                <form
+                  className="account-lookup-form"
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    alert("Order status: All systems active. Please check your inbox for recent dispatch details.");
+                  }}
+                >
+                  <input type="text" placeholder="Order Reference (e.g. CHQ-482109)" required />
+                  <input type="email" placeholder="Billing Email Address" required />
+                  <button type="submit" className="btn btn-dark">
+                    <span className="dot" />
+                    <span className="btn-text">Track Order</span>
+                  </button>
+                </form>
+              </div>
             )}
           </div>
         )}
-
-        {slug === "account" && (
-          <div className="account-portal-box">
-            <h4>Check Order Status</h4>
-            <p>Track delivery dispatch or manage your boutique profile:</p>
-            <form
-              className="account-lookup-form"
-              onSubmit={(e) => {
-                e.preventDefault();
-                alert("Order status: All systems active. Please check your inbox for recent dispatch details.");
-              }}
-            >
-              <input type="text" placeholder="Order Reference (e.g. CHQ-482109)" required />
-              <input type="email" placeholder="Billing Email Address" required />
-              <button type="submit" className="btn btn-dark">
-                <span className="dot" />
-                <span className="btn-text">Track Order</span>
-              </button>
-            </form>
-          </div>
-        )}
-      </div>
     </PageShell>
   );
 }

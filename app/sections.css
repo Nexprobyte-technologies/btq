@@ -4138,70 +4138,465 @@
   margin-bottom: 30px;
 }
 
-.contact-form-wrapper {
-  background: #ffffff;
-  padding: clamp(24px, 4vw, 40px);
-  border-radius: var(--radius-block);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  margin-top: 24px;
-}
-
-.store-contact-form {
+/* ================= Contact & Atelier Concierge Showcase ================= */
+.contact-showcase {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: clamp(32px, 5vw, 48px);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 20px;
 }
 
-.contact-field {
+/* Top Primary Connect Cards (3-column grid) */
+.contact-primary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(16px, 2.5vw, 28px);
+}
+
+.contact-feature-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: var(--radius-block);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: clamp(24px, 3vw, 32px) clamp(20px, 2.5vw, 28px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  transition: transform 0.25s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.contact-feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(128, 0, 32, 0.08);
+  border-color: rgba(128, 0, 32, 0.2);
+}
+
+.featured-whatsapp-card {
+  background: linear-gradient(180deg, #ffffff 0%, #f6fdf8 100%);
+  border-color: rgba(37, 211, 102, 0.25);
+}
+
+.featured-whatsapp-card:hover {
+  border-color: rgba(37, 211, 102, 0.5);
+  box-shadow: 0 12px 32px rgba(37, 211, 102, 0.12);
+}
+
+.feature-icon-badge {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(128, 0, 32, 0.08);
+  color: #800020;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  transition: transform 0.2s ease;
+}
+
+.contact-feature-card:hover .feature-icon-badge {
+  transform: scale(1.08);
+}
+
+.whatsapp-badge {
+  background: rgba(37, 211, 102, 0.14);
+  color: #25d366;
+}
+
+.feature-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #800020;
+  margin-bottom: 8px;
+}
+
+.featured-whatsapp-card .feature-tag {
+  color: #128c7e;
+}
+
+.contact-feature-card h3 {
+  font-family: var(--font-heading), sans-serif;
+  font-size: clamp(20px, 1.8vw, 24px);
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.contact-feature-card p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgb(0 0 0 / 0.65);
+  margin-bottom: 18px;
+  min-height: 42px;
+}
+
+.feature-highlight-value {
+  margin-bottom: 14px;
+}
+
+.feature-highlight-value a {
+  font-size: clamp(17px, 1.4vw, 20px);
+  font-weight: 700;
+  color: #000000;
+  text-decoration: none;
+  letter-spacing: -0.02em;
+  transition: color 0.15s ease;
+}
+
+.feature-highlight-value a:hover {
+  color: #800020;
+}
+
+.featured-whatsapp-card .feature-highlight-value a:hover {
+  color: #128c7e;
+}
+
+.feature-sub-info {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  font-size: 12.5px;
+  color: rgb(0 0 0 / 0.55);
+  line-height: 1.5;
+  margin-bottom: 22px;
+  flex-grow: 1;
 }
 
-.contact-field label {
-  font-size: 13px;
+.online-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-weight: 600;
-  color: rgb(0 0 0 / 0.75);
-}
-
-.contact-field input,
-.contact-field textarea {
-  padding: 12px 16px;
-  border: 1px solid rgba(0, 0, 0, 0.16);
-  border-radius: 6px;
-  font-size: 14px;
-  font-family: inherit;
-  outline: none;
-  transition: border-color var(--fast);
-}
-
-.contact-field input:focus,
-.contact-field textarea:focus {
-  border-color: #000000;
-}
-
-.contact-submit-btn {
-  align-self: flex-start;
-  min-height: 48px;
-  margin-top: 6px;
-}
-
-.contact-success-banner {
-  text-align: center;
-  padding: 30px 20px;
   color: #15803d;
 }
 
-.contact-success-banner h4 {
-  font-size: 20px;
-  margin: 12px 0 6px;
+.online-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+  0% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(34, 197, 94, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}
+
+.email-sub-link {
+  color: #800020;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 500;
+}
+
+.feature-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px 18px;
+  background: #000000;
+  color: #ffffff;
+  border-radius: 999px;
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.feature-cta-btn:hover {
+  background: #800020;
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(128, 0, 32, 0.25);
+}
+
+.whatsapp-cta {
+  background: #25d366;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.28);
+}
+
+.whatsapp-cta:hover {
+  background: #1eb857;
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.38);
+}
+
+/* Atelier Experience Section (2 large cards) */
+.atelier-experience-section {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(20px, 3vw, 32px);
+}
+
+.atelier-detail-card {
+  background: #ffffff;
+  border-radius: var(--radius-block);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: clamp(26px, 3.5vw, 36px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+}
+
+.atelier-card-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.atelier-header-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(128, 0, 32, 0.08);
+  color: #800020;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.atelier-eyebrow {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #800020;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.atelier-card-header h3 {
+  font-family: var(--font-heading), sans-serif;
+  font-size: clamp(20px, 1.8vw, 24px);
+  font-weight: 600;
+  color: #000000;
+  margin: 0;
+}
+
+.atelier-address-block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 28px;
+  flex-grow: 1;
+}
+
+.atelier-store-name {
+  font-size: 17px;
+  font-weight: 700;
   color: #000000;
 }
 
-.contact-success-banner p {
+.atelier-full-address {
+  font-style: normal;
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgb(0 0 0 / 0.72);
+}
+
+.atelier-landmarks {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgb(0 0 0 / 0.55);
+  background: rgba(0, 0, 0, 0.02);
+  border-left: 3px solid #800020;
+  padding: 10px 14px;
+  border-radius: 0 6px 6px 0;
+  margin-top: 8px;
+}
+
+.atelier-action-group {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.atelier-action-group .btn {
+  flex: 1 1 200px;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   font-size: 14px;
-  color: rgb(0 0 0 / 0.65);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Atelier Hours Table */
+.atelier-hours-table {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.hours-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.hours-row .day-name {
+  font-weight: 600;
+  color: #000000;
+}
+
+.hours-row .time-value {
+  color: rgb(0 0 0 / 0.7);
+  font-weight: 500;
+}
+
+.hours-row.highlight-sunday {
+  background: rgba(128, 0, 32, 0.06);
+}
+
+.hours-row.highlight-sunday .day-name {
+  color: #800020;
+}
+
+.bridal-appointment-note {
+  background: linear-gradient(135deg, rgba(128, 0, 32, 0.04) 0%, rgba(212, 175, 55, 0.08) 100%);
+  border: 1px solid rgba(128, 0, 32, 0.12);
+  border-radius: 8px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.note-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #800020;
+  font-size: 14px;
+}
+
+.bridal-appointment-note p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgb(0 0 0 / 0.7);
+  margin: 0;
+}
+
+.bridal-book-link {
+  display: inline-flex;
+  align-items: center;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #800020;
+  text-decoration: none;
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.bridal-book-link:hover {
+  color: #000000;
+  transform: translateX(3px);
+}
+
+/* Atelier Services / Perks Row (4 columns) */
+.atelier-services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(14px, 2vw, 24px);
+}
+
+.service-perk-item {
+  background: #ffffff;
+  border-radius: var(--radius-block);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 22px 20px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+  text-align: left;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.service-perk-item:hover {
+  transform: translateY(-2px);
+  border-color: rgba(128, 0, 32, 0.2);
+}
+
+.service-perk-crest {
+  display: inline-block;
+  font-size: 20px;
+  color: #d4af37;
+  margin-bottom: 10px;
+}
+
+.service-perk-item h4 {
+  font-family: var(--font-heading), sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 8px;
+}
+
+.service-perk-item p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgb(0 0 0 / 0.6);
+  margin: 0;
+}
+
+/* Responsive Breakpoints for Contact Showcase */
+@media (max-width: 1024px) {
+  .contact-primary-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .atelier-services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .atelier-experience-section {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .atelier-services-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .atelier-action-group .btn {
+    width: 100%;
+  }
 }
 
 .account-portal-box {
