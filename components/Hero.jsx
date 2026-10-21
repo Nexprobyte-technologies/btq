@@ -16,7 +16,9 @@ export const HERO_SLIDES = [
       "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=2200&q=90",
     alt: "Charmique Festive & Bridal Saree Couture Edit",
     tag: "Pure Kanjivaram Silks",
+    shortTag: "Silks",
     ctaText: "Explore Collections",
+    ctaShortText: "Collections",
     ctaLink: "/collections",
   },
   {
@@ -29,7 +31,9 @@ export const HERO_SLIDES = [
       "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=2200&q=90",
     alt: "Charmique Regal Heritage Bridal Lehengas",
     tag: "Bridal Masterpieces",
+    shortTag: "Lehengas",
     ctaText: "Explore Bridal Edit",
+    ctaShortText: "Bridal Edit",
     ctaLink: "/collections/wedding-edit",
   },
   {
@@ -42,7 +46,9 @@ export const HERO_SLIDES = [
       "https://images.unsplash.com/photo-1738690789530-9c5ee199575c?auto=format&fit=crop&w=2200&q=90",
     alt: "Charmique Ethereal Organza and Tissue Silks",
     tag: "Festive Handlooms",
+    shortTag: "Handlooms",
     ctaText: "Shop Festive Edit",
+    ctaShortText: "Festive Edit",
     ctaLink: "/collections",
   },
   {
@@ -55,7 +61,9 @@ export const HERO_SLIDES = [
       "https://images.unsplash.com/photo-1742800767764-479556a4d8a5?auto=format&fit=crop&w=2200&q=90",
     alt: "Charmique Designer Anarkalis and Cocktail Gowns",
     tag: "Contemporary Atelier",
+    shortTag: "Atelier",
     ctaText: "Discover Ensembles",
+    ctaShortText: "Ensembles",
     ctaLink: "/collections",
   },
 ];
@@ -233,10 +241,13 @@ export default function Hero() {
           </h1>
 
           <div className="hero__cta hero__anim-cta">
-            <div style={{ display: "flex", gap: 12, flexWrap: "wrap", alignItems: "center" }}>
+            <div className="hero__cta-group">
               <a href={current.ctaLink} className="btn btn-light btn-arrow">
                 <span className="dot" />
-                <span className="btn-text">{current.ctaText}</span>
+                <span className="btn-text">
+                  <span className="hero__btn-text--desktop">{current.ctaText}</span>
+                  <span className="hero__btn-text--mobile">{current.ctaShortText || current.ctaText}</span>
+                </span>
                 <span className="icon-box">
                   <ArrowDiagonal />
                   <ArrowDiagonal />
@@ -248,22 +259,12 @@ export default function Hero() {
                 target="_blank"
                 rel="noreferrer"
                 className="btn btn-whatsapp-hero"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 8,
-                  padding: "13px 22px",
-                  borderRadius: 100,
-                  background: "#25D366",
-                  color: "#ffffff",
-                  fontWeight: 600,
-                  fontSize: 14,
-                  textDecoration: "none",
-                  boxShadow: "0 6px 20px rgba(37,211,102,0.35)",
-                }}
               >
                 <WhatsAppFilled size={18} />
-                <span>WhatsApp Enquiries</span>
+                <span>
+                  <span className="hero__btn-text--desktop">WhatsApp Enquiries</span>
+                  <span className="hero__btn-text--mobile">WhatsApp</span>
+                </span>
               </a>
             </div>
           </div>
@@ -306,7 +307,10 @@ export default function Hero() {
                 >
                   <div className="hero__tab-header">
                     <span className="hero__tab-num">0{index + 1}</span>
-                    <span className="hero__tab-title">{slide.tag}</span>
+                    <span className="hero__tab-title">
+                      <span className="hero__tab-title--desktop">{slide.tag}</span>
+                      <span className="hero__tab-title--mobile">{slide.shortTag || slide.tag}</span>
+                    </span>
                   </div>
                   <div className="hero__tab-bar">
                     {isActive && (
