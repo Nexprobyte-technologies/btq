@@ -150,7 +150,7 @@ ol {
 .section-head {
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 22px;
   margin-bottom: clamp(26px, 3vw, 48px);
@@ -911,18 +911,19 @@ ol {
   flex-shrink: 0;
 }
 
-/* Search Atelier pill button */
+/* Search icon button */
 .header-search-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 14px;
-  border-radius: 999px;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.2);
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(8px);
   color: currentColor;
-  font-size: 12px;
   cursor: pointer;
   transition: all var(--fast);
 }
@@ -938,37 +939,21 @@ ol {
   border-color: rgba(212, 175, 55, 0.4);
 }
 
-.search-kbd {
-  font-size: 9px;
-  font-family: monospace;
-  padding: 2px 5px;
-  border-radius: 4px;
-  background: rgba(255, 255, 255, 0.18);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  opacity: 0.8;
-}
-
-.site-header.is-solid .search-kbd,
-.site-header.is-black-nav .search-kbd {
-  background: rgba(0, 0, 0, 0.08);
-  border-color: rgba(0, 0, 0, 0.15);
-}
-
-/* Direct Concierge WhatsApp CTA */
+/* Highlighted WhatsApp icon button */
 .header-concierge-pill {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 13px;
-  border-radius: 999px;
-  background: rgba(37, 211, 102, 0.12);
-  border: 1px solid rgba(37, 211, 102, 0.35);
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border-radius: 50%;
+  background: rgba(37, 211, 102, 0.18);
+  border: 1px solid rgba(37, 211, 102, 0.55);
   color: #25d366;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
   cursor: pointer;
   transition: all var(--fast);
+  box-shadow: 0 0 0 4px rgba(37, 211, 102, 0.08);
 }
 
 .header-concierge-pill:hover {
@@ -1128,9 +1113,6 @@ ol {
   .burger { display: flex; }
   .mega,
   .mega-dropdown { display: none; }
-  .search-label,
-  .search-kbd,
-  .concierge-label { display: none; }
   .header-search-btn { padding: 8px; width: 38px; height: 38px; justify-content: center; }
   .header-concierge-pill { padding: 8px; width: 38px; height: 38px; justify-content: center; }
 }
@@ -1140,7 +1122,7 @@ ol {
   position: relative;
   min-height: 100svh;
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   overflow: hidden;
   color: #fff;
   --ink: 255 255 255;
@@ -1313,9 +1295,11 @@ ol {
   position: relative;
   z-index: 3;
   width: 100%;
+  min-height: 100svh;
+  box-sizing: border-box;
   display: grid;
   grid-template-columns: 1.25fr 1fr;
-  align-items: end;
+  align-items: start;
   gap: 40px;
   padding-block: calc(var(--header-h) + 40px) clamp(64px, 8.5vh, 95px);
 }
@@ -1334,7 +1318,9 @@ ol {
 }
 
 .hero__cta {
-  margin-top: 28px;
+  position: absolute;
+  left: var(--gutter);
+  bottom: clamp(64px, 8.5vh, 95px);
 }
 
 .hero__cta-group {
@@ -2084,11 +2070,6 @@ html, body {
   .burger {
     display: flex !important;
   }
-  .search-label,
-  .search-kbd,
-  .concierge-label {
-    display: none !important;
-  }
   .header-search-btn {
     padding: 8px !important;
     width: 38px !important;
@@ -2157,11 +2138,11 @@ html, body {
   /* Hero Section: Zero horizontal overflow, full viewport lock */
   .hero {
     position: relative !important;
-    min-height: 100svh !important;
-    min-height: 100dvh !important;
+    min-height: 70svh !important;
+    min-height: 70dvh !important;
     display: flex !important;
     flex-direction: column !important;
-    justify-content: flex-end !important;
+    justify-content: flex-start !important;
     align-items: stretch !important;
     overflow: hidden !important;
     width: 100% !important;
@@ -2190,13 +2171,14 @@ html, body {
     max-width: 100% !important;
     box-sizing: border-box !important;
     padding-inline: clamp(12px, 3.5vw, 18px) !important;
+    min-height: 70svh !important;
     padding-top: calc(var(--header-h, 84px) + 8px) !important;
     padding-bottom: 48px !important;
     gap: 8px !important;
-    margin-top: auto !important;
+    margin-top: 0 !important;
     display: flex !important;
     flex-direction: column !important;
-    justify-content: flex-end !important;
+    justify-content: flex-start !important;
   }
 
   .hero__content,
@@ -2241,8 +2223,10 @@ html, body {
 
   /* CTA Buttons */
   .hero__cta {
-    margin-top: 8px !important;
-    width: 100% !important;
+    left: clamp(12px, 3.5vw, 18px) !important;
+    right: clamp(12px, 3.5vw, 18px) !important;
+    bottom: 48px !important;
+    width: auto !important;
   }
 
   .hero__cta-group {

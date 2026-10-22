@@ -4,7 +4,6 @@ import CartDrawer from "@/components/CartDrawer";
 import QuickViewModal from "@/components/QuickViewModal";
 import SearchModal from "@/components/SearchModal";
 import EnquiryModal from "@/components/EnquiryModal";
-import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import ToastNotification from "@/components/ToastNotification";
 import "./globals.css";
 import "./sections.css";
@@ -46,7 +45,6 @@ export default function RootLayout({ children }) {
           <QuickViewModal />
           <SearchModal />
           <EnquiryModal />
-          <FloatingWhatsApp />
           <ToastNotification />
         </StoreProvider>
       </body>

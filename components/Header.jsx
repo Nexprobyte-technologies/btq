@@ -173,7 +173,7 @@ export default function Header() {
 
             {/* RIGHT SECTION: Search, Concierge, Wishlist, Bag */}
             <div className="site-header__actions">
-              {/* Search Atelier Pill */}
+              {/* Search icon */}
               <button
                 className="header-search-btn"
                 type="button"
@@ -181,12 +181,10 @@ export default function Header() {
                 title="Search Atelier (⌘K)"
                 onClick={openSearch}
               >
-                <Search size={15} />
-                <span className="search-label">Search Atelier</span>
-                <kbd className="search-kbd">⌘K</kbd>
+                <Search size={18} />
               </button>
 
-              {/* Direct WhatsApp Concierge CTA */}
+              {/* Highlighted WhatsApp icon */}
               <button
                 className="header-concierge-pill"
                 type="button"
@@ -197,8 +195,7 @@ export default function Header() {
                   window.open(`https://api.whatsapp.com/send?phone=919876543210&text=${encodeURIComponent(msg)}`, "_blank");
                 }}
               >
-                <WhatsAppFilled size={15} />
-                <span className="concierge-label">Concierge</span>
+                <WhatsAppFilled size={19} />
               </button>
 
               {/* Wishlist Link / Trigger */}

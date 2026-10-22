@@ -242,7 +242,7 @@ export default function Hero() {
                 </span>
               </a>
 
-              <a
+              {/* <a
                 href="https://api.whatsapp.com/send?phone=919876543210&text=Hello%20Charmique%20Boutique!%20%E2%9C%A8%20I%20would%20like%20to%20enquire%20about%20your%20women%27s%20couture%20and%20bridal%20wear."
                 target="_blank"
                 rel="noreferrer"
@@ -253,7 +253,7 @@ export default function Hero() {
                   <span className="hero__btn-text--desktop">WhatsApp Enquiries</span>
                   <span className="hero__btn-text--mobile">WhatsApp</span>
                 </span>
-              </a>
+              </a> */}
             </div>
           </div>
         </div>
