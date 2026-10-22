@@ -10,12 +10,9 @@ export const HERO_SLIDES = [
     id: "silk-sarees",
     eyebrow: "HAUTE COUTURE 2026 · CHENNAI FLAGSHIP ATELIER",
     titleLines: ["The Festive & Bridal", "Couture Edit"],
-    subtitle:
-      "Handcrafted pure silk sarees, regal bridal lehengas, and ethereal silhouettes. Bespoke tailoring, custom neckline designs, and worldwide boutique concierge.",
     image:
       "/images/two.jpg",
     alt: "Charmique Festive & Bridal Saree Couture Edit",
-    tag: "Pure Kanjivaram Silks",
     shortTag: "Silks",
     ctaText: "Explore Collections",
     ctaShortText: "Collections",
@@ -25,12 +22,9 @@ export const HERO_SLIDES = [
     id: "bridal-lehengas",
     eyebrow: "ROYAL WEDDING COLLECTION · HANDCRAFTED ZARDOZI",
     titleLines: ["Regal Heritage", "Bridal Lehengas"],
-    subtitle:
-      "Intricately hand-embroidered velvet and mulberry silk lehengas with authentic antique dabka, zardozi work, and handcrafted bridal dupattas.",
     image:
       "/images/twwo.jpg",
     alt: "Charmique Regal Heritage Bridal Lehengas",
-    tag: "Bridal Masterpieces",
     shortTag: "Lehengas",
     ctaText: "Explore Bridal Edit",
     ctaShortText: "Bridal Edit",
@@ -40,12 +34,9 @@ export const HERO_SLIDES = [
     id: "festive-organza",
     eyebrow: "FESTIVE ATELIER 2026 · HANDLOOM WEAVES",
     titleLines: ["Ethereal Organza &", "Tissue Silks"],
-    subtitle:
-      "Featherlight handloom tissue drapes and metallic organza sarees illuminated with hand-cut gota patti and delicate pearl tassels.",
     image:
       "/images/threee.jpg",
     alt: "Charmique Ethereal Organza and Tissue Silks",
-    tag: "Festive Handlooms",
     shortTag: "Handlooms",
     ctaText: "Shop Festive Edit",
     ctaShortText: "Festive Edit",
@@ -55,12 +46,9 @@ export const HERO_SLIDES = [
     id: "designer-gowns",
     eyebrow: "INDO-WESTERN COUTURE · CONTEMPORARY LUXURY",
     titleLines: ["Designer Anarkalis &", "Cocktail Gowns"],
-    subtitle:
-      "Floor-grazing silhouette capes, resplendent sharara ensembles, and modern evening gowns sculpted with artisanal finesse.",
     image:
       "/images/four.jpg",
     alt: "Charmique Designer Anarkalis and Cocktail Gowns",
-    tag: "Contemporary Atelier",
     shortTag: "Atelier",
     ctaText: "Discover Ensembles",
     ctaShortText: "Ensembles",
@@ -271,102 +259,10 @@ export default function Hero() {
         </div>
 
         {/* Right Column: Collection badge & Editorial description */}
-        <div className="hero__aside" key={`aside-${currentSlide}`}>
-          <div className="hero__slide-badge hero__anim-desc">
-            <span className="hero__badge-label">Curated Collection</span>
-            <span className="hero__badge-sep">·</span>
-            <span className="hero__badge-title">{current.tag}</span>
-          </div>
-
-          <p className="hero__text hero__anim-desc">
-            {current.subtitle}
-          </p>
-        </div>
+        
 
         {/* Bottom Slider Bar: Tab Pills with Progress, Counter, and Controls */}
-        <div className="hero__slider-bar">
-          <div
-            className="hero__slider-tabs"
-            role="tablist"
-            aria-label="Hero slide navigation"
-          >
-            {HERO_SLIDES.map((slide, index) => {
-              const isActive = index === currentSlide;
-              return (
-                <button
-                  key={slide.id}
-                  type="button"
-                  role="tab"
-                  id={`hero-tab-${index}`}
-                  aria-selected={isActive}
-                  aria-controls={`hero-slide-${index}`}
-                  className={`hero__tab ${isActive ? "is-active" : ""} ${
-                    !isPlaying ? "is-paused" : ""
-                  }`}
-                  onClick={() => goToSlide(index)}
-                >
-                  <div className="hero__tab-header">
-                    <span className="hero__tab-num">0{index + 1}</span>
-                    <span className="hero__tab-title">
-                      <span className="hero__tab-title--desktop">{slide.tag}</span>
-                      <span className="hero__tab-title--mobile">{slide.shortTag || slide.tag}</span>
-                    </span>
-                  </div>
-                  <div className="hero__tab-bar">
-                    {isActive && (
-                      <span
-                        key={`fill-${currentSlide}-${isPlaying}`}
-                        className="hero__tab-fill"
-                        style={{ animationDuration: `${SLIDE_DURATION}ms` }}
-                      />
-                    )}
-                  </div>
-                </button>
-              );
-            })}
-          </div>
-
-          <div className="hero__slider-actions">
-            <div className="hero__counter" aria-live="polite" aria-atomic="true">
-              <span className="hero__counter-cur">0{currentSlide + 1}</span>
-              <span className="hero__counter-sep">/</span>
-              <span className="hero__counter-all">0{totalSlides}</span>
-            </div>
-
-            <div className="hero__slider-arrows-inline">
-              <button
-                type="button"
-                className="hero__ctrl-arrow"
-                onClick={prevSlide}
-                aria-label="Previous slide"
-              >
-                <Chevron dir="left" size={15} />
-              </button>
-              <button
-                type="button"
-                className="hero__ctrl-arrow"
-                onClick={nextSlide}
-                aria-label="Next slide"
-              >
-                <Chevron dir="right" size={15} />
-              </button>
-            </div>
-
-            <button
-              type="button"
-              className="hero__play-btn"
-              onClick={() => setIsPlaying((p) => !p)}
-              aria-label={isPlaying ? "Pause autoplay" : "Play autoplay"}
-              title={isPlaying ? "Pause autoplay" : "Play autoplay"}
-            >
-              {isPlaying ? (
-                <span className="hero__pause-icon" aria-hidden="true" />
-              ) : (
-                <span className="hero__play-icon" aria-hidden="true" />
-              )}
-            </button>
-          </div>
-        </div>
+        
       </div>
 
       {/* Scroll indicator */}

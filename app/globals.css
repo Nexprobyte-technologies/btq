@@ -1325,10 +1325,11 @@ ol {
 }
 
 .hero__title {
-  font-size: clamp(2.6rem, 5.8vw, 84px);
+  font-size: clamp(2rem, 4.2vw, 60px);
   color: #fff;
-  line-height: 1.05;
+  line-height: 1.06;
   letter-spacing: -0.015em;
+  text-align: left;
   text-shadow: 0 6px 36px rgba(0, 0, 0, 0.6);
 }
 
@@ -2229,10 +2230,11 @@ html, body {
 
   /* Title: Clamped to scale cleanly on all 4 slides */
   .hero__title {
-    font-size: clamp(21px, 5.8vw, 29px) !important;
+    font-size: clamp(17px, 4.8vw, 22px) !important;
     line-height: 1.12 !important;
     letter-spacing: -0.015em !important;
     min-height: 2.25em !important;
+    text-align: left !important;
     text-shadow: 0 3px 16px rgba(0, 0, 0, 0.8) !important;
     word-break: break-word !important;
   }
@@ -2581,7 +2583,8 @@ html, body {
 
 @media (max-width: 380px) {
   .hero__title {
-    font-size: clamp(19px, 6vw, 23px) !important;
+    font-size: clamp(15px, 5vw, 18px) !important;
+    text-align: left !important;
   }
   .hero__tab {
     min-width: 0 !important;
