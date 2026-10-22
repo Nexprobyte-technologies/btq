@@ -13,7 +13,7 @@ export const HERO_SLIDES = [
     subtitle:
       "Handcrafted pure silk sarees, regal bridal lehengas, and ethereal silhouettes. Bespoke tailoring, custom neckline designs, and worldwide boutique concierge.",
     image:
-      "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=2200&q=90",
+      "/images/two.jpg",
     alt: "Charmique Festive & Bridal Saree Couture Edit",
     tag: "Pure Kanjivaram Silks",
     shortTag: "Silks",
@@ -28,7 +28,7 @@ export const HERO_SLIDES = [
     subtitle:
       "Intricately hand-embroidered velvet and mulberry silk lehengas with authentic antique dabka, zardozi work, and handcrafted bridal dupattas.",
     image:
-      "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=2200&q=90",
+      "/images/twwo.jpg",
     alt: "Charmique Regal Heritage Bridal Lehengas",
     tag: "Bridal Masterpieces",
     shortTag: "Lehengas",
@@ -43,7 +43,7 @@ export const HERO_SLIDES = [
     subtitle:
       "Featherlight handloom tissue drapes and metallic organza sarees illuminated with hand-cut gota patti and delicate pearl tassels.",
     image:
-      "https://images.unsplash.com/photo-1738690789530-9c5ee199575c?auto=format&fit=crop&w=2200&q=90",
+      "/images/threee.jpg",
     alt: "Charmique Ethereal Organza and Tissue Silks",
     tag: "Festive Handlooms",
     shortTag: "Handlooms",
@@ -58,7 +58,7 @@ export const HERO_SLIDES = [
     subtitle:
       "Floor-grazing silhouette capes, resplendent sharara ensembles, and modern evening gowns sculpted with artisanal finesse.",
     image:
-      "https://images.unsplash.com/photo-1742800767764-479556a4d8a5?auto=format&fit=crop&w=2200&q=90",
+      "/images/four.jpg",
     alt: "Charmique Designer Anarkalis and Cocktail Gowns",
     tag: "Contemporary Atelier",
     shortTag: "Atelier",
